@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://babiuy4sfeoba"]
+
+[ext_resource type="Script" uid="uid://ciephuijwunt4" path="res://scripts/PathTile.gd" id="1_7x25j"]
+[ext_resource type="ArrayMesh" uid="uid://b4ntcmoompmri" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_small.obj" id="1_603sr"]
+[ext_resource type="PackedScene" uid="uid://c7ukq0eg310ma" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_A.fbx" id="2_yiprl"]
+[ext_resource type="PackedScene" uid="uid://b3o06rsq36qjx" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_B.fbx" id="3_mu73k"]
+[ext_resource type="PackedScene" uid="uid://bviefvc28xnq1" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_C.fbx" id="4_obr60"]
+[ext_resource type="PackedScene" uid="uid://b0ng8tblpykto" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_D.fbx" id="5_a8l14"]
+
+[node name="PathTile" type="Node3D" unique_id=1881379295]
+script = ExtResource("1_7x25j")
+objects = Array[PackedScene]([ExtResource("2_yiprl"), ExtResource("3_mu73k"), ExtResource("4_obr60"), ExtResource("5_a8l14")])
+
+[node name="FloorDirtSmall" type="MeshInstance3D" parent="." unique_id=1056413900]
+mesh = ExtResource("1_603sr")

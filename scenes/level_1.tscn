@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://d4jk0eo541115"]
+
+[ext_resource type="Script" uid="uid://b17u3o22auvp7" path="res://scripts/Camera3D.gd" id="1_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://bmfal2nbyxxdt" path="res://scenes/tiles/straight_bb.tscn" id="2_4nkto"]
+[ext_resource type="PackedScene" uid="uid://rq4a1xvwgvo2" path="res://scenes/tiles/turn_left.tscn" id="3_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://ci1hts682dfx" path="res://scenes/start.tscn" id="5_4nkto"]
+[ext_resource type="ArrayMesh" uid="uid://6mnwokk6m5k4" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/tree_pine_orange_large.obj" id="6_15mv3"]
+[ext_resource type="Script" uid="uid://dvk0y1j8aikso" path="res://scenes/game_state.gd" id="6_fcfvj"]
+[ext_resource type="ArrayMesh" uid="uid://6cnwxq4oqjmg" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/gravestone.obj" id="7_e3sih"]
+[ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="8_2os1m"]
+[ext_resource type="PackedScene" uid="uid://cc2slyoowpqn3" path="res://scenes/end.tscn" id="8_15mv3"]
+[ext_resource type="ArrayMesh" uid="uid://bcx47lrqdmruh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/coffin.obj" id="9_go7sj"]
+[ext_resource type="ArrayMesh" uid="uid://byjum3c5buurk" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/coffin_lid.obj" id="10_7gny6"]
+[ext_resource type="ArrayMesh" uid="uid://dd0pwctkav66n" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/tree_dead_small.obj" id="12_7gny6"]
+[ext_resource type="ArrayMesh" uid="uid://2b5lb7b3peed" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/skull_candle.obj" id="13_2aecg"]
+[ext_resource type="ArrayMesh" uid="uid://n6phrxbbfw3y" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/candle.obj" id="13_6dial"]
+
+[sub_resource type="Curve3D" id="Curve3D_g4v7s"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.13, 0, -1, 0, 0, -18, 0, 0, 0, 0, 0, 0, -1, 0, -19, 0, 0, 0, 0, 0, 0, -19, 0, -19),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[node name="Level1" type="Node3D" unique_id=365219656]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=256259413]
+transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -1, -10, -18)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=2057554183]
+transform = Transform3D(-0.7071069, -0.385118, 0.5930298, 0, 0.8386706, 0.54463893, -0.707107, 0.38511795, -0.5930298, 40.00001, 52, -39.999767)
+projection = 1
+size = 30.0
+script = ExtResource("1_pa8r4")
+
+[node name="Assets" type="Node3D" parent="." unique_id=1259634882]
+
+[node name="Floor" type="Node3D" parent="Assets" unique_id=503261068]
+
+[node name="StraightBb" parent="Assets/Floor" unique_id=1879107471 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="StraightBb2" parent="Assets/Floor" unique_id=1412603414 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="StraightBb3" parent="Assets/Floor" unique_id=2038935107 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="TurnLeft" parent="Assets/Floor" unique_id=977008734 instance=ExtResource("3_fcfvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+
+[node name="StraightBb4" parent="Assets/Floor" unique_id=2114964066 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
+
+[node name="StraightBb5" parent="Assets/Floor" unique_id=1380781605 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
+
+[node name="StraightBb6" parent="Assets/Floor" unique_id=1464113000 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -19)
+
+[node name="End" parent="Assets" unique_id=1506139944 instance=ExtResource("8_15mv3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21, 0, -19)
+
+[node name="Start" parent="Assets" unique_id=1135759505 instance=ExtResource("5_4nkto")]
+
+[node name="Deco" type="Node3D" parent="Assets" unique_id=1806850343]
+
+[node name="TreePineOrangeLarge" type="MeshInstance3D" parent="Assets/Deco" unique_id=1476421267]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -6, 0, -14)
+mesh = ExtResource("6_15mv3")
+skeleton = NodePath("../..")
+
+[node name="Gravestone" type="MeshInstance3D" parent="Assets/Deco" unique_id=1780425128]
+transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 3, 0, -16)
+mesh = ExtResource("7_e3sih")
+skeleton = NodePath("../..")
+
+[node name="FloorDirt" type="MeshInstance3D" parent="Assets/Deco" unique_id=918238547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
+mesh = ExtResource("8_2os1m")
+skeleton = NodePath("../../..")
+
+[node name="FloorDirt2" type="MeshInstance3D" parent="Assets/Deco" unique_id=1522966607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
+mesh = ExtResource("8_2os1m")
+skeleton = NodePath("../../..")
+
+[node name="FloorDirt3" type="MeshInstance3D" parent="Assets/Deco" unique_id=1861672695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
+mesh = ExtResource("8_2os1m")
+skeleton = NodePath("../../..")
+
+[node name="FloorDirt5" type="MeshInstance3D" parent="Assets/Deco" unique_id=245393219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
+mesh = ExtResource("8_2os1m")
+skeleton = NodePath("../../..")
+
+[node name="FloorDirt7" type="MeshInstance3D" parent="Assets/Deco" unique_id=651350597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
+mesh = ExtResource("8_2os1m")
+skeleton = NodePath("../../..")
+
+[node name="FloorDirt6" type="MeshInstance3D" parent="Assets/Deco" unique_id=1586163564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
+mesh = ExtResource("8_2os1m")
+skeleton = NodePath("../../..")
+
+[node name="FloorDirt4" type="MeshInstance3D" parent="Assets/Deco" unique_id=283004106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -16)
+mesh = ExtResource("8_2os1m")
+skeleton = NodePath("../../..")
+
+[node name="Coffin" type="MeshInstance3D" parent="Assets/Deco" unique_id=1066937689]
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 6, 0, -16)
+mesh = ExtResource("9_go7sj")
+skeleton = NodePath("../../..")
+
+[node name="CoffinLid" type="MeshInstance3D" parent="Assets/Deco" unique_id=655832896]
+transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 6, 0, -16)
+mesh = ExtResource("10_7gny6")
+skeleton = NodePath("../../..")
+
+[node name="TreeDeadSmall" type="MeshInstance3D" parent="Assets/Deco" unique_id=2065750589]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -10, 0, -26)
+mesh = ExtResource("12_7gny6")
+skeleton = NodePath("../../..")
+
+[node name="SkullCandle" type="MeshInstance3D" parent="Assets/Deco" unique_id=193548560]
+transform = Transform3D(-0.2588191, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.2588191, -3, 0, -16)
+mesh = ExtResource("13_2aecg")
+skeleton = NodePath("../../..")
+
+[node name="Candle" type="MeshInstance3D" parent="Assets/Deco" unique_id=1655812038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5102234, -16)
+mesh = ExtResource("13_6dial")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Assets/Deco/Candle" unique_id=692254911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029130936, 0.8660147, -0.0011405945)
+light_color = Color(1, 0.47058824, 0, 1)
+light_energy = 3.667
+omni_range = 1.45
+omni_attenuation = 0.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=473904919]
+transform = Transform3D(-3.7855173e-08, -0.5, 0.8660254, -2.1855694e-08, 0.8660254, 0.5, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="GameState" type="Node" parent="." unique_id=464651959]
+script = ExtResource("6_fcfvj")
+
+[node name="Path3D" type="Path3D" parent="GameState" unique_id=210619031]
+curve = SubResource("Curve3D_g4v7s")
+debug_custom_color = Color(0, 1, 0, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameState/Path3D" unique_id=224349833]
+transform = Transform3D(0.99998456, 0, 0, 0, 0.9999879, 0, 0, 0, 0.99998474, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GameState/Path3D/PathFollow3D" unique_id=1977267244]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")

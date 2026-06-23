@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://rq4a1xvwgvo2"]
+
+[ext_resource type="ArrayMesh" uid="uid://b4ntcmoompmri" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_small.obj" id="1_7wl4k"]
+[ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="2_4e1yc"]
+[ext_resource type="PackedScene" uid="uid://babiuy4sfeoba" path="res://scenes/tiles/path_tile.tscn" id="3_4e1yc"]
+[ext_resource type="Material" uid="uid://b7vu321dupt24" path="res://new_standard_material_3d.tres" id="3_8u1dc"]
+
+[node name="TurnLeft" type="Node3D" unique_id=977008734]
+
+[node name="FloorDirtSmall10" type="MeshInstance3D" parent="." unique_id=1032282721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = ExtResource("1_7wl4k")
+skeleton = NodePath(".")
+
+[node name="FloorDirtSmall7" type="MeshInstance3D" parent="." unique_id=1231908738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = ExtResource("1_7wl4k")
+skeleton = NodePath(".")
+
+[node name="FloorDirt4" type="MeshInstance3D" parent="." unique_id=461081731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+mesh = ExtResource("2_4e1yc")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_8u1dc")
+
+[node name="FloorDirt5" type="MeshInstance3D" parent="." unique_id=793285685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+mesh = ExtResource("2_4e1yc")
+skeleton = NodePath("../FloorDirt4")
+
+[node name="FloorDirt6" type="MeshInstance3D" parent="." unique_id=1044027977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+mesh = ExtResource("2_4e1yc")
+skeleton = NodePath("")
+
+[node name="FloorDirt7" type="MeshInstance3D" parent="." unique_id=953089809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+mesh = ExtResource("2_4e1yc")
+skeleton = NodePath(".")
+
+[node name="FloorDirtSmall8" type="MeshInstance3D" parent="." unique_id=207721072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+mesh = ExtResource("1_7wl4k")
+skeleton = NodePath(".")
+
+[node name="FloorDirtSmall9" type="MeshInstance3D" parent="." unique_id=1316699936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = ExtResource("1_7wl4k")
+skeleton = NodePath(".")
+
+[node name="PathTile" parent="." unique_id=1881379295 instance=ExtResource("3_4e1yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="PathTile2" parent="." unique_id=214916889 instance=ExtResource("3_4e1yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="PathTile3" parent="." unique_id=570667165 instance=ExtResource("3_4e1yc")]
+
+[node name="PathTile4" parent="." unique_id=830887442 instance=ExtResource("3_4e1yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="PathTile5" parent="." unique_id=1023935221 instance=ExtResource("3_4e1yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

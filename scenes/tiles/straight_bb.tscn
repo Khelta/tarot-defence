@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bmfal2nbyxxdt"]
+
+[ext_resource type="PackedScene" uid="uid://babiuy4sfeoba" path="res://scenes/tiles/path_tile.tscn" id="2_onexn"]
+[ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="2_r10fd"]
+
+[node name="StraightBb" type="Node3D" unique_id=1879107471]
+
+[node name="FloorDirt4" type="MeshInstance3D" parent="." unique_id=1066017851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+mesh = ExtResource("2_r10fd")
+skeleton = NodePath("")
+
+[node name="FloorDirt5" type="MeshInstance3D" parent="." unique_id=333341360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+mesh = ExtResource("2_r10fd")
+skeleton = NodePath("../FloorDirt4")
+
+[node name="PathTile" parent="." unique_id=1881379295 instance=ExtResource("2_onexn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="PathTile2" parent="." unique_id=1511927971 instance=ExtResource("2_onexn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
