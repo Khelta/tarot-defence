@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b4ntcmoompmri" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_small.obj" id="1_7wl4k"]
 [ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="2_4e1yc"]
 [ext_resource type="PackedScene" uid="uid://babiuy4sfeoba" path="res://scenes/tiles/path_tile.tscn" id="3_4e1yc"]
-[ext_resource type="Material" uid="uid://b7vu321dupt24" path="res://new_standard_material_3d.tres" id="3_8u1dc"]
+[ext_resource type="Material" uid="uid://b7vu321dupt24" path="res://materials/new_standard_material_3d.tres" id="3_8u1dc"]
 
 [node name="TurnLeft" type="Node3D" unique_id=977008734]
 
