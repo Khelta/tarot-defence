@@ -28,10 +28,10 @@ point_count = 4
 [node name="Level1" type="Node3D" unique_id=365219656]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=256259413]
-transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -1, -10, -18)
+transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -3, 0, -16)
 
 [node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=2057554183]
-transform = Transform3D(-0.7071069, -0.385118, 0.5930298, 0, 0.8386706, 0.54463893, -0.707107, 0.38511795, -0.5930298, 40.00001, 52, -39.999767)
+transform = Transform3D(-0.76604456, -0.3500873, 0.5390873, 0, 0.8386706, 0.544639, -0.6427879, 0.41721773, -0.64245915, 63.00124, 76.99988, -74.004776)
 projection = 1
 size = 30.0
 script = ExtResource("1_pa8r4")
