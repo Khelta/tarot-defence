@@ -14,23 +14,22 @@
 [ext_resource type="ArrayMesh" uid="uid://dd0pwctkav66n" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/tree_dead_small.obj" id="12_7gny6"]
 [ext_resource type="ArrayMesh" uid="uid://2b5lb7b3peed" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/skull_candle.obj" id="13_2aecg"]
 [ext_resource type="ArrayMesh" uid="uid://n6phrxbbfw3y" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/candle.obj" id="13_6dial"]
+[ext_resource type="PackedScene" uid="uid://bhlx172x46b74" path="res://scenes/models/enemies/skeleton_minion.tscn" id="15_6dial"]
 
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.13, 0, -1, 0, 0, -18, 0, 0, 0, 0, 0, 0, -1, 0, -19, 0, 0, 0, 0, 0, 0, -19, 0, -19),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.13, 0, -1, 0, 0, -18, 0, 0, 0, 0, 0, 0, -1, 0, -19, 0, 0, 0, 0, 0, 0, -19, 0, -19, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 4
-
-[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+point_count = 5
 
 [node name="Level1" type="Node3D" unique_id=365219656]
 
-[node name="Node3D" type="Node3D" parent="." unique_id=256259413]
+[node name="Camera" type="Node3D" parent="." unique_id=256259413]
 transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -3, 0, -16)
 
-[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=2057554183]
+[node name="Camera3D" type="Camera3D" parent="Camera" unique_id=2057554183]
 transform = Transform3D(-0.76604456, -0.3500873, 0.5390873, 0, 0.8386706, 0.544639, -0.6427879, 0.41721773, -0.64245915, 63.00124, 76.99988, -74.004776)
 projection = 1
 size = 30.0
@@ -133,20 +132,42 @@ transform = Transform3D(-0.2588191, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.258
 mesh = ExtResource("13_2aecg")
 skeleton = NodePath("../../..")
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="Assets/Deco/SkullCandle" unique_id=704795881]
+transform = Transform3D(-0.2588191, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.2588191, 0.15454292, 1.0681623, -0.0016434193)
+light_color = Color(1, 0.47058824, 0, 1)
+light_energy = 3.667
+shadow_enabled = true
+omni_range = 1.45
+omni_attenuation = 0.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Assets/Deco/SkullCandle" unique_id=1970846809]
+transform = Transform3D(-0.2588191, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.2588191, -0.09281731, 1.1096662, -0.02625084)
+light_color = Color(1, 0.47058824, 0, 1)
+light_energy = 3.667
+shadow_enabled = true
+omni_range = 1.45
+omni_attenuation = 0.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Assets/Deco/SkullCandle" unique_id=1617642406]
+transform = Transform3D(-0.2588191, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.2588191, 0.115364075, 1.2532514, -0.23509955)
+light_color = Color(1, 0.47058824, 0, 1)
+light_energy = 3.667
+shadow_enabled = true
+omni_range = 1.45
+omni_attenuation = 0.0
+
 [node name="Candle" type="MeshInstance3D" parent="Assets/Deco" unique_id=1655812038]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5102234, -16)
 mesh = ExtResource("13_6dial")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Assets/Deco/Candle" unique_id=692254911]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029130936, 0.8660147, -0.0011405945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0008330345, 0.869102, -0.0011405945)
 light_color = Color(1, 0.47058824, 0, 1)
 light_energy = 3.667
-omni_range = 1.45
-omni_attenuation = 0.0
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=473904919]
-transform = Transform3D(-3.7855173e-08, -0.5, 0.8660254, -2.1855694e-08, 0.8660254, 0.5, -1, 0, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+omni_range = 2.76
+omni_attenuation = 2.0
 
 [node name="GameState" type="Node" parent="." unique_id=464651959]
 script = ExtResource("6_fcfvj")
@@ -158,6 +179,10 @@ debug_custom_color = Color(0, 1, 0, 1)
 [node name="PathFollow3D" type="PathFollow3D" parent="GameState/Path3D" unique_id=224349833]
 transform = Transform3D(0.99998456, 0, 0, 0, 0.9999879, 0, 0, 0, 0.99998474, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GameState/Path3D/PathFollow3D" unique_id=1977267244]
-transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0)
-mesh = SubResource("BoxMesh_g4v7s")
+[node name="SkeletonMinion" parent="GameState/Path3D/PathFollow3D" unique_id=2066997011 instance=ExtResource("15_6dial")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Light" type="Node" parent="." unique_id=1985433111]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light" unique_id=2000744609]
+transform = Transform3D(-0.25881907, -0.4829629, 0.83651626, -8.230112e-09, 0.86602545, 0.5, -0.9659259, 0.12940954, -0.22414389, 0, 9, 0)

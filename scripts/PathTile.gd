@@ -10,8 +10,8 @@ func add_path_object():
 		return
 		
 	var random_object = objects[randi() % objects.size()]
-	var rotation = (randi() % 4) * 90
+	var random_rotation = (randi() % 4) * 90
 	var obj = random_object.instantiate()
-	obj.rotation_degrees += Vector3(obj.rotation_degrees.x, obj.rotation_degrees.y + rotation, obj.rotation_degrees.z)
+	obj.rotation_degrees += Vector3(obj.rotation_degrees.x, obj.rotation_degrees.y + random_rotation, obj.rotation_degrees.z)
 	
 	add_child(obj)

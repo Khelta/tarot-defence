@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://mil7mhe0gmxj"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
-
-[node name="BaseEnemy" type="Node3D" unique_id=2124445037]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1089338345]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
-mesh = SubResource("BoxMesh_yf5fn")

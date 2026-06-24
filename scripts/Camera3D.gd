@@ -29,7 +29,6 @@ func _move_camera(delta):
 		direction = direction.normalized()
 		
 		translate(direction * move_speed * delta)
-		print(transform)
 
 
 func _rotate_camera(delta):
@@ -42,4 +41,3 @@ func _rotate_camera(delta):
 		
 	if yaw_input != 0.0:
 		get_parent().rotate_y(yaw_input * rotate_speed * delta)
-		print(rotation)
