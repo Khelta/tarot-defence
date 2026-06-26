@@ -14,7 +14,11 @@
 [ext_resource type="ArrayMesh" uid="uid://dd0pwctkav66n" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/tree_dead_small.obj" id="12_7gny6"]
 [ext_resource type="ArrayMesh" uid="uid://2b5lb7b3peed" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/skull_candle.obj" id="13_2aecg"]
 [ext_resource type="ArrayMesh" uid="uid://n6phrxbbfw3y" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/candle.obj" id="13_6dial"]
+[ext_resource type="PackedScene" uid="uid://0qt802lj2j3e" path="res://scenes/models/lantern.tscn" id="14_7nomh"]
 [ext_resource type="PackedScene" uid="uid://bhlx172x46b74" path="res://scenes/models/enemies/skeleton_minion.tscn" id="15_6dial"]
+[ext_resource type="PackedScene" uid="uid://byf2lvnbei6tr" path="res://scenes/models/towers/ranger.tscn" id="16_2cbcq"]
+[ext_resource type="PackedScene" uid="uid://bp8hthw2bfva" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_broken.fbx" id="17_x2xxo"]
+[ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
 
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
@@ -30,7 +34,7 @@ point_count = 5
 transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -3, 0, -16)
 
 [node name="Camera3D" type="Camera3D" parent="Camera" unique_id=2057554183]
-transform = Transform3D(-0.76604456, -0.3500873, 0.5390873, 0, 0.8386706, 0.544639, -0.6427879, 0.41721773, -0.64245915, 63.00124, 76.99988, -74.004776)
+transform = Transform3D(-0.76604456, -0.35008734, 0.5390873, 0, 0.8386706, 0.544639, -0.6427879, 0.4172177, -0.64245915, 63.00124, 67.99988, -74.004776)
 projection = 1
 size = 30.0
 script = ExtResource("1_pa8r4")
@@ -137,7 +141,7 @@ transform = Transform3D(-0.2588191, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.258
 light_color = Color(1, 0.47058824, 0, 1)
 light_energy = 3.667
 shadow_enabled = true
-omni_range = 1.45
+omni_range = 1.0
 omni_attenuation = 0.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Assets/Deco/SkullCandle" unique_id=1970846809]
@@ -169,6 +173,18 @@ shadow_enabled = true
 omni_range = 2.76
 omni_attenuation = 2.0
 
+[node name="Lantern" parent="Assets/Deco" unique_id=1514476466 instance=ExtResource("14_7nomh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27063, 0, -10)
+
+[node name="Lantern2" parent="Assets/Deco" unique_id=1411350873 instance=ExtResource("14_7nomh")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.4258995, 0, -17)
+
+[node name="fence_broken" parent="Assets/Deco" unique_id=422632726 instance=ExtResource("17_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -24)
+
+[node name="fence_gate" parent="Assets/Deco" unique_id=962961513 instance=ExtResource("18_2cbcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
+
 [node name="GameState" type="Node" parent="." unique_id=464651959]
 script = ExtResource("6_fcfvj")
 
@@ -186,3 +202,8 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light" unique_id=2000744609]
 transform = Transform3D(-0.25881907, -0.4829629, 0.83651626, -8.230112e-09, 0.86602545, 0.5, -0.9659259, 0.12940954, -0.22414389, 0, 9, 0)
+
+[node name="Towers" type="Node" parent="." unique_id=300044555]
+
+[node name="Ranger" parent="Towers" unique_id=893937668 instance=ExtResource("16_2cbcq")]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -2, 0, -17)

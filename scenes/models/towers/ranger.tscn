@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://byf2lvnbei6tr"]
+
+[ext_resource type="PackedScene" uid="uid://bqw8ny1jhy7q8" path="res://scenes/models/towers/ranger_model.tscn" id="2_dd6ky"]
+[ext_resource type="PackedScene" uid="uid://do5m6kksqscjp" path="res://scenes/models/towers/base_tower.tscn" id="2_vsabo"]
+
+[node name="Ranger" type="Node3D" unique_id=893937668]
+
+[node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_vsabo")]
+
+[node name="RangerModel" parent="." unique_id=399828594 instance=ExtResource("2_dd6ky")]

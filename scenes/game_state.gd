@@ -5,8 +5,7 @@ func _ready() -> void:
 	var enemy_speed = 20
 	var time_for_path = path_length * enemy_speed
 	var progress_ratio_speed = 100 / time_for_path
-	
-	print(path_length, enemy_speed, time_for_path, progress_ratio_speed)
+
 
 func _process(delta):
 	var path_length: float = get_child(0).curve.get_baked_length()

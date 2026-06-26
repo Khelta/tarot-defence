@@ -6,6 +6,10 @@ extends Node3D
 var current_hp: float = max_hp
 
 signal hp_changed(current_hp, max_hp)
+	
+func _ready() -> void:
+	hp_changed.emit(current_hp, max_hp)
 
 func take_damage(amount: float):
 	current_hp -= amount
+	hp_changed.emit(current_hp, max_hp)
