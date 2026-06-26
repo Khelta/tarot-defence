@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c2ni8776ochta"]
+
+[ext_resource type="Texture2D" uid="uid://jgywshm0o3rn" path="res://assets/preview_images/Ranger.png" id="1_u7n8c"]
+
+[node name="Ui" type="CanvasLayer" unique_id=1417531588]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=663310875]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -100.0
+offset_right = 206.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -30)
+alignment = 1
+
+[node name="Ranger" type="TextureRect" parent="HBoxContainer" unique_id=1056549333]
+custom_minimum_size = Vector2(25, 25)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_u7n8c")
+expand_mode = 2
+
+[node name="Knight" type="TextureRect" parent="HBoxContainer" unique_id=906290674]
+custom_minimum_size = Vector2(25, 25)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_u7n8c")
+expand_mode = 2
+
+[node name="Mage" type="TextureRect" parent="HBoxContainer" unique_id=1179937979]
+custom_minimum_size = Vector2(25, 25)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_u7n8c")
+expand_mode = 2
+
+[node name="Rogue" type="TextureRect" parent="HBoxContainer" unique_id=911726625]
+custom_minimum_size = Vector2(25, 25)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_u7n8c")
+expand_mode = 2
+
+[node name="Barbarian" type="TextureRect" parent="HBoxContainer" unique_id=1970157678]
+custom_minimum_size = Vector2(25, 25)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_u7n8c")
+expand_mode = 2

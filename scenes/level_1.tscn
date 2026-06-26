@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bp8hthw2bfva" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_broken.fbx" id="17_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://bcyhfyysyes3h" path="res://scenes/tiles/tower_tile.tscn" id="20_isj1j"]
+[ext_resource type="PackedScene" uid="uid://c2ni8776ochta" path="res://scenes/ui/ui.tscn" id="20_so66j"]
+[ext_resource type="PackedScene" uid="uid://dmvrwyc6lcwcu" path="res://scenes/tiles/valid_tower_position_vfx.tscn" id="21_so66j"]
 
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
@@ -182,6 +184,7 @@ is_placeable = false
 
 [node name="StraightBb" parent="Tiles" unique_id=1879107471 instance=ExtResource("2_4nkto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+is_tower_one_placeable = false
 is_tower_two_placeable = false
 
 [node name="StraightBb2" parent="Tiles" unique_id=1412603414 instance=ExtResource("2_4nkto")]
@@ -189,6 +192,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 
 [node name="StraightBb3" parent="Tiles" unique_id=2038935107 instance=ExtResource("2_4nkto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+is_tower_one_placeable = false
 is_tower_two_placeable = false
 
 [node name="Crossroad" parent="Tiles" unique_id=977008734 instance=ExtResource("3_fcfvj")]
@@ -198,11 +202,18 @@ is_tower_four_placeable = false
 
 [node name="StraightBb4" parent="Tiles" unique_id=2114964066 instance=ExtResource("2_4nkto")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
+is_tower_one_placeable = false
 is_tower_two_placeable = false
 
 [node name="StraightBb6" parent="Tiles" unique_id=1464113000 instance=ExtResource("2_4nkto")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -19)
+is_tower_one_placeable = false
 is_tower_two_placeable = false
 
 [node name="StraightBb7" parent="Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
+
+[node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
+
+[node name="Node3D" parent="." unique_id=95068320 instance=ExtResource("21_so66j")]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 3, 1.75, -8)
