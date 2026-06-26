@@ -4,6 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bdswuqphrmq1c" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/arch_gate.obj" id="2_y16t7"]
 [ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="3_4ge6i"]
 [ext_resource type="ArrayMesh" uid="uid://blfq15m3jchsj" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/arch_gate_left.obj" id="4_8itgj"]
+[ext_resource type="Material" uid="uid://b7vu321dupt24" path="res://materials/invalid_placeable_material.tres" id="4_y16t7"]
 [ext_resource type="ArrayMesh" uid="uid://entq4p2h3x7k" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/arch_gate_right.obj" id="5_tn317"]
 
 [node name="Start" type="Node3D" unique_id=1135759505]
@@ -21,11 +22,13 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 mesh = ExtResource("3_4ge6i")
 skeleton = NodePath("../../Floor")
+surface_material_override/0 = ExtResource("4_y16t7")
 
 [node name="FloorDirt3" type="MeshInstance3D" parent="." unique_id=744837740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 mesh = ExtResource("3_4ge6i")
 skeleton = NodePath("../../Floor")
+surface_material_override/0 = ExtResource("4_y16t7")
 
 [node name="FloorDirtSmall3" type="MeshInstance3D" parent="." unique_id=1467053000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

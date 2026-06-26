@@ -7,7 +7,6 @@
 [ext_resource type="ArrayMesh" uid="uid://6mnwokk6m5k4" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/tree_pine_orange_large.obj" id="6_15mv3"]
 [ext_resource type="Script" uid="uid://dvk0y1j8aikso" path="res://scenes/game_state.gd" id="6_fcfvj"]
 [ext_resource type="ArrayMesh" uid="uid://6cnwxq4oqjmg" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/gravestone.obj" id="7_e3sih"]
-[ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="8_2os1m"]
 [ext_resource type="PackedScene" uid="uid://cc2slyoowpqn3" path="res://scenes/end.tscn" id="8_15mv3"]
 [ext_resource type="ArrayMesh" uid="uid://bcx47lrqdmruh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/coffin.obj" id="9_go7sj"]
 [ext_resource type="ArrayMesh" uid="uid://byjum3c5buurk" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/coffin_lid.obj" id="10_7gny6"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://byf2lvnbei6tr" path="res://scenes/models/towers/ranger.tscn" id="16_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://bp8hthw2bfva" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_broken.fbx" id="17_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
+[ext_resource type="PackedScene" uid="uid://bcyhfyysyes3h" path="res://scenes/tiles/tower_tile.tscn" id="20_isj1j"]
 
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
@@ -41,29 +41,6 @@ script = ExtResource("1_pa8r4")
 
 [node name="Assets" type="Node3D" parent="." unique_id=1259634882]
 
-[node name="Floor" type="Node3D" parent="Assets" unique_id=503261068]
-
-[node name="StraightBb" parent="Assets/Floor" unique_id=1879107471 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-
-[node name="StraightBb2" parent="Assets/Floor" unique_id=1412603414 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-
-[node name="StraightBb3" parent="Assets/Floor" unique_id=2038935107 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
-
-[node name="TurnLeft" parent="Assets/Floor" unique_id=977008734 instance=ExtResource("3_fcfvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
-
-[node name="StraightBb4" parent="Assets/Floor" unique_id=2114964066 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
-
-[node name="StraightBb5" parent="Assets/Floor" unique_id=1380781605 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
-
-[node name="StraightBb6" parent="Assets/Floor" unique_id=1464113000 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -19)
-
 [node name="End" parent="Assets" unique_id=1506139944 instance=ExtResource("8_15mv3")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21, 0, -19)
 
@@ -72,7 +49,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21,
 [node name="Deco" type="Node3D" parent="Assets" unique_id=1806850343]
 
 [node name="TreePineOrangeLarge" type="MeshInstance3D" parent="Assets/Deco" unique_id=1476421267]
-transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -6, 0, -14)
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -5, 0, -14)
 mesh = ExtResource("6_15mv3")
 skeleton = NodePath("../..")
 
@@ -80,41 +57,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 3, 0, -16)
 mesh = ExtResource("7_e3sih")
 skeleton = NodePath("../..")
-
-[node name="FloorDirt" type="MeshInstance3D" parent="Assets/Deco" unique_id=918238547]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
-mesh = ExtResource("8_2os1m")
-skeleton = NodePath("../../..")
-
-[node name="FloorDirt2" type="MeshInstance3D" parent="Assets/Deco" unique_id=1522966607]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
-mesh = ExtResource("8_2os1m")
-skeleton = NodePath("../../..")
-
-[node name="FloorDirt3" type="MeshInstance3D" parent="Assets/Deco" unique_id=1861672695]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
-mesh = ExtResource("8_2os1m")
-skeleton = NodePath("../../..")
-
-[node name="FloorDirt5" type="MeshInstance3D" parent="Assets/Deco" unique_id=245393219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
-mesh = ExtResource("8_2os1m")
-skeleton = NodePath("../../..")
-
-[node name="FloorDirt7" type="MeshInstance3D" parent="Assets/Deco" unique_id=651350597]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
-mesh = ExtResource("8_2os1m")
-skeleton = NodePath("../../..")
-
-[node name="FloorDirt6" type="MeshInstance3D" parent="Assets/Deco" unique_id=1586163564]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
-mesh = ExtResource("8_2os1m")
-skeleton = NodePath("../../..")
-
-[node name="FloorDirt4" type="MeshInstance3D" parent="Assets/Deco" unique_id=283004106]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -16)
-mesh = ExtResource("8_2os1m")
-skeleton = NodePath("../../..")
 
 [node name="Coffin" type="MeshInstance3D" parent="Assets/Deco" unique_id=1066937689]
 transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 6, 0, -16)
@@ -132,7 +74,7 @@ mesh = ExtResource("12_7gny6")
 skeleton = NodePath("../../..")
 
 [node name="SkullCandle" type="MeshInstance3D" parent="Assets/Deco" unique_id=193548560]
-transform = Transform3D(-0.2588191, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.2588191, -3, 0, -16)
+transform = Transform3D(-0.9955374, 0, 0.09436786, 0, 1, 0, -0.09436786, 0, -0.9955374, -3, 0, -22)
 mesh = ExtResource("13_2aecg")
 skeleton = NodePath("../../..")
 
@@ -177,7 +119,7 @@ omni_attenuation = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27063, 0, -10)
 
 [node name="Lantern2" parent="Assets/Deco" unique_id=1411350873 instance=ExtResource("14_7nomh")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.4258995, 0, -17)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.9258995, 0, -16.5)
 
 [node name="fence_broken" parent="Assets/Deco" unique_id=422632726 instance=ExtResource("17_x2xxo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -24)
@@ -207,3 +149,60 @@ transform = Transform3D(-0.25881907, -0.4829629, 0.83651626, -8.230112e-09, 0.86
 
 [node name="Ranger" parent="Towers" unique_id=893937668 instance=ExtResource("16_2cbcq")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -2, 0, -17)
+
+[node name="Tiles" type="Node" parent="." unique_id=1298637272]
+
+[node name="TowerTile" parent="Tiles" unique_id=1658459195 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
+is_placeable = false
+
+[node name="TowerTile2" parent="Tiles" unique_id=211774091 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
+is_placeable = false
+
+[node name="TowerTile3" parent="Tiles" unique_id=1196411302 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
+is_placeable = false
+
+[node name="TowerTile4" parent="Tiles" unique_id=1521474126 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -16)
+is_placeable = false
+
+[node name="TowerTile5" parent="Tiles" unique_id=1379583805 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
+is_placeable = false
+
+[node name="TowerTile6" parent="Tiles" unique_id=1187378878 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
+is_placeable = false
+
+[node name="TowerTile7" parent="Tiles" unique_id=1991203557 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
+is_placeable = false
+
+[node name="StraightBb" parent="Tiles" unique_id=1879107471 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+is_tower_two_placeable = false
+
+[node name="StraightBb2" parent="Tiles" unique_id=1412603414 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="StraightBb3" parent="Tiles" unique_id=2038935107 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+is_tower_two_placeable = false
+
+[node name="Crossroad" parent="Tiles" unique_id=977008734 instance=ExtResource("3_fcfvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+is_tower_two_placeable = false
+is_tower_four_placeable = false
+
+[node name="StraightBb4" parent="Tiles" unique_id=2114964066 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
+is_tower_two_placeable = false
+
+[node name="StraightBb6" parent="Tiles" unique_id=1464113000 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -19)
+is_tower_two_placeable = false
+
+[node name="StraightBb7" parent="Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
