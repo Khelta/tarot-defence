@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://c2ni8776ochta"]
 
-[ext_resource type="Texture2D" uid="uid://jgywshm0o3rn" path="res://assets/preview_images/Ranger.png" id="1_u7n8c"]
+[ext_resource type="Script" uid="uid://cnmddcyufu4ni" path="res://scenes/ui/ui.gd" id="1_f5cxw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7n8c"]
+load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.ctex"
 
 [node name="Ui" type="CanvasLayer" unique_id=1417531588]
+script = ExtResource("1_f5cxw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=663310875]
 anchors_preset = 7
@@ -11,51 +15,51 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -206.0
-offset_top = -100.0
+offset_top = -123.0
 offset_right = 206.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
-offset_transform_enabled = true
 offset_transform_position = Vector2(0, -30)
 alignment = 1
 
-[node name="Ranger" type="TextureRect" parent="HBoxContainer" unique_id=1056549333]
-custom_minimum_size = Vector2(25, 25)
-custom_maximum_size = Vector2(100, 100)
+[node name="Ranger" type="Button" parent="HBoxContainer" unique_id=547804554 groups=["ranger_button"]]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("1_u7n8c")
-expand_mode = 2
+toggle_mode = true
+icon = SubResource("CompressedTexture2D_u7n8c")
+expand_icon = true
 
-[node name="Knight" type="TextureRect" parent="HBoxContainer" unique_id=906290674]
-custom_minimum_size = Vector2(25, 25)
-custom_maximum_size = Vector2(100, 100)
+[node name="Knight" type="Button" parent="HBoxContainer" unique_id=345839085 groups=["knight_button"]]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("1_u7n8c")
-expand_mode = 2
+toggle_mode = true
+icon = SubResource("CompressedTexture2D_u7n8c")
+expand_icon = true
 
-[node name="Mage" type="TextureRect" parent="HBoxContainer" unique_id=1179937979]
-custom_minimum_size = Vector2(25, 25)
-custom_maximum_size = Vector2(100, 100)
+[node name="Mage" type="Button" parent="HBoxContainer" unique_id=328288761 groups=["mage_button"]]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("1_u7n8c")
-expand_mode = 2
+toggle_mode = true
+icon = SubResource("CompressedTexture2D_u7n8c")
+expand_icon = true
 
-[node name="Rogue" type="TextureRect" parent="HBoxContainer" unique_id=911726625]
-custom_minimum_size = Vector2(25, 25)
-custom_maximum_size = Vector2(100, 100)
+[node name="Rogue" type="Button" parent="HBoxContainer" unique_id=1783426396 groups=["rogue_button"]]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("1_u7n8c")
-expand_mode = 2
+toggle_mode = true
+icon = SubResource("CompressedTexture2D_u7n8c")
+expand_icon = true
 
-[node name="Barbarian" type="TextureRect" parent="HBoxContainer" unique_id=1970157678]
-custom_minimum_size = Vector2(25, 25)
-custom_maximum_size = Vector2(100, 100)
+[node name="Barbarian" type="Button" parent="HBoxContainer" unique_id=342272778 groups=["barbarian_button"]]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("1_u7n8c")
-expand_mode = 2
+toggle_mode = true
+icon = SubResource("CompressedTexture2D_u7n8c")
+expand_icon = true

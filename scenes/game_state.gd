@@ -8,10 +8,19 @@ signal placement_mode_changed(is_on: bool)
 		placement_mode_changed.emit(value)
 
 
-
 func _ready() -> void:
 	add_to_group("game_state")
-	print(get_tree().get_first_node_in_group("game_state"))
+	connect_to_ranger_button()
+
+
+func connect_to_ranger_button():
+		await get_tree().process_frame
+		var ranger_button = get_tree().get_first_node_in_group("ranger_button")
+		ranger_button.toggled.connect(_on_ranger_button_toggle)
+
+
+func _on_ranger_button_toggle(toggle_on: bool) -> void:
+	is_placement_mode = toggle_on
 
 
 func _process(delta):
