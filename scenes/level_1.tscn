@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://bcyhfyysyes3h" path="res://scenes/tiles/tower_tile.tscn" id="20_isj1j"]
 [ext_resource type="PackedScene" uid="uid://c2ni8776ochta" path="res://scenes/ui/ui.tscn" id="20_so66j"]
-[ext_resource type="PackedScene" uid="uid://dmvrwyc6lcwcu" path="res://scenes/tiles/valid_tower_position_vfx.tscn" id="21_so66j"]
 
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
@@ -36,7 +35,7 @@ point_count = 5
 transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -3, 0, -16)
 
 [node name="Camera3D" type="Camera3D" parent="Camera" unique_id=2057554183]
-transform = Transform3D(-0.76604456, -0.35008734, 0.5390873, 0, 0.8386706, 0.544639, -0.6427879, 0.4172177, -0.64245915, 63.00124, 67.99988, -74.004776)
+transform = Transform3D(-0.76604456, -0.3500873, 0.5390873, 0, 0.8386706, 0.544639, -0.6427879, 0.41721773, -0.64245915, 63.00124, 63.059456, -74.004776)
 projection = 1
 size = 30.0
 script = ExtResource("1_pa8r4")
@@ -142,78 +141,74 @@ transform = Transform3D(0.99998456, 0, 0, 0, 0.9999879, 0, 0, 0, 0.99998474, 0, 
 [node name="SkeletonMinion" parent="GameState/Path3D/PathFollow3D" unique_id=2066997011 instance=ExtResource("15_6dial")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
+[node name="Towers" type="Node" parent="GameState" unique_id=300044555]
+
+[node name="Ranger" parent="GameState/Towers" unique_id=893937668 instance=ExtResource("16_2cbcq")]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -2, 0, -17)
+
+[node name="Tiles" type="Node" parent="GameState" unique_id=1298637272]
+
+[node name="TowerTile" parent="GameState/Tiles" unique_id=1658459195 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
+
+[node name="TowerTile2" parent="GameState/Tiles" unique_id=211774091 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
+is_placeable = false
+
+[node name="TowerTile3" parent="GameState/Tiles" unique_id=1196411302 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
+is_placeable = false
+
+[node name="TowerTile4" parent="GameState/Tiles" unique_id=1521474126 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -16)
+is_placeable = false
+
+[node name="TowerTile5" parent="GameState/Tiles" unique_id=1379583805 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
+is_placeable = false
+
+[node name="TowerTile6" parent="GameState/Tiles" unique_id=1187378878 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
+is_placeable = false
+
+[node name="TowerTile7" parent="GameState/Tiles" unique_id=1991203557 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
+is_placeable = false
+
+[node name="StraightBb" parent="GameState/Tiles" unique_id=1879107471 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+is_tower_one_placeable = false
+is_tower_two_placeable = false
+
+[node name="StraightBb2" parent="GameState/Tiles" unique_id=1412603414 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="StraightBb3" parent="GameState/Tiles" unique_id=2038935107 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+is_tower_one_placeable = false
+is_tower_two_placeable = false
+
+[node name="Crossroad" parent="GameState/Tiles" unique_id=977008734 instance=ExtResource("3_fcfvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+is_tower_two_placeable = false
+is_tower_four_placeable = false
+
+[node name="StraightBb4" parent="GameState/Tiles" unique_id=2114964066 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
+is_tower_one_placeable = false
+is_tower_two_placeable = false
+
+[node name="StraightBb6" parent="GameState/Tiles" unique_id=1464113000 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -19)
+is_tower_one_placeable = false
+is_tower_two_placeable = false
+
+[node name="StraightBb7" parent="GameState/Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
+
 [node name="Light" type="Node" parent="." unique_id=1985433111]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light" unique_id=2000744609]
 transform = Transform3D(-0.25881907, -0.4829629, 0.83651626, -8.230112e-09, 0.86602545, 0.5, -0.9659259, 0.12940954, -0.22414389, 0, 9, 0)
 
-[node name="Towers" type="Node" parent="." unique_id=300044555]
-
-[node name="Ranger" parent="Towers" unique_id=893937668 instance=ExtResource("16_2cbcq")]
-transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -2, 0, -17)
-
-[node name="Tiles" type="Node" parent="." unique_id=1298637272]
-
-[node name="TowerTile" parent="Tiles" unique_id=1658459195 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
-is_placeable = false
-
-[node name="TowerTile2" parent="Tiles" unique_id=211774091 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
-is_placeable = false
-
-[node name="TowerTile3" parent="Tiles" unique_id=1196411302 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
-is_placeable = false
-
-[node name="TowerTile4" parent="Tiles" unique_id=1521474126 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -16)
-is_placeable = false
-
-[node name="TowerTile5" parent="Tiles" unique_id=1379583805 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
-is_placeable = false
-
-[node name="TowerTile6" parent="Tiles" unique_id=1187378878 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
-is_placeable = false
-
-[node name="TowerTile7" parent="Tiles" unique_id=1991203557 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
-is_placeable = false
-
-[node name="StraightBb" parent="Tiles" unique_id=1879107471 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-is_tower_one_placeable = false
-is_tower_two_placeable = false
-
-[node name="StraightBb2" parent="Tiles" unique_id=1412603414 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-
-[node name="StraightBb3" parent="Tiles" unique_id=2038935107 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
-is_tower_one_placeable = false
-is_tower_two_placeable = false
-
-[node name="Crossroad" parent="Tiles" unique_id=977008734 instance=ExtResource("3_fcfvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
-is_tower_two_placeable = false
-is_tower_four_placeable = false
-
-[node name="StraightBb4" parent="Tiles" unique_id=2114964066 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
-is_tower_one_placeable = false
-is_tower_two_placeable = false
-
-[node name="StraightBb6" parent="Tiles" unique_id=1464113000 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -19)
-is_tower_one_placeable = false
-is_tower_two_placeable = false
-
-[node name="StraightBb7" parent="Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
-
 [node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
-
-[node name="Node3D" parent="." unique_id=95068320 instance=ExtResource("21_so66j")]
-transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 3, 1.75, -8)
