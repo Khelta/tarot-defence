@@ -5,6 +5,22 @@
 [ext_resource type="ArrayMesh" uid="uid://b4ntcmoompmri" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_small.obj" id="3_jclhh"]
 [ext_resource type="Material" uid="uid://b7vu321dupt24" path="res://materials/invalid_placeable_material.tres" id="3_s4tl2"]
 [ext_resource type="ArrayMesh" uid="uid://cba8pbbfq2h2b" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/fence.obj" id="4_bvfni"]
+[ext_resource type="Shader" uid="uid://b82dtcytah40b" path="res://materials/portal_shader.gdshader" id="6_8hmjt"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o5lv4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_57qmd"]
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ee763"]
+render_priority = 0
+shader = ExtResource("6_8hmjt")
+shader_parameter/size = 0.5
+shader_parameter/size_inner = 0.30000001099011997
+shader_parameter/noise = SubResource("NoiseTexture2D_57qmd")
+shader_parameter/portalFrameColor = Color(1, 0, 0, 1)
+shader_parameter/portalHighlightColor = Color(1, 1, 1, 1)
+shader_parameter/inner = Color(0, 0, 0, 1)
 
 [node name="End" type="Node3D" unique_id=1506139944]
 
@@ -71,3 +87,8 @@ light_color = Color(1, 0, 0, 1)
 light_energy = 10.0
 area_range = 13.456
 area_size = Vector2(1.589, 2.66)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1254442022]
+transform = Transform3D(2.3883568e-15, -8.742278e-08, -0.75, -1.25, -8.742278e-08, -5.293956e-23, -5.4639237e-08, 2, -3.278354e-08, 0, 1.7717185, 2.2452393)
+mesh = SubResource("PlaneMesh_o5lv4")
+surface_material_override/0 = SubResource("ShaderMaterial_ee763")
