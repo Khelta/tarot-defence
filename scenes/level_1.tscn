@@ -14,7 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://2b5lb7b3peed" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/skull_candle.obj" id="13_2aecg"]
 [ext_resource type="ArrayMesh" uid="uid://n6phrxbbfw3y" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/candle.obj" id="13_6dial"]
 [ext_resource type="PackedScene" uid="uid://0qt802lj2j3e" path="res://scenes/models/lantern.tscn" id="14_7nomh"]
-[ext_resource type="PackedScene" uid="uid://bhlx172x46b74" path="res://scenes/models/enemies/skeleton_minion.tscn" id="15_6dial"]
+[ext_resource type="Script" uid="uid://dadttob1jynlc" path="res://scenes/LevelPath.gd" id="15_so66j"]
 [ext_resource type="PackedScene" uid="uid://byf2lvnbei6tr" path="res://scenes/models/towers/ranger.tscn" id="16_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://bp8hthw2bfva" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_broken.fbx" id="17_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
@@ -24,10 +24,10 @@
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.13, 0, -1, 0, 0, -18, 0, 0, 0, 0, 0, 0, -1, 0, -19, 0, 0, 0, 0, 0, 0, -19, 0, -19, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.13, 0, -1, 0, 0, -18, 0, 0, 0, 0, 0, 0, -1, 0, -19, 0, 0, 0, 0, 0, 0, -19, 0, -19),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 5
+point_count = 4
 
 [node name="Level1" type="Node3D" unique_id=365219656]
 
@@ -128,18 +128,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -24)
 [node name="fence_gate" parent="Assets/Deco" unique_id=962961513 instance=ExtResource("18_2cbcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
 
-[node name="GameState" type="Node" parent="." unique_id=464651959]
+[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path")]
 script = ExtResource("6_fcfvj")
+path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="GameState" unique_id=210619031]
 curve = SubResource("Curve3D_g4v7s")
 debug_custom_color = Color(0, 1, 0, 1)
-
-[node name="PathFollow3D" type="PathFollow3D" parent="GameState/Path3D" unique_id=224349833]
-transform = Transform3D(0.99998456, 0, 0, 0, 0.9999879, 0, 0, 0, 0.99998474, 0, 0, 0)
-
-[node name="SkeletonMinion" parent="GameState/Path3D/PathFollow3D" unique_id=2066997011 instance=ExtResource("15_6dial")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("15_so66j")
 
 [node name="Towers" type="Node" parent="GameState" unique_id=300044555]
 

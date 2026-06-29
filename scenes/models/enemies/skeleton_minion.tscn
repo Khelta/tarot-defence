@@ -9,6 +9,7 @@
 viewport_path = NodePath("HealthBarViewPort")
 
 [node name="SkeletonMinion" type="Node3D" unique_id=2066997011]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="BaseEnemy" parent="." unique_id=2124445037 instance=ExtResource("1_4rhop")]
 script = ExtResource("2_5t1fh")

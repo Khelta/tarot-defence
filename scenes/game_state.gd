@@ -6,6 +6,8 @@ signal placement_mode_changed(is_on: bool)
 	set(value):
 		is_placement_mode = value
 		placement_mode_changed.emit(value)
+		
+@export var path : Path3D
 
 
 func _ready() -> void:
@@ -28,4 +30,6 @@ func _process(delta):
 	var enemy_speed = 20
 	var time_for_path = path_length * enemy_speed
 	var progress_ratio_speed = 100 / time_for_path
-	get_child(0).get_child(0).progress_ratio += progress_ratio_speed * delta
+	
+	for enemy in path.get_children():
+		enemy.progress_ratio += progress_ratio_speed * delta
