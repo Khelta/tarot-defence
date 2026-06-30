@@ -1,7 +1,6 @@
 extends Path3D
 
-@export var waves : Array[String] = ["10,s,1;5,s,0.3",
-									 "10,s,1;5,s,0.3"]
+@export var waves : Array[String] = ["3,s,1", "10,s,1;5,s,0.3"]
 
 var skeleton_minion = preload("res://scenes/models/enemies/skeleton_minion.tscn")
 var enemy_dict = {"s": skeleton_minion}
@@ -37,8 +36,6 @@ func validate_wave_string(wave_string: String) -> bool:
 func spawn_wave(wave_string: String):
 	assert(validate_wave_string(wave_string))
 	
-	
-	
 	var sub_waves = wave_string.split(";")
 	
 	for sub_wave in sub_waves:
@@ -47,7 +44,6 @@ func spawn_wave(wave_string: String):
 		var enemy_count = int(wave_data[0])
 		var enemy_type = wave_data[1]
 		var spawn_delay = float(wave_data[2])
-		
 		
 		for x in enemy_count:
 			var path_follow = PathFollow3D.new()

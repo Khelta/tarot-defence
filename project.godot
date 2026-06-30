@@ -26,6 +26,7 @@ knight_button=""
 mage_button=""
 rogue_button=""
 barbarian_button=""
+base_tower=""
 
 [input]
 

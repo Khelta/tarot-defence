@@ -32,4 +32,5 @@ func _process(delta):
 	var progress_ratio_speed = 100 / time_for_path
 	
 	for enemy in path.get_children():
-		enemy.progress_ratio += progress_ratio_speed * delta
+		if enemy.get_child(0).get_child(0).is_alive():
+			enemy.progress_ratio += progress_ratio_speed * delta

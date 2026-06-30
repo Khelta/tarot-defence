@@ -20,7 +20,6 @@ func _ready() -> void:
 	
 	
 func apply_damage(target: Node3D):
-	
 	target.take_damage(base_damage) 
 	
 func _process(delta):
