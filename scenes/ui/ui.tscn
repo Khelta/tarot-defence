@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2ni8776ochta"]
 
-[ext_resource type="Script" uid="uid://cnmddcyufu4ni" path="res://scenes/ui/ui.gd" id="1_f5cxw"]
+[ext_resource type="Script" uid="uid://cnmddcyufu4ni" path="res://scripts/ui.gd" id="1_f5cxw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7n8c"]
 load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.ctex"

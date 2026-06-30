@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d7qsw1u7erdo" path="res://assets/KayKit_Adventurers_2.0_FREE/Characters/fbx/ranger_texture.png" id="1_ctkif"]
 [ext_resource type="AnimationLibrary" uid="uid://cvc6oixyo4uwh" path="res://assets/KayKit_Character_Animations_1.1/Animations/fbx/Rig_Medium/Rig_Medium_CombatRanged.fbx" id="1_wk0yh"]
-[ext_resource type="Script" uid="uid://bnk2jgchgyxa4" path="res://scenes/models/towers/ranger_animation.gd" id="2_x3agv"]
+[ext_resource type="Script" uid="uid://bnk2jgchgyxa4" path="res://scripts/towers/ranger_animation.gd" id="2_x3agv"]
 [ext_resource type="Texture2D" uid="uid://d0ri1tk124xtb" path="res://assets/KayKit_Adventurers_2.0_FREE/Assets/fbx(unity)/ranger_texture.png" id="3_x3agv"]
 
 [sub_resource type="Animation" id="Animation_obou3"]

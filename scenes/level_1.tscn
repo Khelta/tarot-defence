@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://rq4a1xvwgvo2" path="res://scenes/tiles/turn_left.tscn" id="3_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://ci1hts682dfx" path="res://scenes/start.tscn" id="5_4nkto"]
 [ext_resource type="ArrayMesh" uid="uid://6mnwokk6m5k4" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/tree_pine_orange_large.obj" id="6_15mv3"]
-[ext_resource type="Script" uid="uid://dvk0y1j8aikso" path="res://scenes/game_state.gd" id="6_fcfvj"]
+[ext_resource type="Script" uid="uid://dvk0y1j8aikso" path="res://scripts/game_state.gd" id="6_fcfvj"]
 [ext_resource type="ArrayMesh" uid="uid://6cnwxq4oqjmg" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/gravestone.obj" id="7_e3sih"]
 [ext_resource type="PackedScene" uid="uid://cc2slyoowpqn3" path="res://scenes/end.tscn" id="8_15mv3"]
 [ext_resource type="ArrayMesh" uid="uid://bcx47lrqdmruh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/coffin.obj" id="9_go7sj"]
@@ -14,7 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://2b5lb7b3peed" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/skull_candle.obj" id="13_2aecg"]
 [ext_resource type="ArrayMesh" uid="uid://n6phrxbbfw3y" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/candle.obj" id="13_6dial"]
 [ext_resource type="PackedScene" uid="uid://0qt802lj2j3e" path="res://scenes/models/lantern.tscn" id="14_7nomh"]
-[ext_resource type="Script" uid="uid://dadttob1jynlc" path="res://scenes/LevelPath.gd" id="15_so66j"]
+[ext_resource type="Script" uid="uid://dadttob1jynlc" path="res://scripts/LevelPath.gd" id="15_so66j"]
 [ext_resource type="PackedScene" uid="uid://byf2lvnbei6tr" path="res://scenes/models/towers/ranger.tscn" id="16_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://bp8hthw2bfva" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_broken.fbx" id="17_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
@@ -130,6 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
 
 [node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path")]
 script = ExtResource("6_fcfvj")
+is_placement_mode = true
 path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="GameState" unique_id=210619031]
