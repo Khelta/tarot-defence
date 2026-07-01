@@ -1,23 +1,39 @@
 @tool
 extends Node3D
+class_name TowerTile
+
+@export var is_part_of_another_node: bool = false
 
 @export var is_placeable: bool = true:
 	set(new_is_placeable):
 		is_placeable = new_is_placeable
 		set_material()
-@export var tower: Node3D
+
+@export var tower: Node3D:
+	set(new_tower):
+		tower = new_tower
+		tower.position = global_position
+		tower.rotation.y = atan2(tower_rotation.x, tower_rotation.z)
+		if is_part_of_another_node:
+			tower.rotate_y(get_parent().rotation.y)
+		set_valid_tower_position_vfx_visibility(false)
+		
+@export var tower_rotation: Vector3 = Vector3(1, 0, 0):
+	set(new_tower_rotation):
+		tower_rotation = new_tower_rotation
 
 func _ready() -> void:
 	set_material()
 	set_valid_tower_position_vfx_visibility(false)
-	connect_to_game_state()
-	
-		
-func connect_to_game_state():
+	connect_to_selector()
+
+
+func connect_to_selector():
 	await get_tree().process_frame
-	var game_state = get_tree().get_first_node_in_group("game_state")
-	if game_state:
-		game_state.placement_mode_changed.connect(_on_game_state_placement_mode_changed)
+	var selector = get_tree().get_first_node_in_group("selector")
+	if selector:
+		selector.placement_mode_changed.connect(_on_placement_mode_changed)
+
 
 func set_material() -> void:
 	const default_material = null
@@ -31,7 +47,7 @@ func set_material() -> void:
 
 
 func is_valid_placement() -> bool:
-	if is_placeable:
+	if is_placeable and tower == null:
 		return true
 	return false
 
@@ -41,9 +57,15 @@ func set_valid_tower_position_vfx_visibility(is_visible : bool) -> void:
 	vfx.visible = is_visible
 
 
-func _on_game_state_placement_mode_changed(placement_mode_is_on: bool) -> void:
+func _on_placement_mode_changed(placement_mode_is_on: bool) -> void:
 	var validTowerPositionVFX = get_node("ValidTowerPositionVFX")
 	if placement_mode_is_on and is_valid_placement():
 		validTowerPositionVFX.visible = true
 	else:
 		validTowerPositionVFX.visible = false
+
+
+func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		var selector = get_tree().get_first_node_in_group("selector")
+		selector.set_selected_tile(self)

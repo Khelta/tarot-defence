@@ -5,7 +5,7 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7n8c"]
 load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.ctex"
 
-[node name="Ui" type="CanvasLayer" unique_id=1417531588]
+[node name="Ui" type="CanvasLayer" unique_id=1417531588 groups=["ui"]]
 script = ExtResource("1_f5cxw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=663310875]
@@ -25,14 +25,6 @@ offset_transform_position = Vector2(0, -30)
 alignment = 1
 
 [node name="Ranger" type="Button" parent="HBoxContainer" unique_id=547804554 groups=["ranger_button"]]
-custom_minimum_size = Vector2(100, 100)
-custom_maximum_size = Vector2(250, 250)
-layout_mode = 2
-toggle_mode = true
-icon = SubResource("CompressedTexture2D_u7n8c")
-expand_icon = true
-
-[node name="Knight" type="Button" parent="HBoxContainer" unique_id=345839085 groups=["knight_button"]]
 custom_minimum_size = Vector2(100, 100)
 custom_maximum_size = Vector2(250, 250)
 layout_mode = 2

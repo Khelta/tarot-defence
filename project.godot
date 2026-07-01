@@ -27,6 +27,9 @@ mage_button=""
 rogue_button=""
 barbarian_button=""
 base_tower=""
+selector=""
+ui=""
+towers=""
 
 [input]
 

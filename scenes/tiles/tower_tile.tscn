@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://reuik7gk8rcu" path="res://scripts/tiles/tower_tile.gd" id="1_w0cn8"]
 [ext_resource type="PackedScene" uid="uid://dmvrwyc6lcwcu" path="res://scenes/tiles/valid_tower_position_vfx.tscn" id="3_3c3ku"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(4, 1.4, 4)
+
 [node name="TowerTile" type="Node3D" unique_id=1658459195]
 script = ExtResource("1_w0cn8")
 
@@ -14,3 +17,11 @@ skeleton = NodePath("")
 [node name="ValidTowerPositionVFX" parent="." unique_id=95068320 instance=ExtResource("3_3c3ku")]
 transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 1.75, 0)
 visible = false
+
+[node name="Area3D" type="Area3D" parent="." unique_id=758582759]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1789577104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19999999, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

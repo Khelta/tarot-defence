@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://novpduw0tymo"]
+
+[ext_resource type="Script" uid="uid://iafex2hkl3tv" path="res://scripts/selector.gd" id="1_y6aoi"]
+
+[node name="Selector" type="Node" unique_id=879494282 groups=["selector"]]
+script = ExtResource("1_y6aoi")

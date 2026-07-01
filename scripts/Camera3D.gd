@@ -1,11 +1,10 @@
-extends Node3D
+extends Camera3D
 
 @export var move_speed := 20.0
 @export var rotate_speed := 1.0
 @export var zoom_speed := 10
 @export var min_size := 2.0
 @export var max_size := 50.0
-
 
 
 func _process(delta):
@@ -24,16 +23,16 @@ func _move_camera(delta):
 		direction.x -= 1
 	if Input.is_action_pressed("ui_right"):   # D
 		direction.x += 1
-		
+
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		
+
 		translate(direction * move_speed * delta)
 
 
 func _rotate_camera(delta):
 	var yaw_input = 0.0
-	
+
 	if Input.is_action_pressed("rotate_left"):
 		yaw_input += 1
 	if Input.is_action_pressed("rotate_right"):

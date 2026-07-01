@@ -1,4 +1,5 @@
 extends Node3D
+class_name BaseTower
 
 @export var tower_range : float = 5.0
 @export var base_damage : float = 10.0
@@ -31,10 +32,10 @@ func _process(delta):
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	enemies_in_range.push_back(area)
-	print(enemies_in_range)
+	if area.get_parent().name == "BaseEnemy":
+		enemies_in_range.push_back(area)
 
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
-	enemies_in_range.erase(area)
-	print(enemies_in_range)
+	if area.get_parent().name == "BaseEnemy":
+		enemies_in_range.erase(area)
