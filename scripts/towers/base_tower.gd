@@ -28,6 +28,7 @@ func _process(delta):
 	if attack_cooldown <= 0.0:
 		if len(enemies_in_range) != 0:
 			apply_damage(enemies_in_range[0].get_parent())
+			attack.emit()
 			attack_cooldown = 1.0 / attacks_per_second
 
 
