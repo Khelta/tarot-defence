@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 class_name BaseTower
 
@@ -17,6 +18,8 @@ func _ready() -> void:
 	get_child(1).mesh.radius = tower_range
 	get_child(1).mesh.height = tower_range * 2
 	
+	set_attack_range_indicator()
+	
 	default_rotation = get_parent().rotation
 	
 	
@@ -30,6 +33,14 @@ func _process(delta):
 			apply_damage(enemies_in_range[0].get_parent())
 			attack.emit()
 			attack_cooldown = 1.0 / attacks_per_second
+
+
+func set_attack_range_indicator():
+	var attack_range_indicator = get_node("AttackRangeIndicator")
+	var s = tower_range * 2
+	attack_range_indicator.scale = Vector3(s, s, s)
+	
+
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

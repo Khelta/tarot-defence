@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func connect_to_selector():
 	await get_tree().process_frame
-	var selector = get_tree().get_first_node_in_group("selector")
+	var selector : Selector = get_tree().get_first_node_in_group("selector")
 	if selector:
 		selector.placement_mode_changed.connect(_on_placement_mode_changed)
 
@@ -65,7 +65,7 @@ func _on_placement_mode_changed(placement_mode_is_on: bool) -> void:
 		validTowerPositionVFX.visible = false
 
 
-func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		var selector = get_tree().get_first_node_in_group("selector")
 		selector.set_selected_tile(self)

@@ -1,14 +1,31 @@
 [gd_scene format=3 uid="uid://c2ni8776ochta"]
 
 [ext_resource type="Script" uid="uid://cnmddcyufu4ni" path="res://scripts/ui.gd" id="1_f5cxw"]
+[ext_resource type="PackedScene" uid="uid://bm0a6ds7e78y0" path="res://scenes/ui/info_panel.tscn" id="2_aac20"]
+[ext_resource type="PackedScene" uid="uid://n1e7ou5i1ten" path="res://scenes/ui/tower_buttons.tscn" id="3_g5kmx"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7n8c"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aac20"]
 load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.ctex"
 
 [node name="Ui" type="CanvasLayer" unique_id=1417531588 groups=["ui"]]
 script = ExtResource("1_f5cxw")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=663310875]
+[node name="InfoPanel" parent="." unique_id=1633793101 instance=ExtResource("2_aac20")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 784.0
+offset_top = 525.0
+offset_right = 784.0
+offset_bottom = 625.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="TowerButtons" parent="." unique_id=1220217420 instance=ExtResource("3_g5kmx")]
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1078829140]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -24,34 +41,34 @@ size_flags_horizontal = 4
 offset_transform_position = Vector2(0, -30)
 alignment = 1
 
-[node name="Ranger" type="Button" parent="HBoxContainer" unique_id=547804554 groups=["ranger_button"]]
+[node name="Ranger" type="Button" parent="HBoxContainer" unique_id=2000295219 groups=["ranger_button"]]
 custom_minimum_size = Vector2(100, 100)
 custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
 toggle_mode = true
-icon = SubResource("CompressedTexture2D_u7n8c")
+icon = SubResource("CompressedTexture2D_aac20")
 expand_icon = true
 
-[node name="Mage" type="Button" parent="HBoxContainer" unique_id=328288761 groups=["mage_button"]]
+[node name="Mage" type="Button" parent="HBoxContainer" unique_id=1733514948 groups=["mage_button"]]
 custom_minimum_size = Vector2(100, 100)
 custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
 toggle_mode = true
-icon = SubResource("CompressedTexture2D_u7n8c")
+icon = SubResource("CompressedTexture2D_aac20")
 expand_icon = true
 
-[node name="Rogue" type="Button" parent="HBoxContainer" unique_id=1783426396 groups=["rogue_button"]]
+[node name="Rogue" type="Button" parent="HBoxContainer" unique_id=622989989 groups=["rogue_button"]]
 custom_minimum_size = Vector2(100, 100)
 custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
 toggle_mode = true
-icon = SubResource("CompressedTexture2D_u7n8c")
+icon = SubResource("CompressedTexture2D_aac20")
 expand_icon = true
 
-[node name="Barbarian" type="Button" parent="HBoxContainer" unique_id=342272778 groups=["barbarian_button"]]
+[node name="Barbarian" type="Button" parent="HBoxContainer" unique_id=1274739408 groups=["barbarian_button"]]
 custom_minimum_size = Vector2(100, 100)
 custom_maximum_size = Vector2(250, 250)
 layout_mode = 2
 toggle_mode = true
-icon = SubResource("CompressedTexture2D_u7n8c")
+icon = SubResource("CompressedTexture2D_aac20")
 expand_icon = true

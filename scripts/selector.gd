@@ -1,8 +1,9 @@
 extends Node
+class_name Selector
 
 var selected_tile :  TowerTile
 var selected_tower : String
-var ui : UI = null
+var custom_ui : UI = null
 
 signal placement_mode_changed(is_on: bool)
 
@@ -12,7 +13,7 @@ signal placement_mode_changed(is_on: bool)
 		placement_mode_changed.emit(value)
 
 func _ready() -> void:
-	var ui = get_tree().get_first_node_in_group("game_state")
+	custom_ui = get_tree().get_first_node_in_group("ui")
 	connect_to_ranger_button()
 
 
