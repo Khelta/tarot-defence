@@ -2,6 +2,7 @@ extends Node3D
 
 @export var max_hp: float = 100.0
 @export var speed: float = 20.0
+@export var damage: float = 1.0
 
 var current_hp: float = max_hp
 

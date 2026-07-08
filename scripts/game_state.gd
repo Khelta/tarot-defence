@@ -30,6 +30,11 @@ func _process(delta):
 	
 	
 	
-	for enemy in path.get_children():
-		if enemy.get_child(0).get_child(0).is_alive():
-			enemy.progress_ratio += progress_ratio_speed * delta
+	for enemy_path in path.get_children():
+		if enemy_path.get_child(0).get_child(0).is_alive():
+			var previous_progress_ratio = enemy_path.progress_ratio
+			enemy_path.progress_ratio += progress_ratio_speed * delta
+			
+			if enemy_path.progress_ratio < previous_progress_ratio:
+				var enemy = enemy_path.get_child(0).get_node("BaseEnemy")
+				_change_player_health(-enemy.damage)
