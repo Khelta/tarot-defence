@@ -1,13 +1,15 @@
 extends Node3D
+class_name BaseEnemy
 
 @export var max_hp: float = 100.0
 @export var speed: float = 20.0
 @export var damage: float = 1.0
+@export var gold_on_death: int = 1
 
 var current_hp: float = max_hp
 
-signal hp_changed(current_hp, max_hp)
-signal enemy_died
+signal hp_changed(current_hp: float, max_hp: float)
+signal enemy_died(gold_on_death: int)
 
 
 func _ready() -> void:
@@ -38,7 +40,6 @@ func on_death():
 		if area_parent.is_in_group("base_tower"):
 			var base_tower_area = area_parent.get_node("Area3D")
 			base_tower_area._on_area_3d_area_exited(area_node)
-	
+
 	area_node.queue_free()
-	enemy_died.emit()
-	
+	enemy_died.emit(gold_on_death)

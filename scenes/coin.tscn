@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cfg1nr5exk47t"]
+
+[ext_resource type="ArrayMesh" uid="uid://qj6ln6bsiov5" path="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/obj/coin_gold.obj" id="1_rwqht"]
+
+[node name="Coin" type="Node3D" unique_id=392483562]
+
+[node name="CoinGold" type="MeshInstance3D" parent="." unique_id=720236880]
+transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.01, 0, 0)
+mesh = ExtResource("1_rwqht")

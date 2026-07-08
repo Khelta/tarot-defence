@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://mil7mhe0gmxj" path="res://scenes/models/enemies/base_enemy.tscn" id="1_4rhop"]
 [ext_resource type="Script" uid="uid://ban37eis30e5w" path="res://scripts/enemies/skeleton_minion.gd" id="1_mx17y"]
-[ext_resource type="Script" uid="uid://cylakrjwrle5u" path="res://scripts/enemies/base_enemy.gd" id="2_5t1fh"]
 [ext_resource type="PackedScene" uid="uid://djqcqk5k20cb1" path="res://scenes/ui/health_bar.tscn" id="3_5t1fh"]
 [ext_resource type="PackedScene" uid="uid://boog8aoaw2pyd" path="res://scenes/models/enemies/skeleton_minion_model.tscn" id="3_mx17y"]
 
@@ -14,7 +13,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 script = ExtResource("1_mx17y")
 
 [node name="BaseEnemy" parent="." unique_id=2124445037 instance=ExtResource("1_4rhop")]
-script = ExtResource("2_5t1fh")
 
 [node name="SkeletonMinionModel" parent="." unique_id=2116891516 instance=ExtResource("3_mx17y")]
 script = null

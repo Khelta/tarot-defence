@@ -4,9 +4,11 @@
 [ext_resource type="Shader" uid="uid://cnqynrojqqxdq" path="res://materials/attack_range_indicator.gdshader" id="2_ebdug"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yf5fn"]
-radius = 3.0
+radius = 10.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_5dodm"]
+radius = 10.0
+height = 20.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_fhpdf"]
 
@@ -35,7 +37,8 @@ visible = false
 mesh = SubResource("SphereMesh_5dodm")
 
 [node name="AttackRangeIndicator" type="MeshInstance3D" parent="." unique_id=1362136347]
-transform = Transform3D(8, 0, 0, 0, -3.496911e-07, 8, 0, -8, -3.496911e-07, 0, 0.2, 0)
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0, 0.2, 0)
+visible = false
 mesh = SubResource("QuadMesh_fhpdf")
 surface_material_override/0 = SubResource("ShaderMaterial_so66j")
 

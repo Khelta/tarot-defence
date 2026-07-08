@@ -1,10 +1,77 @@
 [gd_scene format=3 uid="uid://mil7mhe0gmxj"]
 
 [ext_resource type="Script" uid="uid://cylakrjwrle5u" path="res://scripts/enemies/base_enemy.gd" id="1_tm20u"]
+[ext_resource type="PackedScene" uid="uid://c45ikxfvogmob" path="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/gltf/coin_gold.gltf" id="2_lns46"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="Animation" id="Animation_g3v8v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3ptlx"]
+resource_name = "Rotation"
+length = 4.0
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"new_marker",
+"time": -0.23333335
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.5707964), Vector3(0, 6.2831855, 1.5707964), Vector3(0, 12.566371, 1.5707964)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5fkij"]
+_data = {
+&"RESET": SubResource("Animation_g3v8v"),
+&"Rotation": SubResource("Animation_3ptlx")
+}
 
 [node name="BaseEnemy" type="Node3D" unique_id=2124445037]
 script = ExtResource("1_tm20u")
@@ -19,3 +86,9 @@ debug_color = Color(0.9771585, 0, 0.40995404, 0.41960785)
 [node name="DebugMesh" type="MeshInstance3D" parent="." unique_id=1456095211]
 visible = false
 mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="coin_gold" parent="." unique_id=1629425842 instance=ExtResource("2_lns46")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="coin_gold" unique_id=879208641]
+libraries/ = SubResource("AnimationLibrary_5fkij")

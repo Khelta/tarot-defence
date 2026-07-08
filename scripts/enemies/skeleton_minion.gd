@@ -4,7 +4,7 @@ func _ready() -> void:
 	get_node("SkeletonMinionModel").get_node("AnimationPlayer").play("Running_B")
 
 
-func _on_base_enemy_enemy_died() -> void:
+func _on_base_enemy_enemy_died(no_value: int) -> void:
 	get_node("HealthBarViewPort/HealthBar").queue_free()
 	
 	var animation_player = get_node("SkeletonMinionModel").get_node("AnimationPlayer")
