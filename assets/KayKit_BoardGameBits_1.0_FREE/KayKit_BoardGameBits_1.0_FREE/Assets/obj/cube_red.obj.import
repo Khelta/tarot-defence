@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bcq7mbece8fg1"
+path="res://.godot/imported/cube_red.obj-48784ff375e7f2f8d37217be29b44c2d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cube_red.obj-48784ff375e7f2f8d37217be29b44c2d.mesh"]
+
+source_file="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/obj/cube_red.obj"
+dest_files=["res://.godot/imported/cube_red.obj-48784ff375e7f2f8d37217be29b44c2d.mesh", "res://.godot/imported/cube_red.obj-48784ff375e7f2f8d37217be29b44c2d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

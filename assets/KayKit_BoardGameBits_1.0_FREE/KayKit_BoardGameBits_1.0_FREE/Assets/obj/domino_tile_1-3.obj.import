@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvevb12v3ey6c"
+path="res://.godot/imported/domino_tile_1-3.obj-73a6a30541a6b13186ed0df8c7b748cc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/domino_tile_1-3.obj-73a6a30541a6b13186ed0df8c7b748cc.mesh"]
+
+source_file="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/obj/domino_tile_1-3.obj"
+dest_files=["res://.godot/imported/domino_tile_1-3.obj-73a6a30541a6b13186ed0df8c7b748cc.mesh", "res://.godot/imported/domino_tile_1-3.obj-73a6a30541a6b13186ed0df8c7b748cc.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

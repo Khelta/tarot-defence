@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhqbk5nag5e5f"
+path="res://.godot/imported/coin_1_gold.obj-9c6d9dc9dc927b71d09649b863b72b7a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/coin_1_gold.obj-9c6d9dc9dc927b71d09649b863b72b7a.mesh"]
+
+source_file="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/obj/coin_1_gold.obj"
+dest_files=["res://.godot/imported/coin_1_gold.obj-9c6d9dc9dc927b71d09649b863b72b7a.mesh", "res://.godot/imported/coin_1_gold.obj-9c6d9dc9dc927b71d09649b863b72b7a.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

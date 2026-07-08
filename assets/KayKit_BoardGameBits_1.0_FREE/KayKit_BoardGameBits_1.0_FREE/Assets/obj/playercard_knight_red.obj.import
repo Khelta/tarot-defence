@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bqcppkv6u65h0"
+path="res://.godot/imported/playercard_knight_red.obj-f422fe4d324d0608ac9b54ac51d4738f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/playercard_knight_red.obj-f422fe4d324d0608ac9b54ac51d4738f.mesh"]
+
+source_file="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/obj/playercard_knight_red.obj"
+dest_files=["res://.godot/imported/playercard_knight_red.obj-f422fe4d324d0608ac9b54ac51d4738f.mesh", "res://.godot/imported/playercard_knight_red.obj-f422fe4d324d0608ac9b54ac51d4738f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

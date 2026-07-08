@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jismgufjidcp"
+path="res://.godot/imported/playercard_rogue_yellow.obj-c4cd5327e22181a688e4966d695ec04b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/playercard_rogue_yellow.obj-c4cd5327e22181a688e4966d695ec04b.mesh"]
+
+source_file="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/obj/playercard_rogue_yellow.obj"
+dest_files=["res://.godot/imported/playercard_rogue_yellow.obj-c4cd5327e22181a688e4966d695ec04b.mesh", "res://.godot/imported/playercard_rogue_yellow.obj-c4cd5327e22181a688e4966d695ec04b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
