@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://bm0a6ds7e78y0"]
 
+[ext_resource type="Script" uid="uid://cx5u2affrrn1b" path="res://scenes/ui/life_bar.gd" id="1_fompm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(1, 0.33380696, 0.34895712, 1)
+
 [node name="InfoPanel" type="Control" unique_id=1633793101]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +14,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="LifeBar" type="ProgressBar" parent="." unique_id=709096555]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -339.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yf5fn")
+value = 50.0
+show_percentage = false
+script = ExtResource("1_fompm")

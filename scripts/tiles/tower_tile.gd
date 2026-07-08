@@ -52,9 +52,9 @@ func is_valid_placement() -> bool:
 	return false
 
 
-func set_valid_tower_position_vfx_visibility(is_visible : bool) -> void:
+func set_valid_tower_position_vfx_visibility(vfx_is_visible : bool) -> void:
 	var vfx = get_node("ValidTowerPositionVFX")
-	vfx.visible = is_visible
+	vfx.visible = vfx_is_visible
 
 
 func _on_placement_mode_changed(placement_mode_is_on: bool) -> void:

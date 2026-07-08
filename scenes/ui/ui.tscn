@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cnmddcyufu4ni" path="res://scripts/ui.gd" id="1_f5cxw"]
 [ext_resource type="PackedScene" uid="uid://bm0a6ds7e78y0" path="res://scenes/ui/info_panel.tscn" id="2_aac20"]
-[ext_resource type="PackedScene" uid="uid://n1e7ou5i1ten" path="res://scenes/ui/tower_buttons.tscn" id="3_g5kmx"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aac20"]
 load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.ctex"
@@ -11,19 +10,11 @@ load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.c
 script = ExtResource("1_f5cxw")
 
 [node name="InfoPanel" parent="." unique_id=1633793101 instance=ExtResource("2_aac20")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
+anchors_preset = 1
+anchor_left = 1.0
 anchor_bottom = 0.0
-offset_left = 784.0
-offset_top = 525.0
-offset_right = 784.0
-offset_bottom = 625.0
-grow_horizontal = 1
+grow_horizontal = 0
 grow_vertical = 1
-
-[node name="TowerButtons" parent="." unique_id=1220217420 instance=ExtResource("3_g5kmx")]
-visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1078829140]
 anchors_preset = 7
