@@ -39,8 +39,6 @@ func set_attack_range_indicator():
 	var attack_range_indicator = get_node("AttackRangeIndicator")
 	var s = tower_range * 2
 	attack_range_indicator.scale = Vector3(s, s, s)
-	
-
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

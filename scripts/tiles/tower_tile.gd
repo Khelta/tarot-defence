@@ -8,6 +8,8 @@ class_name TowerTile
 	set(new_is_placeable):
 		is_placeable = new_is_placeable
 		set_material()
+		$Area3D.input_ray_pickable = is_placeable
+
 
 @export var tower: Node3D:
 	set(new_tower):
@@ -66,6 +68,7 @@ func _on_placement_mode_changed(placement_mode_is_on: bool) -> void:
 
 
 func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	print(_event_position, self)
 	if event is InputEventMouseButton and event.pressed:
 		var selector = get_tree().get_first_node_in_group("selector")
 		selector.set_selected_tile(self)

@@ -10,6 +10,7 @@
 script = ExtResource("1_tm20u")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=324655302]
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1747464999]
 shape = SubResource("BoxShape3D_g4v7s")

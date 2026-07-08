@@ -25,6 +25,7 @@ shader_parameter/softness = 0.02
 script = ExtResource("1_78dby")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=971937034]
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=956602252]
 shape = SubResource("SphereShape3D_yf5fn")
