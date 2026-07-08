@@ -1,12 +1,19 @@
-extends Path3D
+extends Node
 
 @export var waves : Array[String] = ["3,s,1", "10,s,1;5,s,0.3"]
+@export var level_path : Path3D
+@export var game_state : GameState
+
+var wave_index : int = 0
 
 var skeleton_minion = preload("res://scenes/models/enemies/skeleton_minion.tscn")
 var enemy_dict = {"s": skeleton_minion}
 
 
 func _ready() -> void: 
+	assert(level_path != null)
+	assert(game_state != null)
+	
 	spawn_wave(waves[0])
 
 
@@ -48,6 +55,8 @@ func spawn_wave(wave_string: String):
 		for x in enemy_count:
 			var path_follow = PathFollow3D.new()
 			var enemy_instance = enemy_dict[enemy_type].instantiate()
+			var base_enemy_of_enemy_instance : BaseEnemy = enemy_instance.get_node("BaseEnemy")
+			base_enemy_of_enemy_instance.enemy_died.connect(game_state._change_player_gold)
 			path_follow.add_child(enemy_instance)
-			add_child(path_follow)
+			level_path.add_child(path_follow)
 			await get_tree().create_timer(spawn_delay).timeout

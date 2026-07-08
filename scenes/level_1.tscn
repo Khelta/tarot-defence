@@ -14,9 +14,9 @@
 [ext_resource type="ArrayMesh" uid="uid://2b5lb7b3peed" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/skull_candle.obj" id="13_2aecg"]
 [ext_resource type="ArrayMesh" uid="uid://n6phrxbbfw3y" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/candle.obj" id="13_6dial"]
 [ext_resource type="PackedScene" uid="uid://0qt802lj2j3e" path="res://scenes/models/lantern.tscn" id="14_7nomh"]
-[ext_resource type="Script" uid="uid://dadttob1jynlc" path="res://scripts/LevelPath.gd" id="15_so66j"]
 [ext_resource type="PackedScene" uid="uid://bp8hthw2bfva" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_broken.fbx" id="17_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
+[ext_resource type="Script" uid="uid://celp2f3jse3sm" path="res://scenes/wave_manager.gd" id="18_isj1j"]
 [ext_resource type="PackedScene" uid="uid://bcyhfyysyes3h" path="res://scenes/tiles/tower_tile.tscn" id="20_isj1j"]
 [ext_resource type="PackedScene" uid="uid://c2ni8776ochta" path="res://scenes/ui/ui.tscn" id="20_so66j"]
 [ext_resource type="PackedScene" uid="uid://novpduw0tymo" path="res://scenes/Selector.tscn" id="20_tr1x6"]
@@ -130,13 +130,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
 
 [node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path")]
 script = ExtResource("6_fcfvj")
-path = NodePath("Path3D")
+path = NodePath("Path")
 
-[node name="Path3D" type="Path3D" parent="GameState" unique_id=210619031]
+[node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state")]
+script = ExtResource("18_isj1j")
+waves = Array[String](["10,s,1;5,s,0.3", "3,s,1"])
+level_path = NodePath("../Path")
+game_state = NodePath("..")
+
+[node name="Path" type="Path3D" parent="GameState" unique_id=210619031]
 curve = SubResource("Curve3D_g4v7s")
 debug_custom_color = Color(0, 1, 0, 1)
-script = ExtResource("15_so66j")
-waves = Array[String](["5,s,1", "10,s,1;5,s,0.3"])
 
 [node name="Towers" type="Node" parent="GameState" unique_id=300044555 groups=["towers"]]
 
@@ -144,6 +148,7 @@ waves = Array[String](["5,s,1", "10,s,1;5,s,0.3"])
 
 [node name="TowerTile" parent="GameState/Tiles" unique_id=1658459195 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
+is_placeable = false
 
 [node name="TowerTile2" parent="GameState/Tiles" unique_id=211774091 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
