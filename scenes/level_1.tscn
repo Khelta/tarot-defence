@@ -128,15 +128,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -24)
 [node name="fence_gate" parent="Assets/Deco" unique_id=962961513 instance=ExtResource("18_2cbcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
 
-[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path")]
+[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path") groups=["game_state"]]
 script = ExtResource("6_fcfvj")
 path = NodePath("Path")
 
-[node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state")]
+[node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state", "ui")]
 script = ExtResource("18_isj1j")
-waves = Array[String](["10,s,1;5,s,0.3", "3,s,1"])
+waves = Array[String](["3,s,1;2,s,2", "10,s,1;5,s,0.3"])
 level_path = NodePath("../Path")
 game_state = NodePath("..")
+ui = NodePath("../../Ui")
 
 [node name="Path" type="Path3D" parent="GameState" unique_id=210619031]
 curve = SubResource("Curve3D_g4v7s")
