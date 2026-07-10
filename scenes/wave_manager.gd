@@ -87,8 +87,6 @@ func spawn_wave(wave_string: String):
 
 
 func _on_enemy_died(_v):
-	print("HELLO ", wave_enemy_count)
 	wave_enemy_count -= 1
 	if wave_enemy_count == 0:
-		print("ENDED")
 		wave_ended.emit(wave_index, len(waves))

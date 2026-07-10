@@ -15,6 +15,7 @@ class_name TowerTile
 	set(new_tower):
 		tower = new_tower
 		tower.position = global_position
+		tower.set_viewport_camera(global_position)
 		tower.rotation.y = atan2(tower_rotation.x, tower_rotation.z)
 		if is_part_of_another_node:
 			tower.rotate_y(get_parent().rotation.y)

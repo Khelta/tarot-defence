@@ -77,4 +77,15 @@ grow_horizontal = 2
 text = "Start Wave"
 script = ExtResource("3_aac20")
 
+[node name="TowerPreview" type="TextureRect" parent="." unique_id=2043718582]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -203.0
+offset_top = -203.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [connection signal="button_down" from="StartWaveButton" to="StartWaveButton" method="_on_button_down"]
