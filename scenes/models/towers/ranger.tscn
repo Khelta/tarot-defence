@@ -6,12 +6,10 @@
 
 [node name="Ranger" type="Node3D" unique_id=893937668]
 script = ExtResource("1_vsabo")
-
-[node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_vsabo")]
 tower_range = 10.0
 base_damage = 25.0
 attacks_per_second = 1.5
 
-[node name="RangerModel" parent="." unique_id=399828594 instance=ExtResource("2_dd6ky")]
+[node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_vsabo")]
 
-[connection signal="attack" from="BaseTower" to="RangerModel" method="_on_base_tower_attack"]
+[node name="RangerModel" parent="." unique_id=399828594 instance=ExtResource("2_dd6ky")]

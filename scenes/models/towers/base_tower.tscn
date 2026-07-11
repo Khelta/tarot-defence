@@ -46,6 +46,3 @@ surface_material_override/0 = SubResource("ShaderMaterial_so66j")
 transform = Transform3D(-0.76604444, -0.32139382, 0.5566704, 0, 0.8660254, 0.5, -0.64278764, 0.38302222, -0.66341394, 0, 2, -3)
 projection = 1
 size = 3.41
-
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

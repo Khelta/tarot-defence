@@ -20,7 +20,11 @@ func _ready() -> void:
 	
 	set_attack_range_indicator()
 	
-	default_rotation = get_parent().rotation
+	default_rotation = rotation
+	
+	var area : Area3D = get_node("BaseTower/Area3D")
+	area.area_entered.connect(_on_area_3d_area_entered)
+	area.area_exited.connect(_on_area_3d_area_exited)
 	
 	
 func apply_damage(target: Node3D):
