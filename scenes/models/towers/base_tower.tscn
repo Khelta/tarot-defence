@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://do5m6kksqscjp"]
 
-[ext_resource type="Script" uid="uid://bd4hssg3v0xvg" path="res://scripts/towers/base_tower.gd" id="1_78dby"]
 [ext_resource type="Shader" uid="uid://cnqynrojqqxdq" path="res://materials/attack_range_indicator.gdshader" id="2_ebdug"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yf5fn"]
-radius = 10.0
+radius = 5.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_5dodm"]
-radius = 10.0
-height = 20.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_fhpdf"]
 
@@ -24,7 +23,6 @@ shader_parameter/outer_radius = 0.5
 shader_parameter/softness = 0.02
 
 [node name="BaseTower" type="Node3D" unique_id=1399133275]
-script = ExtResource("1_78dby")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=971937034]
 input_ray_pickable = false

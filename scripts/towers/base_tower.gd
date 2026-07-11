@@ -14,9 +14,9 @@ var default_rotation = Vector3()
 signal attack
 
 func _ready() -> void:
-	get_node("Area3D/CollisionShape3D").shape.radius = tower_range
-	get_node("DebugMesh").mesh.radius = tower_range
-	get_node("DebugMesh").mesh.height = tower_range * 2
+	get_node("BaseTower/Area3D/CollisionShape3D").shape.radius = tower_range
+	get_node("BaseTower/DebugMesh").mesh.radius = tower_range
+	get_node("BaseTower/DebugMesh").mesh.height = tower_range * 2
 	
 	set_attack_range_indicator()
 	
@@ -36,14 +36,13 @@ func _process(delta):
 
 
 func set_attack_range_indicator():
-	var attack_range_indicator = get_node("AttackRangeIndicator")
+	var attack_range_indicator = get_node("BaseTower/AttackRangeIndicator")
 	var s = tower_range * 2
 	attack_range_indicator.scale = Vector3(s, s, s)
 	
 
 func set_viewport_camera(camera_position: Vector3) -> void:
-	get_node("SubViewport/Camera3D").position = camera_position + Vector3(1.0, 2.0, -1.0)
-	print(get_parent().name, position)
+	get_node("BaseTower/SubViewport/Camera3D").position = camera_position + Vector3(1.0, 2.0, -1.0)
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
