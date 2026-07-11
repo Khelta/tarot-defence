@@ -12,4 +12,4 @@ attacks_per_second = 1.5
 
 [node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_vsabo")]
 
-[node name="RangerModel" parent="." unique_id=399828594 instance=ExtResource("2_dd6ky")]
+[node name="Model" parent="." unique_id=399828594 instance=ExtResource("2_dd6ky")]

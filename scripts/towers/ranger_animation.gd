@@ -27,3 +27,12 @@ func set_animation_on_loop(animation_name: String) -> void:
 
 func _on_base_tower_attack() -> void:
 	_attack()
+
+
+func _set_selection(is_on: bool) -> void:
+	var mat = ShaderMaterial.new()
+	mat.shader = preload("res://scenes/models/towers/fresnel.gdshader")
+	
+	for ranger_mesh in get_node("Rig_Medium/Skeleton3D").get_children():
+		if ranger_mesh is MeshInstance3D:
+			ranger_mesh.material_overlay = mat if is_on else null

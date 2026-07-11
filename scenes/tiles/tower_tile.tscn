@@ -16,6 +16,7 @@ skeleton = NodePath("")
 
 [node name="ValidTowerPositionVFX" parent="." unique_id=95068320 instance=ExtResource("3_3c3ku")]
 transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 1.75, 0)
+visible = false
 
 [node name="Area3D" type="Area3D" parent="." unique_id=758582759]
 monitoring = false

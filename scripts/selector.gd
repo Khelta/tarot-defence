@@ -7,8 +7,12 @@ var custom_ui : UI = null
 
 var selected_tower : BaseTower:
 	set(new_selected_tower):
+		if selected_tower:
+			set_fresnel_selection(selected_tower, false)
 		selected_tower = new_selected_tower
+		set_fresnel_selection(selected_tower, true)
 		set_ui_tower_preview(new_selected_tower)
+		
 
 signal placement_mode_changed(is_on: bool)
 
@@ -41,6 +45,10 @@ func set_selected_tile(tile: TowerTile) -> void:
 	try_placement()
 
 
+func set_selected_tower(tower: BaseTower) -> void:
+	selected_tower = tower
+
+
 func try_placement() -> void:
 	if selected_tile.is_placeable and selected_tile.tower == null and ui_selected_tower != "":
 		var tower_scene_path: String = "res://scenes/models/towers/" + ui_selected_tower + ".tscn"
@@ -54,3 +62,7 @@ func try_placement() -> void:
 
 func set_ui_tower_preview(tower: BaseTower) -> void:
 	custom_ui.get_node("TowerPreview").texture = tower.get_node("BaseTower/SubViewport").get_texture()
+
+
+func set_fresnel_selection(tower: BaseTower, is_on) -> void:
+	tower.get_node("Model")._set_selection(is_on)

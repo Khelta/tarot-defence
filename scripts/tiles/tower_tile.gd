@@ -70,5 +70,8 @@ func _on_placement_mode_changed(placement_mode_is_on: bool) -> void:
 
 func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		var selector = get_tree().get_first_node_in_group("selector")
-		selector.set_selected_tile(self)
+		var selector : Selector = get_tree().get_first_node_in_group("selector")
+		if self.tower:
+			selector.set_selected_tower(self.tower)
+		else:
+			selector.set_selected_tile(self)
