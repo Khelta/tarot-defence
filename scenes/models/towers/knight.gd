@@ -1,0 +1,9 @@
+extends BaseTower
+class_name Knight
+
+
+func _ready() -> void:
+	super()
+	
+	var knight_animation : KnightAnimation = get_node("Model")
+	self.attack.connect(knight_animation._on_base_tower_attack)

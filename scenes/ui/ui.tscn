@@ -44,7 +44,7 @@ button_group = ExtResource("3_0dwhk")
 icon = SubResource("CompressedTexture2D_aac20")
 expand_icon = true
 
-[node name="Mage" type="Button" parent="HBoxContainer" unique_id=1733514948 groups=["mage_button"]]
+[node name="Knight" type="Button" parent="HBoxContainer" unique_id=1733514948 groups=["knight_button"]]
 custom_minimum_size = Vector2(100, 100)
 custom_maximum_size = Vector2(250, 250)
 layout_mode = 2

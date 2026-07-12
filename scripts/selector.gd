@@ -24,26 +24,25 @@ signal placement_mode_changed(is_on: bool)
 
 func _ready() -> void:
 	custom_ui = get_tree().get_first_node_in_group("ui")
-	connect_to_ranger_button()
-	connect_to_delete_button()
+	connect_to_buttons()
 
 
-func connect_to_ranger_button() -> void:
-		await get_tree().process_frame
-		var ranger_button = get_tree().get_first_node_in_group("ranger_button")
-		ranger_button.toggled.connect(_on_ranger_button_toggle)
-
-
-func connect_to_delete_button() -> void:
+func connect_to_buttons() -> void:
 	await get_tree().process_frame
+	var ranger_button = get_tree().get_first_node_in_group("ranger_button")
+	ranger_button.toggled.connect(_on_unit_button_toggle.bind("ranger"))
+	
+	var knight_button = get_tree().get_first_node_in_group("knight_button")
+	knight_button.toggled.connect(_on_unit_button_toggle.bind("knight"))
+	
 	var delete_button = get_tree().get_first_node_in_group("delete_button")
 	delete_button.pressed.connect(_on_delete_button_pressed)
 
 
-func _on_ranger_button_toggle(toggle_on: bool) -> void:
+func _on_unit_button_toggle(toggle_on: bool, selected_tower: String) -> void:
 	is_placement_mode = toggle_on
 	if toggle_on:
-		ui_selected_tower = "ranger"
+		ui_selected_tower = selected_tower
 	else:
 		ui_selected_tower = ""
 

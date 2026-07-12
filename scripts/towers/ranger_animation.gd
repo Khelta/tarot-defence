@@ -1,16 +1,5 @@
-extends Node3D
 class_name RangerAnimation
-
-@export var animation_player : AnimationPlayer
-
-
-func _ready() -> void:
-	set_animation_on_loop("Rig_Medium_CombatRanged/Ranged_Bow_Idle")
-	_idle()
-
-
-func _idle() -> void:
-	animation_player.play("Rig_Medium_CombatRanged/Ranged_Bow_Idle")
+extends BasicTowerAnimation
 
 
 func _attack() -> void:
@@ -18,21 +7,3 @@ func _attack() -> void:
 	animation_player.play("Rig_Medium_CombatRanged/Ranged_Bow_Release")
 	await animation_player.animation_finished
 	_idle()
-
-
-func set_animation_on_loop(animation_name: String) -> void: 
-	var anim : Animation = animation_player.get_animation(animation_name)
-	anim.loop_mode = (Animation.LOOP_LINEAR)
-
-
-func _on_base_tower_attack() -> void:
-	_attack()
-
-
-func _set_selection(is_on: bool) -> void:
-	var mat = ShaderMaterial.new()
-	mat.shader = preload("res://scenes/models/towers/fresnel.gdshader")
-	
-	for ranger_mesh in get_node("Rig_Medium/Skeleton3D").get_children():
-		if ranger_mesh is MeshInstance3D:
-			ranger_mesh.material_overlay = mat if is_on else null
