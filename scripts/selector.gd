@@ -10,7 +10,8 @@ var selected_tower : BaseTower:
 		if selected_tower:
 			set_fresnel_selection(selected_tower, false)
 		selected_tower = new_selected_tower
-		set_fresnel_selection(selected_tower, true)
+		if new_selected_tower:
+			set_fresnel_selection(new_selected_tower, true)
 		set_ui_tower_preview(new_selected_tower)
 		
 
@@ -24,12 +25,19 @@ signal placement_mode_changed(is_on: bool)
 func _ready() -> void:
 	custom_ui = get_tree().get_first_node_in_group("ui")
 	connect_to_ranger_button()
+	connect_to_delete_button()
 
 
-func connect_to_ranger_button():
+func connect_to_ranger_button() -> void:
 		await get_tree().process_frame
 		var ranger_button = get_tree().get_first_node_in_group("ranger_button")
 		ranger_button.toggled.connect(_on_ranger_button_toggle)
+
+
+func connect_to_delete_button() -> void:
+	await get_tree().process_frame
+	var delete_button = get_tree().get_first_node_in_group("delete_button")
+	delete_button.pressed.connect(_on_delete_button_pressed)
 
 
 func _on_ranger_button_toggle(toggle_on: bool) -> void:
@@ -38,6 +46,13 @@ func _on_ranger_button_toggle(toggle_on: bool) -> void:
 		ui_selected_tower = "ranger"
 	else:
 		ui_selected_tower = ""
+
+
+func _on_delete_button_pressed() -> void:
+	var delete_tower = selected_tower
+	selected_tower = null
+	delete_tower.destroy()
+		
 
 
 func set_selected_tile(tile: TowerTile) -> void:
@@ -61,7 +76,7 @@ func try_placement() -> void:
 
 
 func set_ui_tower_preview(tower: BaseTower) -> void:
-	custom_ui.get_node("TowerPreview").texture = tower.get_node("BaseTower/SubViewport").get_texture()
+	custom_ui.get_node("TowerPreview").texture = tower.get_node("BaseTower/SubViewport").get_texture() if tower else null
 
 
 func set_fresnel_selection(tower: BaseTower, is_on) -> void:

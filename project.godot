@@ -31,6 +31,7 @@ selector=""
 ui=""
 towers=""
 game_state=""
+delete_button=""
 
 [input]
 

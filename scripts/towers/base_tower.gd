@@ -25,11 +25,8 @@ func _ready() -> void:
 	var area : Area3D = get_node("BaseTower/Area3D")
 	area.area_entered.connect(_on_area_3d_area_entered)
 	area.area_exited.connect(_on_area_3d_area_exited)
-	
-	
-func apply_damage(target: Node3D):
-	target.take_damage(base_damage) 
-	
+
+
 func _process(delta):
 	attack_cooldown -= delta
 	if attack_cooldown <= 0.0:
@@ -39,11 +36,18 @@ func _process(delta):
 			attack_cooldown = 1.0 / attacks_per_second
 
 
+func destroy() -> void:
+	queue_free()
+
+func apply_damage(target: Node3D):
+	target.take_damage(base_damage) 
+
+
 func set_attack_range_indicator():
 	var attack_range_indicator = get_node("BaseTower/AttackRangeIndicator")
 	var s = tower_range * 2
 	attack_range_indicator.scale = Vector3(s, s, s)
-	
+
 
 func set_viewport_camera(camera_position: Vector3) -> void:
 	get_node("BaseTower/SubViewport/Camera3D").position = camera_position + Vector3(1.0, 2.0, -1.0)
