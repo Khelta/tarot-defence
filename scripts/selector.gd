@@ -1,7 +1,7 @@
 extends Node
 class_name Selector
 
-var selected_tile :  TowerTile
+var selected_tile :  Slot
 var ui_selected_tower : String = ""
 var custom_ui : UI = null
 
@@ -13,18 +13,30 @@ var selected_tower : BaseTower:
 		if new_selected_tower:
 			set_fresnel_selection(new_selected_tower, true)
 		set_ui_tower_preview(new_selected_tower)
-		
 
-signal placement_mode_changed(is_on: bool)
+@export var grabbed_tower : BaseTower:
+	set(new_grabbed_tower):
+		if grabbed_tower:
+			grabbed_tower._on_grabbed_changed(false)
+		grabbed_tower = new_grabbed_tower
+		if grabbed_tower:
+			grabbed_tower._on_grabbed_changed(true)
 
 @export var is_placement_mode : bool = false:
 	set(value):
 		is_placement_mode = value
 		placement_mode_changed.emit(value)
 
+signal placement_mode_changed(is_on: bool)
+
 func _ready() -> void:
 	custom_ui = get_tree().get_first_node_in_group("ui")
 	connect_to_buttons()
+
+
+func _process(_delta: float) -> void:
+	if grabbed_tower:
+		grabbed_tower.global_position = MouseUtils.get_mouse_world_position()
 
 
 func connect_to_buttons() -> void:
@@ -51,27 +63,25 @@ func _on_delete_button_pressed() -> void:
 	var delete_tower = selected_tower
 	selected_tower = null
 	delete_tower.destroy()
-		
 
 
-func set_selected_tile(tile: TowerTile) -> void:
+func set_selected_tile(tile: Slot) -> void:
 	selected_tile = tile
 	try_placement()
+	is_placement_mode = false
 
-
-func set_selected_tower(tower: BaseTower) -> void:
-	selected_tower = tower
+	
+func grab_tower(slot: Slot) -> void:
+	grabbed_tower = slot.tower
+	slot.tower = null
+	is_placement_mode = true
 
 
 func try_placement() -> void:
-	if selected_tile.is_placeable and selected_tile.tower == null and ui_selected_tower != "":
-		var tower_scene_path: String = "res://scenes/models/towers/" + ui_selected_tower + ".tscn"
-		var tower_resource = load(tower_scene_path)
-		var new_tower: BaseTower = tower_resource.instantiate()
-		var towers = get_tree().get_first_node_in_group("towers")
-		towers.add_child(new_tower)
-		selected_tile.tower = new_tower
-		selected_tower = new_tower
+	if selected_tile.is_free():
+		var temp = grabbed_tower
+		grabbed_tower = null
+		selected_tile.tower = temp
 
 
 func set_ui_tower_preview(tower: BaseTower) -> void:

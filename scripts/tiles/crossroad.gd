@@ -1,5 +1,5 @@
 @tool
-extends Node3D
+extends CombinedTile
 
 
 @export var is_tower_one_placeable: bool = true:
@@ -24,10 +24,3 @@ extends Node3D
 	set(new_is_tower_four_placeable):
 		is_tower_four_placeable = new_is_tower_four_placeable
 		update_tower(3, is_tower_four_placeable)
-
-
-func update_tower(tower_index, is_placeable):
-	if not is_node_ready():
-			await ready
-	var tower = get_child(tower_index)
-	tower.is_placeable = is_placeable

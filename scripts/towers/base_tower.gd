@@ -10,6 +10,10 @@ var enemies_in_range : Array[Area3D] = []
 var attack_cooldown: float = 0.0
 const default_timeout = 0.5
 var default_rotation = Vector3()
+var is_grabbed: bool = false:
+	set(new_is_grabbed):
+		is_grabbed = new_is_grabbed
+		get_node("BaseTower/AttackRangeIndicator").visible = is_grabbed
 
 signal attack
 
@@ -61,3 +65,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.get_parent().name == "BaseEnemy":
 		enemies_in_range.erase(area)
+
+
+func _on_grabbed_changed(is_grabbed: bool) -> void:
+	self.is_grabbed = is_grabbed

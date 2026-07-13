@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cqm8482hhioqd"]
+
+[ext_resource type="PackedScene" uid="uid://yktqdiy7sfjv" path="res://scenes/bench/bench_slot.tscn" id="1_bxfph"]
+
+[node name="Bench" type="Node3D" unique_id=1071650749]
+
+[node name="BenchSlot" parent="." unique_id=227861295 instance=ExtResource("1_bxfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="BenchSlot2" parent="." unique_id=514423285 instance=ExtResource("1_bxfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="BenchSlot3" parent="." unique_id=2124252896 instance=ExtResource("1_bxfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="BenchSlot4" parent="." unique_id=26208652 instance=ExtResource("1_bxfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="BenchSlot5" parent="." unique_id=1949376357 instance=ExtResource("1_bxfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="BenchSlot6" parent="." unique_id=1914588665 instance=ExtResource("1_bxfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="BenchSlot7" parent="." unique_id=419861363 instance=ExtResource("1_bxfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="BenchSlot8" parent="." unique_id=1394706848 instance=ExtResource("1_bxfph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)

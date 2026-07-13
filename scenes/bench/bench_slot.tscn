@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://yktqdiy7sfjv"]
+
+[ext_resource type="Script" uid="uid://uusl4v5ohdb0" path="res://scenes/bench/bench_slot.gd" id="1_ebkya"]
+[ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_l4yyl"]
+[ext_resource type="PackedScene" uid="uid://dmvrwyc6lcwcu" path="res://scenes/tiles/valid_tower_position_vfx.tscn" id="3_7fswh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(4, 0.54797363, 4)
+
+[node name="BenchSlot" type="Node3D" unique_id=227861295]
+script = ExtResource("1_ebkya")
+is_eligible = true
+
+[node name="FloorDirt" type="MeshInstance3D" parent="." unique_id=648264484]
+mesh = ExtResource("1_l4yyl")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1575674301]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=323915537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22601318, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="ValidTowerPositionVFX" parent="." unique_id=95068320 instance=ExtResource("3_7fswh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.8932354, 0)
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

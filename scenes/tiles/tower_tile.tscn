@@ -3,6 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_3cgtp"]
 [ext_resource type="Script" uid="uid://reuik7gk8rcu" path="res://scripts/tiles/tower_tile.gd" id="1_w0cn8"]
 [ext_resource type="PackedScene" uid="uid://dmvrwyc6lcwcu" path="res://scenes/tiles/valid_tower_position_vfx.tscn" id="3_3c3ku"]
+[ext_resource type="Material" uid="uid://b7vu321dupt24" path="res://materials/invalid_placeable_material.tres" id="3_hpuji"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(4, 0.6, 4)
@@ -13,6 +14,7 @@ script = ExtResource("1_w0cn8")
 [node name="FloorDirt" type="MeshInstance3D" parent="." unique_id=265700949]
 mesh = ExtResource("1_3cgtp")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_hpuji")
 
 [node name="ValidTowerPositionVFX" parent="." unique_id=95068320 instance=ExtResource("3_3c3ku")]
 transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 1.75, 0)

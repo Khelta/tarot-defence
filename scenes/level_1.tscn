@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bcyhfyysyes3h" path="res://scenes/tiles/tower_tile.tscn" id="20_isj1j"]
 [ext_resource type="PackedScene" uid="uid://c2ni8776ochta" path="res://scenes/ui/ui.tscn" id="20_so66j"]
 [ext_resource type="PackedScene" uid="uid://novpduw0tymo" path="res://scenes/Selector.tscn" id="20_tr1x6"]
+[ext_resource type="PackedScene" uid="uid://cqm8482hhioqd" path="res://scenes/bench/bench.tscn" id="21_so66j"]
 
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
@@ -35,7 +36,7 @@ point_count = 4
 transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -3, 0, -16)
 
 [node name="Camera3D" type="Camera3D" parent="Camera" unique_id=2057554183]
-transform = Transform3D(-0.76604456, -0.3500873, 0.5390873, 0, 0.8386706, 0.544639, -0.6427879, 0.41721773, -0.64245915, 63.00124, 63.059456, -74.004776)
+transform = Transform3D(-0.7660446, -0.35008726, 0.5390872, 0, 0.83867055, 0.54463917, -0.6427878, 0.4172177, -0.6424591, 63.00124, 63.059456, -74.004776)
 projection = 1
 size = 30.0
 script = ExtResource("1_pa8r4")
@@ -149,31 +150,29 @@ debug_custom_color = Color(0, 1, 0, 1)
 
 [node name="TowerTile" parent="GameState/Tiles" unique_id=1658459195 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
-is_placeable = false
 
 [node name="TowerTile2" parent="GameState/Tiles" unique_id=211774091 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
-is_placeable = false
 
 [node name="TowerTile3" parent="GameState/Tiles" unique_id=1196411302 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
-is_placeable = false
 
 [node name="TowerTile4" parent="GameState/Tiles" unique_id=1521474126 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -16)
-is_placeable = false
 
 [node name="TowerTile5" parent="GameState/Tiles" unique_id=1379583805 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
-is_placeable = false
 
 [node name="TowerTile6" parent="GameState/Tiles" unique_id=1187378878 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
-is_placeable = false
 
 [node name="TowerTile7" parent="GameState/Tiles" unique_id=1991203557 instance=ExtResource("20_isj1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
-is_placeable = false
+
+[node name="TurnLeft" parent="GameState/Tiles" unique_id=977008734 instance=ExtResource("3_fcfvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+is_tower_two_placeable = false
+is_tower_four_placeable = false
 
 [node name="StraightBb" parent="GameState/Tiles" unique_id=1879107471 instance=ExtResource("2_4nkto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
@@ -188,11 +187,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 is_tower_one_placeable = false
 is_tower_two_placeable = false
 
-[node name="Crossroad" parent="GameState/Tiles" unique_id=977008734 instance=ExtResource("3_fcfvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
-is_tower_two_placeable = false
-is_tower_four_placeable = false
-
 [node name="StraightBb4" parent="GameState/Tiles" unique_id=2114964066 instance=ExtResource("2_4nkto")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
 is_tower_one_placeable = false
@@ -205,6 +199,9 @@ is_tower_two_placeable = false
 
 [node name="StraightBb7" parent="GameState/Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
+
+[node name="Bench" parent="GameState" unique_id=1071650749 instance=ExtResource("21_so66j")]
+transform = Transform3D(-0.6427875, 0, -0.76604456, 0, 1, 0, 0.76604456, 0, -0.6427875, 9.8, 0, -30)
 
 [node name="Selector" parent="." unique_id=879494282 instance=ExtResource("20_tr1x6")]
 

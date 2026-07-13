@@ -46,7 +46,7 @@ render_priority = 0
 shader = ExtResource("1_qhvea")
 shader_parameter/bottom_color = Color(0, 1, 0, 1)
 
-[node name="Node3D" type="Node3D" unique_id=95068320]
+[node name="ValidTowerPositionVFX" type="Node3D" unique_id=95068320]
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=1927362587]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)

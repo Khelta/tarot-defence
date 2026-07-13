@@ -9,12 +9,16 @@ script = ExtResource("1_r10fd")
 
 [node name="TowerTile" parent="." unique_id=1658459195 instance=ExtResource("3_hi2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+visible = true
 is_part_of_another_node = true
+is_eligible = true
 tower_rotation = Vector3(-1, 0, 0)
 
 [node name="TowerTile2" parent="." unique_id=1038888481 instance=ExtResource("3_hi2pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+visible = true
 is_part_of_another_node = true
+is_eligible = true
 
 [node name="PathTile" parent="." unique_id=1881379295 instance=ExtResource("2_onexn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
