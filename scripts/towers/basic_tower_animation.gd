@@ -2,6 +2,7 @@ extends Node
 class_name BasicTowerAnimation
 
 @export var animation_player : AnimationPlayer
+@export var animation_tree : AnimationTree
 @export var idle_animation_path : String
 
 func _ready() -> void:
@@ -18,6 +19,17 @@ func _idle() -> void:
 func _attack() -> void:
 	_idle()
 
+func _on_grab() -> void:
+	animation_player.play("Jump_Start")
+	await animation_player.animation_finished
+	set_animation_on_loop("Jump_Idle")
+	animation_player.play("Jump_Idle")
+	
+
+func _on_grab_released() -> void:
+	animation_player.play("Jump_Land", 1)
+	await animation_player.animation_finished
+	_idle()
 
 func set_animation_on_loop(animation_name: String) -> void: 
 	var anim : Animation = animation_player.get_animation(animation_name)

@@ -14,8 +14,14 @@ var is_grabbed: bool = false:
 	set(new_is_grabbed):
 		is_grabbed = new_is_grabbed
 		get_node("BaseTower/AttackRangeIndicator").visible = is_grabbed
+		if is_grabbed:
+			grabbed.emit()
+		else:
+			grab_released.emit()
 
-signal attack
+signal attacked
+signal grabbed
+signal grab_released
 
 func _ready() -> void:
 	get_node("BaseTower/Area3D/CollisionShape3D").shape.radius = tower_range
@@ -36,7 +42,7 @@ func _process(delta):
 	if attack_cooldown <= 0.0:
 		if len(enemies_in_range) != 0:
 			apply_damage(enemies_in_range[0].get_parent())
-			attack.emit()
+			attacked.emit()
 			attack_cooldown = 1.0 / attacks_per_second
 
 
