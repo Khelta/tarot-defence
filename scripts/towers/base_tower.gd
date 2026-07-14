@@ -6,6 +6,8 @@ class_name BaseTower
 @export var base_damage : float = 10.0
 @export var attacks_per_second : float = 1.0
 
+var star_level : int = 1
+
 var enemies_in_range : Array[Area3D] = []
 var attack_cooldown: float = 0.0
 const default_timeout = 0.5
@@ -52,6 +54,12 @@ func destroy() -> void:
 func apply_damage(target: Node3D):
 	target.take_damage(base_damage) 
 
+
+func upgrade():
+	star_level += 1
+	var model = get_node("Model")
+	var scale_value = 1 + 0.5 * (star_level - 1)
+	model.scale = Vector3(scale_value, scale_value, scale_value)
 
 func set_attack_range_indicator():
 	var attack_range_indicator = get_node("BaseTower/AttackRangeIndicator")

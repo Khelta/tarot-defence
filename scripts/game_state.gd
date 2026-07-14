@@ -41,6 +41,14 @@ func _ready() -> void:
 	towers.add_child(ranger)
 	get_node("Bench/BenchSlot2").tower = ranger
 	
+	ranger = ranger_scene.instantiate()
+	towers.add_child(ranger)
+	get_node("Bench/BenchSlot").tower = ranger
+	
+	ranger = ranger_scene.instantiate()
+	towers.add_child(ranger)
+	get_node("Bench/BenchSlot4").tower = ranger
+	
 	var knight_scene = preload("res://scenes/models/towers/knight.tscn")
 	var knight = knight_scene.instantiate()
 	towers.add_child(knight)
