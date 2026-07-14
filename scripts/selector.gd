@@ -70,11 +70,24 @@ func set_selected_tile(tile: Slot) -> void:
 	try_placement()
 	is_placement_mode = false
 
-	
+
+func set_selected_tower(slot: Slot) -> void:
+	selected_tower = slot.tower
+
+
 func grab_tower(slot: Slot) -> void:
-	grabbed_tower = slot.tower
-	slot.tower = null
+	selected_tower = null
+	
+	if grabbed_tower:
+		var temp_tower = slot.tower
+		slot.tower = grabbed_tower
+		grabbed_tower = temp_tower
+	else:
+		grabbed_tower = slot.tower
+		slot.tower = null
+	
 	is_placement_mode = true
+
 
 
 func try_placement() -> void:

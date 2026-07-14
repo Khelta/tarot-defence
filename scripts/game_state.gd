@@ -39,8 +39,12 @@ func _ready() -> void:
 	var towers = get_node("Towers")
 	var ranger = ranger_scene.instantiate()
 	towers.add_child(ranger)
-	
 	get_node("Bench/BenchSlot2").tower = ranger
+	
+	var knight_scene = preload("res://scenes/models/towers/knight.tscn")
+	var knight = knight_scene.instantiate()
+	towers.add_child(knight)
+	get_node("Bench/BenchSlot3").tower = knight
 
 
 func _process(delta):
