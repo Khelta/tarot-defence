@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yktqdiy7sfjv"]
 
-[ext_resource type="Script" uid="uid://uusl4v5ohdb0" path="res://scenes/bench/bench_slot.gd" id="1_ebkya"]
+[ext_resource type="Script" uid="uid://uusl4v5ohdb0" path="res://scenes/models/bench/bench_slot.gd" id="1_ebkya"]
 [ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_l4yyl"]
 [ext_resource type="PackedScene" uid="uid://dmvrwyc6lcwcu" path="res://scenes/tiles/valid_tower_position_vfx.tscn" id="3_7fswh"]
 
