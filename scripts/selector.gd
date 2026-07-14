@@ -39,6 +39,11 @@ func _process(_delta: float) -> void:
 		grabbed_tower.global_position = MouseUtils.get_mouse_world_position()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("deselect"):
+		deselect()
+
+
 func connect_to_buttons() -> void:
 	await get_tree().process_frame
 	var ranger_button = get_tree().get_first_node_in_group("ranger_button")
@@ -77,6 +82,7 @@ func set_selected_tower(slot: Slot) -> void:
 
 func grab_tower(slot: Slot) -> void:
 	selected_tower = null
+	selected_tile = slot
 	
 	if grabbed_tower:
 		var temp_tower = slot.tower
@@ -88,6 +94,19 @@ func grab_tower(slot: Slot) -> void:
 	
 	is_placement_mode = true
 
+
+func deselect() -> void:
+	if selected_tile and grabbed_tower:
+		selected_tile.tower = grabbed_tower
+		grabbed_tower = null
+		selected_tile = null
+		is_placement_mode = false
+		return
+	
+	if selected_tower:
+		selected_tower = null
+		selected_tile = null
+		is_placement_mode = false
 
 
 func try_placement() -> void:
