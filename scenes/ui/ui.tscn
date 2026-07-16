@@ -5,6 +5,7 @@
 [ext_resource type="ButtonGroup" uid="uid://dlgob0genlkmn" path="res://scenes/ui/tower_button_group.tres" id="3_0dwhk"]
 [ext_resource type="Script" uid="uid://b44gsbhtlkeoy" path="res://scenes/ui/start_wave_button.gd" id="3_aac20"]
 [ext_resource type="Texture2D" uid="uid://7jdlp8pfgot7" path="res://assets/preview_images/Delete.png" id="3_g5kmx"]
+[ext_resource type="PackedScene" uid="uid://cldxl6iomvmm8" path="res://scenes/ui/ui_booster_pack.tscn" id="6_pfayw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aac20"]
 load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.ctex"
@@ -95,5 +96,21 @@ offset_top = -200.0
 grow_horizontal = 0
 grow_vertical = 0
 expand_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=642345728]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 200.0
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=909764455]
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="UiBoosterPack" parent="SubViewportContainer/SubViewport" unique_id=1404535210 instance=ExtResource("6_pfayw")]
 
 [connection signal="button_down" from="StartWaveButton" to="StartWaveButton" method="_on_button_down"]

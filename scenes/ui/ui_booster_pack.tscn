@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cldxl6iomvmm8"]
+
+[ext_resource type="PackedScene" uid="uid://bubx1f2tgqdq6" path="res://scenes/ui/booster_pack.tscn" id="1_4sdj5"]
+[ext_resource type="Script" uid="uid://bgsu3a51df5mo" path="res://scenes/ui/ui_booster_pack.gd" id="1_odv7w"]
+
+[node name="UiBoosterPack" type="Node3D" unique_id=1404535210]
+script = ExtResource("1_odv7w")
+
+[node name="BoosterPack" parent="." unique_id=594863763 instance=ExtResource("1_4sdj5")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1986614984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4089806)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1011271073]
+transform = Transform3D(0.91870767, 0.18844649, -0.34707943, 0, 0.8788195, 0.47715434, 0.39493823, -0.43836537, 0.80737823, 0, 0, 5.0443115)

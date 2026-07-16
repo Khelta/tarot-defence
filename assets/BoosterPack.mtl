@@ -1,0 +1,22 @@
+# Blender 5.1.2 MTL File: 'Untitled.blend'
+# www.blender.org
+
+newmtl Material
+Ns 354.593353
+Ka 0.894472 0.894472 0.894472
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+
+newmtl Material.001
+Ns 404.087036
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/jonas/Pictures/Screenshots/Screenshot 2026-07-16 144339.png
