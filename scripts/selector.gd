@@ -1,27 +1,28 @@
 extends Node
 class_name Selector
 
-var selected_tile :  Slot
 var ui_selected_tower : String = ""
 var custom_ui : UI = null
 
-var selected_tower : BaseTower:
-	set(new_selected_tower):
-		if selected_tower:
-			set_fresnel_selection(selected_tower, false)
-		selected_tower = new_selected_tower
-		if new_selected_tower:
-			set_fresnel_selection(new_selected_tower, true)
-		set_ui_tower_preview(new_selected_tower)
+# Selection for tower_panel
+var selected_slot_for_panel : Slot:
+	set(value):
+		if selected_slot_for_panel:
+			set_fresnel_selection(selected_slot_for_panel.tower, false)
+		selected_slot_for_panel = value
+		if value:
+			set_fresnel_selection(value.tower, true)
+		set_ui_tower_preview(value.tower if value else null)
 var tower_panel : TowerPanel
 
-@export var grabbed_tower : BaseTower:
+var grabbed_tower : BaseTower:
 	set(new_grabbed_tower):
 		if grabbed_tower:
 			grabbed_tower._on_grabbed_changed(false)
 		grabbed_tower = new_grabbed_tower
 		if grabbed_tower:
 			grabbed_tower._on_grabbed_changed(true)
+var grabbed_tower_slot : Slot
 
 @export var is_placement_mode : bool = false:
 	set(value):
@@ -41,9 +42,34 @@ func _process(_delta: float) -> void:
 		grabbed_tower.global_position = MouseUtils.get_mouse_world_position()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("tower_info"):
+		var slot = MouseUtils.select_entity_from_mouse(3)
+
+		if slot:
+			if slot.tower != null:
+				if selected_slot_for_panel == null:
+					set_selected_tower_from_slot(slot)
+				else:
+					deselect()
+		else:
+			deselect()
+
 	if event.is_action_pressed("deselect"):
 		deselect()
+
+	if event.is_action_pressed("select"):
+		var slot = MouseUtils.select_entity_from_mouse(3)
+		
+		if slot is BenchSlot:
+			if slot.tower:
+				grab_tower(slot)
+			elif slot.is_free():
+				place_grabbed_tower_in_slot(slot)
+				
+		if slot is TowerTile:
+			if grabbed_tower:
+				place_grabbed_tower_in_slot(slot)
 
 
 func connect_to_buttons() -> void:
@@ -58,69 +84,65 @@ func connect_to_buttons() -> void:
 	delete_button.pressed.connect(_on_delete_button_pressed)
 
 
-func _on_unit_button_toggle(toggle_on: bool, selected_tower: String) -> void:
+func _on_unit_button_toggle(toggle_on: bool, _selected_tower: String) -> void:
 	is_placement_mode = toggle_on
 	if toggle_on:
-		ui_selected_tower = selected_tower
+		ui_selected_tower = _selected_tower
 	else:
 		ui_selected_tower = ""
 
 
 func _on_delete_button_pressed() -> void:
-	var delete_tower = selected_tower
-	selected_tower = null
+	var delete_tower = selected_slot_for_panel.tower
+	selected_slot_for_panel = null
 	delete_tower.destroy()
 
 
-func set_selected_tile(tile: Slot) -> void:
-	selected_tile = tile
-	try_placement()
+func place_grabbed_tower_in_slot(slot: Slot) -> void:
+	try_placement(slot)
 	is_placement_mode = false
 
 
-func set_selected_tower(slot: Slot) -> void:
-	selected_tower = slot.tower
+func set_selected_tower_from_slot(slot: Slot) -> void:
+	deselect()
+	selected_slot_for_panel = slot
 	tower_panel.visible = true
-	tower_panel.connect_tower(selected_tower)
+	tower_panel.connect_tower(selected_slot_for_panel.tower)
 
 
-func grab_tower(slot: Slot) -> void:
-	selected_tower = null
-	selected_tile = slot
-	
+func grab_tower(slot: Slot) -> void:	
+	# Already grabbed a tower
 	if grabbed_tower:
 		var temp_tower = slot.tower
 		slot.tower = grabbed_tower
-		grabbed_tower = temp_tower
+		grabbed_tower_slot.tower = temp_tower
+		
+		grabbed_tower = null
+		grabbed_tower_slot = null
+		
+		is_placement_mode = false
+	
+	# No tower has been grabbed yet
 	else:
 		grabbed_tower = slot.tower
+		grabbed_tower_slot = slot
 		slot.tower = null
 	
-	is_placement_mode = true
+		is_placement_mode = true
 
 
 func deselect() -> void:
-	if selected_tile and grabbed_tower:
-		selected_tile.tower = grabbed_tower
-		grabbed_tower = null
-		selected_tile = null
-		is_placement_mode = false
-		return
-	
-	if selected_tower:
-		selected_tower = null
-		selected_tile = null
-		is_placement_mode = false
-	
+	if selected_slot_for_panel:
+		selected_slot_for_panel = null
+		
+	is_placement_mode = false
 	tower_panel.visible = false
 
 
-
-func try_placement() -> void:
-	if selected_tile.is_free():
-		var temp = grabbed_tower
+func try_placement(slot: Slot) -> void:
+	if slot.is_free():
+		slot.tower = grabbed_tower
 		grabbed_tower = null
-		selected_tile.tower = temp
 
 
 func set_ui_tower_preview(tower: BaseTower) -> void:

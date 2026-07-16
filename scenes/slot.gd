@@ -49,7 +49,3 @@ func _on_placement_mode_changed(placement_mode_is_on: bool) -> void:
 		set_valid_tower_position_vfx_visibility(true)
 	else:
 		set_valid_tower_position_vfx_visibility(false)
-
-
-func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	pass
