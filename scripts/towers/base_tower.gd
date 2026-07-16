@@ -5,6 +5,9 @@ class_name BaseTower
 @export var tower_range : float = 5.0
 @export var base_damage : float = 10.0
 @export var attacks_per_second : float = 1.0
+@export var attack_area : float = 0
+var damage_dealt : float = 0
+var enemies_killed : int = 0
 
 var star_level : int = 1
 
@@ -51,8 +54,12 @@ func _process(delta):
 func destroy() -> void:
 	queue_free()
 
-func apply_damage(target: Node3D):
-	target.take_damage(base_damage) 
+
+func apply_damage(target: BaseEnemy):
+	var target_info = target.take_damage(base_damage)
+	damage_dealt += target_info[0]
+	if target_info[1] == true:
+		enemies_killed += 1
 
 
 func upgrade():

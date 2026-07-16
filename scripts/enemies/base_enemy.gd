@@ -17,16 +17,18 @@ func _ready() -> void:
 	hp_changed.emit(current_hp, max_hp)
 
 
-func take_damage(amount: float):
+func take_damage(amount: float) -> Array:
 	current_hp -= amount
 	hp_changed.emit(current_hp, max_hp)
+	var died = false
 	if current_hp <= 0:
-		on_death()
+		died = on_death()
+	return [amount, died]
 
 
-func on_death():
+func on_death() -> bool:
 	if not is_alive:
-		return
+		return false
 	is_alive = false
 
 	var area_node = get_node("Area3D")
@@ -41,3 +43,5 @@ func on_death():
 
 	area_node.queue_free()
 	enemy_died.emit(gold_on_death)
+	
+	return true

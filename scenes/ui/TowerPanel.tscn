@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://id4ttvp8yd45"]
+
+[ext_resource type="Script" uid="uid://ba2sus67u4mna" path="res://scenes/ui/tower_panel.gd" id="1_85r87"]
+
+[node name="TowerPanel" type="Control" unique_id=629360425]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_85r87")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1046200257]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Damage" type="Label" parent="VBoxContainer" unique_id=261573622]
+layout_mode = 2
+
+[node name="Range" type="Label" parent="VBoxContainer" unique_id=1521675026]
+layout_mode = 2
+
+[node name="AttackArea" type="Label" parent="VBoxContainer" unique_id=1135610828]
+layout_mode = 2
+
+[node name="AttackSpeed" type="Label" parent="VBoxContainer" unique_id=1047545487]
+layout_mode = 2
+
+[node name="DamageDealt" type="Label" parent="VBoxContainer" unique_id=531645428]
+layout_mode = 2
+
+[node name="EnemiesKilled" type="Label" parent="VBoxContainer" unique_id=419222305]
+layout_mode = 2
