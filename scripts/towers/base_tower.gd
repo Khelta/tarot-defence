@@ -47,9 +47,10 @@ func _process(delta):
 	attack_cooldown -= delta
 	if attack_cooldown <= 0.0:
 		if len(enemies_in_range) != 0:
-			apply_damage(enemies_in_range[0].get_parent())
-			attacked.emit()
-			attack_cooldown = 1.0 / attacks_per_second
+			if not is_grabbed:
+				apply_damage(enemies_in_range[0].get_parent())
+				attacked.emit()
+				attack_cooldown = 1.0 / attacks_per_second
 
 
 func destroy() -> void:
