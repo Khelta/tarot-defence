@@ -25,6 +25,8 @@ shader_parameter/softness = 0.02
 [node name="BaseTower" type="Node3D" unique_id=1399133275]
 
 [node name="Area3D" type="Area3D" parent="." unique_id=971937034]
+collision_layer = 9
+collision_mask = 9
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=956602252]
