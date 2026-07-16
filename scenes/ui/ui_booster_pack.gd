@@ -5,5 +5,5 @@ var booster_pack : Node3D
 func _ready() -> void:
 	booster_pack = get_node("BoosterPack")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	booster_pack.rotate_y(0.01)

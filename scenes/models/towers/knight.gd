@@ -1,3 +1,4 @@
+@tool
 extends BaseTower
 class_name Knight
 

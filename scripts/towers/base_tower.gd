@@ -91,5 +91,5 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		enemies_in_range.erase(area)
 
 
-func _on_grabbed_changed(is_grabbed: bool) -> void:
-	self.is_grabbed = is_grabbed
+func _on_grabbed_changed(_is_grabbed: bool) -> void:
+	self.is_grabbed = _is_grabbed

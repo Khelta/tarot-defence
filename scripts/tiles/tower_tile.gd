@@ -11,7 +11,7 @@ func _do_after_set_is_eligible(value: bool) -> void:
 	$Area3D.input_ray_pickable = value
 
 
-func _do_after_set_tower(tower: BaseTower) -> void: 
+func _do_after_set_tower() -> void: 
 	if tower:
 		tower.position = global_position
 		tower.set_viewport_camera(global_position)

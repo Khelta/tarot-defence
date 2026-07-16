@@ -8,7 +8,7 @@ func _ready() -> void:
 	wave_manager = game_state.get_node("WaveManager")
 
 
-func _on_wave_started(wave_index: int, waves_length: int) -> void:
+func _on_wave_started(_wave_index: int, _waves_length: int) -> void:
 	visible = false
 
 

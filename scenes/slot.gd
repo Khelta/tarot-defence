@@ -9,7 +9,7 @@ class_name Slot
 @export var tower : BaseTower = null:
 	set(value):
 		tower = value
-		_do_after_set_tower(value)
+		_do_after_set_tower()
 
 @export var tower_rotation: Vector3 = Vector3(1, 0, 0):
 	set(new_tower_rotation):
@@ -20,11 +20,11 @@ func _ready():
 	set_valid_tower_position_vfx_visibility(false)
 
 
-func _do_after_set_tower(new_tower: BaseTower):
+func _do_after_set_tower():
 	pass
 
 
-func _do_after_set_is_eligible(value: bool):
+func _do_after_set_is_eligible(_value: bool):
 	pass
 
 
