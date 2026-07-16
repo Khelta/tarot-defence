@@ -2,7 +2,6 @@ extends Node
 
 
 func check_upgrade() -> void:
-	print("Checked!")
 	var counter: = { "Ranger1": [],
 					 "Ranger2": [],
 					 "Knight1": [],
