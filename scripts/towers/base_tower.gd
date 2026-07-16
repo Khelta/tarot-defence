@@ -27,6 +27,7 @@ var is_grabbed: bool = false:
 signal attacked
 signal grabbed
 signal grab_released
+signal stats_updated
 
 func _ready() -> void:
 	get_node("BaseTower/Area3D/CollisionShape3D").shape.radius = tower_range
@@ -60,6 +61,7 @@ func apply_damage(target: BaseEnemy):
 	damage_dealt += target_info[0]
 	if target_info[1] == true:
 		enemies_killed += 1
+	stats_updated.emit()
 
 
 func upgrade():

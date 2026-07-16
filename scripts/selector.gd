@@ -79,12 +79,7 @@ func set_selected_tile(tile: Slot) -> void:
 func set_selected_tower(slot: Slot) -> void:
 	selected_tower = slot.tower
 	var tower_panel : TowerPanel = custom_ui.get_node("TowerPanel")
-	tower_panel.set_text_labels(selected_tower.base_damage,
-								selected_tower.tower_range,
-								selected_tower.attack_area,
-								selected_tower.attacks_per_second,
-								selected_tower.damage_dealt,
-								selected_tower.enemies_killed)
+	tower_panel.connect_tower(selected_tower)
 
 
 func grab_tower(slot: Slot) -> void:

@@ -1,8 +1,25 @@
 extends Control
 class_name TowerPanel
 
+var current_tower : BaseTower = null
+
 func _ready() -> void: 
 	set_text_labels(1, 2, 3, 4, 5, 6)
+
+
+func connect_tower(tower: BaseTower):
+	current_tower = tower
+	tower.stats_updated.connect(func(): set_text_labels_from_tower(tower))
+	set_text_labels_from_tower(tower)
+
+
+func set_text_labels_from_tower(tower: BaseTower) -> void:
+	set_text_labels(tower.base_damage,
+					tower.tower_range,
+					tower.attack_area,
+					tower.attacks_per_second,
+					tower.damage_dealt,
+					tower.enemies_killed)
 
 
 func set_text_labels(damage: int, 
