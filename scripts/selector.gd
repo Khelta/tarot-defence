@@ -13,6 +13,7 @@ var selected_tower : BaseTower:
 		if new_selected_tower:
 			set_fresnel_selection(new_selected_tower, true)
 		set_ui_tower_preview(new_selected_tower)
+var tower_panel : TowerPanel
 
 @export var grabbed_tower : BaseTower:
 	set(new_grabbed_tower):
@@ -31,6 +32,7 @@ signal placement_mode_changed(is_on: bool)
 
 func _ready() -> void:
 	custom_ui = get_tree().get_first_node_in_group("ui")
+	tower_panel = custom_ui.get_node("TowerPanel")
 	connect_to_buttons()
 
 
@@ -78,7 +80,7 @@ func set_selected_tile(tile: Slot) -> void:
 
 func set_selected_tower(slot: Slot) -> void:
 	selected_tower = slot.tower
-	var tower_panel : TowerPanel = custom_ui.get_node("TowerPanel")
+	tower_panel.visible = true
 	tower_panel.connect_tower(selected_tower)
 
 
@@ -109,6 +111,9 @@ func deselect() -> void:
 		selected_tower = null
 		selected_tile = null
 		is_placement_mode = false
+	
+	tower_panel.visible = false
+
 
 
 func try_placement() -> void:

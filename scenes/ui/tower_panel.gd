@@ -3,9 +3,6 @@ class_name TowerPanel
 
 var current_tower : BaseTower = null
 
-func _ready() -> void: 
-	set_text_labels(1, 2, 3, 4, 5, 6)
-
 
 func connect_tower(tower: BaseTower):
 	current_tower = tower
