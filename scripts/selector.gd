@@ -8,11 +8,13 @@ var custom_ui : UI = null
 var selected_slot_for_panel : Slot:
 	set(value):
 		if selected_slot_for_panel:
-			set_fresnel_selection(selected_slot_for_panel.tower, false)
+			if selected_slot_for_panel.tower:
+				set_fresnel_selection(selected_slot_for_panel.tower, false)
 		selected_slot_for_panel = value
 		if value:
-			set_fresnel_selection(value.tower, true)
-		set_ui_tower_preview(value.tower if value else null)
+			if value.tower:
+				set_fresnel_selection(value.tower, true)
+		# set_ui_tower_preview(value.tower if value else null)
 var tower_panel : TowerPanel
 
 var grabbed_tower : BaseTower:
@@ -57,11 +59,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		var slot = MouseUtils.select_entity_from_mouse(3)
 
 		if slot:
-			if slot.tower != null:
-				if selected_slot_for_panel == null:
-					set_selected_tower_from_slot(slot)
-				else:
-					deselect()
+			if slot == selected_slot_for_panel:
+				deselect()
+			elif slot.tower != null:
+				set_selected_tower_from_slot(slot)
+			else:
+				deselect()
 		else:
 			deselect()
 
