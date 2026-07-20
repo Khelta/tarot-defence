@@ -10,10 +10,12 @@ var selected_slot_for_panel : Slot:
 		if selected_slot_for_panel:
 			if selected_slot_for_panel.tower:
 				set_fresnel_selection(selected_slot_for_panel.tower, false)
+				selected_slot_for_panel.tower.set_selected(false)
 		selected_slot_for_panel = value
 		if value:
 			if value.tower:
 				set_fresnel_selection(value.tower, true)
+				selected_slot_for_panel.tower.set_selected(true)
 		# set_ui_tower_preview(value.tower if value else null)
 var tower_panel : TowerPanel
 

@@ -23,6 +23,9 @@ var is_grabbed: bool = false:
 			grabbed.emit()
 		else:
 			grab_released.emit()
+var is_selected: bool = false
+
+var attack_range_indicator : MeshInstance3D = null 
 
 signal attacked
 signal grabbed
@@ -30,17 +33,19 @@ signal grab_released
 signal stats_updated
 
 func _ready() -> void:
-	get_node("BaseTower/Area3D/CollisionShape3D").shape.radius = tower_range
-	get_node("BaseTower/DebugMesh").mesh.radius = tower_range
-	get_node("BaseTower/DebugMesh").mesh.height = tower_range * 2
-	
-	set_attack_range_indicator()
-	
 	default_rotation = rotation
 	
 	var area : Area3D = get_node("BaseTower/Area3D")
 	area.area_entered.connect(_on_area_3d_area_entered)
 	area.area_exited.connect(_on_area_3d_area_exited)
+	
+	var collision : CollisionShape3D = get_node("BaseTower/Area3D/CollisionShape3D")
+	collision.shape = collision.shape.duplicate(true)
+	
+	attack_range_indicator = get_node("BaseTower/AttackRangeIndicator")
+	attack_range_indicator_init()
+	
+	set_tower_range(tower_range)
 
 
 func _process(delta):
@@ -71,11 +76,12 @@ func upgrade():
 	var scale_value = 1 + 0.5 * (star_level - 1)
 	model.scale = Vector3(scale_value, scale_value, scale_value)
 
-func set_attack_range_indicator():
-	var attack_range_indicator = get_node("BaseTower/AttackRangeIndicator")
+func attack_range_indicator_init():
 	var s = tower_range * 2
 	attack_range_indicator.scale = Vector3(s, s, s)
 
+func set_attack_range_indicator_visibility(is_visible: bool) -> void:
+	attack_range_indicator.visible = is_visible
 
 func set_viewport_camera(camera_position: Vector3) -> void:
 	get_node("BaseTower/SubViewport/Camera3D").position = camera_position + Vector3(1.0, 2.0, -1.0)
@@ -93,3 +99,14 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 
 func _on_grabbed_changed(_is_grabbed: bool) -> void:
 	self.is_grabbed = _is_grabbed
+
+
+func set_selected(value: bool):
+	is_selected = value
+	set_attack_range_indicator_visibility(is_selected)
+
+func set_tower_range(value: float) -> void: 
+	tower_range = value
+	get_node("BaseTower/Area3D/CollisionShape3D").shape.radius = tower_range
+	get_node("BaseTower/DebugMesh").mesh.radius = tower_range
+	get_node("BaseTower/DebugMesh").mesh.height = tower_range * 2
