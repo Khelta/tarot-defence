@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c0jqd5o2vp2u7"]
+
+[ext_resource type="Texture2D" uid="uid://drrlde3p418cv" path="res://assets/BoosterPack_Screenshot 2026-07-16 144339.png" id="1_2rkeb"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" unique_id=1601498021]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -164.5
+offset_right = 208.0
+offset_bottom = 164.5
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 0.5726
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1744671507]
+layout_mode = 2
+texture_normal = ExtResource("1_2rkeb")
+ignore_texture_size = true
+stretch_mode = 0

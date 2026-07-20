@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://7jdlp8pfgot7" path="res://assets/preview_images/Delete.png" id="3_g5kmx"]
 [ext_resource type="PackedScene" uid="uid://cldxl6iomvmm8" path="res://scenes/ui/ui_booster_pack.tscn" id="6_pfayw"]
 [ext_resource type="PackedScene" uid="uid://id4ttvp8yd45" path="res://scenes/ui/TowerPanel.tscn" id="7_7vp6q"]
+[ext_resource type="Script" uid="uid://cec3ck4pb0t8d" path="res://scenes/ui/buy_booster_button.gd" id="7_jcn1r"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aac20"]
 load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.ctex"
@@ -114,6 +115,11 @@ render_target_update_mode = 4
 
 [node name="UiBoosterPack" parent="SubViewportContainer/SubViewport" unique_id=1404535210 instance=ExtResource("6_pfayw")]
 
+[node name="BuyBoosterButton" type="Button" parent="SubViewportContainer" unique_id=294510059]
+layout_mode = 2
+script = ExtResource("7_jcn1r")
+
 [node name="TowerPanel" parent="." unique_id=629360425 instance=ExtResource("7_7vp6q")]
 
 [connection signal="button_down" from="StartWaveButton" to="StartWaveButton" method="_on_button_down"]
+[connection signal="button_down" from="SubViewportContainer/BuyBoosterButton" to="SubViewportContainer/BuyBoosterButton" method="_on_button_down"]

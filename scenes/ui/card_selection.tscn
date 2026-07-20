@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bwgsadllhjqxm"]
+
+[ext_resource type="PackedScene" uid="uid://c0jqd5o2vp2u7" path="res://scenes/ui/card.tscn" id="1_m6oo7"]
+
+[node name="CardSelection" type="Control" unique_id=1303188900]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=319942180]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1330070277]
+layout_mode = 2
+
+[node name="AspectRatioContainer" parent="CenterContainer/HBoxContainer" unique_id=958964185 instance=ExtResource("1_m6oo7")]
+layout_mode = 2
+
+[node name="AspectRatioContainer2" parent="CenterContainer/HBoxContainer" unique_id=1601498021 instance=ExtResource("1_m6oo7")]
+layout_mode = 2
+
+[node name="AspectRatioContainer3" parent="CenterContainer/HBoxContainer" unique_id=154065497 instance=ExtResource("1_m6oo7")]
+layout_mode = 2
