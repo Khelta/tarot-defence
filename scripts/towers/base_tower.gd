@@ -80,8 +80,8 @@ func attack_range_indicator_init():
 	var s = tower_range * 2
 	attack_range_indicator.scale = Vector3(s, s, s)
 
-func set_attack_range_indicator_visibility(is_visible: bool) -> void:
-	attack_range_indicator.visible = is_visible
+func set_attack_range_indicator_visibility(_is_visible: bool) -> void:
+	attack_range_indicator.visible = _is_visible
 
 func set_viewport_camera(camera_position: Vector3) -> void:
 	get_node("BaseTower/SubViewport/Camera3D").position = camera_position + Vector3(1.0, 2.0, -1.0)
