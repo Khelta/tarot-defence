@@ -14,14 +14,13 @@
 [ext_resource type="ArrayMesh" uid="uid://2b5lb7b3peed" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/skull_candle.obj" id="13_2aecg"]
 [ext_resource type="ArrayMesh" uid="uid://n6phrxbbfw3y" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/candle.obj" id="13_6dial"]
 [ext_resource type="PackedScene" uid="uid://0qt802lj2j3e" path="res://scenes/models/lantern.tscn" id="14_7nomh"]
-[ext_resource type="Script" uid="uid://mc6eubovw6g1" path="res://scenes/towers.gd" id="16_tr1x6"]
+[ext_resource type="PackedScene" uid="uid://c7l1jeywb6u2b" path="res://scenes/towers.tscn" id="16_mkypq"]
 [ext_resource type="PackedScene" uid="uid://bp8hthw2bfva" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_broken.fbx" id="17_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
 [ext_resource type="Script" uid="uid://celp2f3jse3sm" path="res://scenes/wave_manager.gd" id="18_isj1j"]
 [ext_resource type="PackedScene" uid="uid://bcyhfyysyes3h" path="res://scenes/tiles/tower_tile.tscn" id="20_isj1j"]
 [ext_resource type="PackedScene" uid="uid://c2ni8776ochta" path="res://scenes/ui/ui.tscn" id="20_so66j"]
 [ext_resource type="PackedScene" uid="uid://novpduw0tymo" path="res://scenes/Selector.tscn" id="20_tr1x6"]
-[ext_resource type="PackedScene" uid="uid://cqm8482hhioqd" path="res://scenes/models/bench/bench.tscn" id="21_so66j"]
 
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
@@ -145,8 +144,7 @@ ui = NodePath("../../Ui")
 curve = SubResource("Curve3D_g4v7s")
 debug_custom_color = Color(0, 1, 0, 1)
 
-[node name="Towers" type="Node" parent="GameState" unique_id=300044555 groups=["towers"]]
-script = ExtResource("16_tr1x6")
+[node name="Towers" parent="GameState" unique_id=1918403248 instance=ExtResource("16_mkypq")]
 
 [node name="Tiles" type="Node" parent="GameState" unique_id=1298637272]
 
@@ -202,9 +200,6 @@ is_tower_two_placeable = false
 [node name="StraightBb7" parent="GameState/Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
 
-[node name="Bench" parent="GameState" unique_id=1071650749 instance=ExtResource("21_so66j")]
-transform = Transform3D(-0.6427875, 0, -0.76604456, 0, 1, 0, 0.76604456, 0, -0.6427875, 9.8, 0, -30)
-
 [node name="Selector" parent="." unique_id=879494282 instance=ExtResource("20_tr1x6")]
 
 [node name="Light" type="Node" parent="." unique_id=1985433111]
@@ -213,5 +208,3 @@ transform = Transform3D(-0.6427875, 0, -0.76604456, 0, 1, 0, 0.76604456, 0, -0.6
 transform = Transform3D(-0.25881907, -0.4829629, 0.83651626, -8.230112e-09, 0.86602545, 0.5, -0.9659259, 0.12940954, -0.22414389, 0, 9, 0)
 
 [node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
-
-[connection signal="child_entered_tree" from="GameState/Towers" to="GameState/Towers" method="_on_child_entered_tree"]

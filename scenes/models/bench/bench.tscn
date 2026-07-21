@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cqm8482hhioqd"]
 
 [ext_resource type="PackedScene" uid="uid://yktqdiy7sfjv" path="res://scenes/models/bench/bench_slot.tscn" id="1_bxfph"]
+[ext_resource type="Script" uid="uid://3s21kuud57ud" path="res://scenes/models/bench/bench.gd" id="1_smbep"]
 
 [node name="Bench" type="Node3D" unique_id=1071650749]
+script = ExtResource("1_smbep")
 
 [node name="BenchSlot" parent="." unique_id=227861295 instance=ExtResource("1_bxfph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)

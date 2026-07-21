@@ -33,26 +33,6 @@ func _ready() -> void:
 	var goldlabel = get_node("../Ui/InfoPanel/VBoxContainer/GoldLabel")
 	player_gold_changed.connect(goldlabel._on_gold_changed)
 	_change_player_gold(0)
-	
-	#TODO delete
-	var ranger_scene = preload("res://scenes/models/towers/ranger.tscn")
-	var towers = get_node("Towers")
-	var ranger = ranger_scene.instantiate()
-	towers.add_child(ranger)
-	get_node("Bench/BenchSlot2").tower = ranger
-	
-	ranger = ranger_scene.instantiate()
-	towers.add_child(ranger)
-	get_node("Bench/BenchSlot").tower = ranger
-	
-	ranger = ranger_scene.instantiate()
-	towers.add_child(ranger)
-	get_node("Bench/BenchSlot4").tower = ranger
-	
-	var knight_scene = preload("res://scenes/models/towers/knight.tscn")
-	var knight = knight_scene.instantiate()
-	towers.add_child(knight)
-	get_node("Bench/BenchSlot3").tower = knight
 
 
 func _process(delta):

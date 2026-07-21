@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c7l1jeywb6u2b"]
+
+[ext_resource type="Script" uid="uid://mc6eubovw6g1" path="res://scenes/towers.gd" id="1_qqdjg"]
+[ext_resource type="PackedScene" uid="uid://cqm8482hhioqd" path="res://scenes/models/bench/bench.tscn" id="2_jwnxg"]
+
+[node name="Towers" type="Node" unique_id=1918403248 groups=["towers"]]
+script = ExtResource("1_qqdjg")
+
+[node name="Bench" parent="." unique_id=1071650749 instance=ExtResource("2_jwnxg")]
+transform = Transform3D(-0.6427875, 0, -0.76604456, 0, 1, 0, 0.76604456, 0, -0.6427875, 9.8, 0, -30)
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
