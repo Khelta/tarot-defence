@@ -8,7 +8,7 @@ class_name CardSelection
 var card_scene = preload("res://scenes/ui/card.tscn")
 
 func _ready() -> void:
-	var hbox = get_node("MarginContainer/HBoxContainer")
+	var hbox = get_node("MarginContainer/CenterContainer/VBoxContainer/HBoxContainer")
 	
 	var first_card = card_scene.instantiate()
 	first_card.tower_name = first_tower
