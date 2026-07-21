@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0jqd5o2vp2u7"]
 
 [ext_resource type="Texture2D" uid="uid://drrlde3p418cv" path="res://assets/BoosterPack_Screenshot 2026-07-16 144339.png" id="1_2rkeb"]
+[ext_resource type="Script" uid="uid://bwvmjnmiqonqy" path="res://scenes/ui/card.gd" id="2_ra13p"]
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" unique_id=1601498021]
 custom_minimum_size = Vector2(100, 100)
@@ -16,9 +17,12 @@ offset_bottom = 164.5
 grow_horizontal = 2
 grow_vertical = 2
 ratio = 0.5726
+script = ExtResource("2_ra13p")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1744671507]
+[node name="Card" type="TextureButton" parent="." unique_id=1744671507]
 layout_mode = 2
 texture_normal = ExtResource("1_2rkeb")
 ignore_texture_size = true
 stretch_mode = 0
+
+[connection signal="button_down" from="Card" to="." method="_on_card_button_down"]
