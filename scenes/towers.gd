@@ -24,6 +24,7 @@ func check_upgrade() -> void:
 					 "Knight1": [],
 					 "Knight2": []}
 
+	var upgraded : bool = false
 
 	for tower in get_children():
 		if tower is Bench:
@@ -32,9 +33,13 @@ func check_upgrade() -> void:
 		if tower_class in counter:
 			counter[tower_class].append(tower)
 			if len(counter[tower_class]) == 3:
+				upgraded = true
 				counter[tower_class][0].upgrade()
 				counter[tower_class][1].queue_free()
 				counter[tower_class][2].queue_free()
+				
+	if upgraded:
+		check_upgrade()
 
 
 func add_tower(tower_name: String) -> bool:
