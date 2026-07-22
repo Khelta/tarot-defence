@@ -46,10 +46,8 @@ func add_tower(tower_name: String) -> bool:
 	if not bench.has_free_slot():
 		return false
 
-	var star_level = 1
-	if tower_name[-1].is_valid_int():
-		star_level = int(tower_name[-1])
-		tower_name = tower_name.substr(0, tower_name.length() - 1)
+	var star_level = TowerUtils.get_star_level_from_tower_string(tower_name)
+	tower_name = TowerUtils.remove_star_level_from_tower_string(tower_name)
 	
 	var tower_class = tower_class_dict[tower_name]
 	var tower : BaseTower = tower_class.instantiate()
