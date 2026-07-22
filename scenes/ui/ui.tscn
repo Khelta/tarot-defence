@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cldxl6iomvmm8" path="res://scenes/ui/ui_booster_pack.tscn" id="6_pfayw"]
 [ext_resource type="PackedScene" uid="uid://id4ttvp8yd45" path="res://scenes/ui/TowerPanel.tscn" id="7_7vp6q"]
 [ext_resource type="Script" uid="uid://cec3ck4pb0t8d" path="res://scenes/ui/buy_booster_button.gd" id="7_jcn1r"]
-[ext_resource type="PackedScene" uid="uid://bwgsadllhjqxm" path="res://scenes/ui/card_selection.tscn" id="9_uegxj"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aac20"]
 load_path = "res://.godot/imported/Ranger.png-a6b6a161ff08b4e123d3eae2d572b012.ctex"
@@ -122,11 +121,6 @@ layout_mode = 2
 script = ExtResource("7_jcn1r")
 
 [node name="TowerPanel" parent="." unique_id=629360425 instance=ExtResource("7_7vp6q")]
-
-[node name="CardSelection" parent="." unique_id=1303188900 instance=ExtResource("9_uegxj")]
-first_tower = "Ranger"
-second_tower = "Knight"
-third_tower = "Ranger2"
 
 [connection signal="button_down" from="StartWaveButton" to="StartWaveButton" method="_on_button_down"]
 [connection signal="button_down" from="SubViewportContainer/BuyBoosterButton" to="SubViewportContainer/BuyBoosterButton" method="_on_button_down"]

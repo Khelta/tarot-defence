@@ -35,6 +35,24 @@ func _ready() -> void:
 	_change_player_gold(0)
 
 
+func buy_booster(price: int) -> void:
+	if price > current_player_gold:
+		return
+	else:
+		_change_player_gold(-price)
+		
+		await get_tree().process_frame
+
+		var ui = get_tree().get_first_node_in_group("ui")
+		var card_selection_scene = preload("res://scenes/ui/card_selection.tscn")
+		var card_selection = card_selection_scene.instantiate()
+		card_selection.init("Ranger", "Ranger", "Ranger")
+		
+		ui.add_child(card_selection)
+		
+		
+
+
 func _process(delta):
 	var path_length: float = get_node("Path").curve.get_baked_length()
 	var enemy_speed = 20
