@@ -47,10 +47,8 @@ func buy_booster(price: int) -> void:
 		var card_selection_scene = preload("res://scenes/ui/card_selection.tscn")
 		var card_selection = card_selection_scene.instantiate()
 		card_selection.init("Ranger", "Ranger", "Ranger")
-		
+
 		ui.add_child(card_selection)
-		
-		
 
 
 func _process(delta):

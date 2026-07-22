@@ -3,7 +3,9 @@ class_name Card
 
 var game_state : GameState
 @export var tower_name : String
-var button : TextureButton
+@onready var button : TextureButton
+
+signal card_selected(card: Card)
 
 func _ready() -> void:
 	button = get_node("Card")
@@ -15,3 +17,4 @@ func _ready() -> void:
 func _on_card_button_down() -> void:
 	var towers : Towers = game_state.get_node("Towers")
 	towers.add_tower(tower_name)
+	card_selected.emit(self)
