@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bcpfhii78gunb"]
+
+[ext_resource type="Script" uid="uid://dsjixvdqi3vk4" path="res://scripts/towers/wizard.gd" id="1_8noyr"]
+[ext_resource type="PackedScene" uid="uid://do5m6kksqscjp" path="res://scenes/models/towers/base_tower.tscn" id="2_dxsl0"]
+[ext_resource type="PackedScene" uid="uid://logikwuhyufl" path="res://scenes/models/towers/wizard_model.tscn" id="2_jqmsf"]
+
+[node name="Wizard" type="Node3D" unique_id=893937668]
+script = ExtResource("1_8noyr")
+
+[node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_dxsl0")]
+
+[node name="Model" parent="." unique_id=399828594 instance=ExtResource("2_jqmsf")]

@@ -9,10 +9,12 @@ signal card_selected(card: Card)
 
 var ranger_image = preload("res://assets/preview_images/Ranger.png")
 var knight_image = preload("res://assets/preview_images/Knight.png")
+var wizard_image = preload("res://assets/preview_images/Wizard.png")
 
 var tower_to_texture_dict = {
 	"Ranger": ranger_image,
-	"Knight": knight_image
+	"Knight": knight_image,
+	"Wizard": wizard_image,
 	}
 
 func _ready() -> void:

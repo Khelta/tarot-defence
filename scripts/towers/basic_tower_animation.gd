@@ -2,7 +2,6 @@ extends Node
 class_name BasicTowerAnimation
 
 @export var animation_player : AnimationPlayer
-@export var animation_tree : AnimationTree
 @export var idle_animation_path : String
 
 func _ready() -> void:

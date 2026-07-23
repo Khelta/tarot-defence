@@ -3,10 +3,12 @@ class_name Towers
 
 const RangerClass = preload("res://scenes/models/towers/ranger.tscn")
 const KnightClass = preload("res://scenes/models/towers/knight.tscn")
+const WizardClass = preload("res://scenes/models/towers/wizard.tscn")
 
 var tower_class_dict : Dictionary[String, PackedScene] = {
 	"Ranger": RangerClass,
-	"Knight": KnightClass
+	"Knight": KnightClass,
+	"Wizard": WizardClass,
 }
 
 var bench : Bench = null
