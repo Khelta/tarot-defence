@@ -21,10 +21,10 @@ func _ready() -> void:
 
 
 func check_upgrade() -> void:
-	var counter: = { "Ranger1": [],
-					 "Ranger2": [],
-					 "Knight1": [],
-					 "Knight2": []}
+	var counter = {}
+	for key in tower_class_dict:
+		counter[key + "1"] = []
+		counter[key + "2"] = []
 
 	var upgraded : bool = false
 
