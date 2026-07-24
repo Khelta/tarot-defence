@@ -33,7 +33,9 @@ signal grab_released
 signal stats_updated
 
 var projectile = preload("res://scenes/models/towers/projectile.tscn")
-var projectile_mesh = preload("res://assets/KayKit_Adventurers_2.0_FREE/Assets/fbx/arrow_bow.fbx")
+@export var projectile_mesh = preload("res://assets/KayKit_Adventurers_2.0_FREE/Assets/fbx/arrow_bow.fbx")
+@export var projectile_mesh_rotation_degrees : Vector3 = Vector3(0.0, 0.0, 0.0)
+@export var projectile_speed : float = 0.3
 
 func _ready() -> void:
 	default_rotation = rotation
@@ -59,7 +61,11 @@ func _process(delta):
 				var enemy = enemies_in_range[0].get_parent()
 				var local_projectile = projectile.instantiate()
 				add_child(local_projectile)
-				local_projectile.spawn(self, enemy, projectile_mesh)
+				local_projectile.spawn(self,
+									   enemy,
+									   projectile_mesh,
+									   projectile_mesh_rotation_degrees,
+									   projectile_speed)
 				apply_damage(enemy)
 				attacked.emit()
 				attack_cooldown = 1.0 / attacks_per_second
