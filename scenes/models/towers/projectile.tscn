@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bakklulu6nnco" path="res://scenes/models/towers/projectile.gd" id="1_qirtb"]
 
 [sub_resource type="Curve3D" id="Curve3D_mdlsd"]
+resource_local_to_scene = true
 
 [node name="Projectile" type="Node3D" unique_id=844860692]
 script = ExtResource("1_qirtb")
