@@ -36,6 +36,7 @@ var projectile = preload("res://scenes/models/towers/projectile.tscn")
 @export var projectile_mesh = preload("res://assets/KayKit_Adventurers_2.0_FREE/Assets/fbx/arrow_bow.fbx")
 @export var projectile_mesh_rotation_degrees : Vector3 = Vector3(0.0, 0.0, 0.0)
 @export var projectile_speed : float = 0.3
+@export var projectile_height : float = 3.0
 
 func _ready() -> void:
 	default_rotation = rotation
@@ -65,7 +66,9 @@ func _process(delta):
 									   enemy,
 									   projectile_mesh,
 									   projectile_mesh_rotation_degrees,
-									   projectile_speed)
+									   projectile_speed,
+									   projectile_height,
+									   )
 				apply_damage(enemy)
 				attacked.emit()
 				attack_cooldown = 1.0 / attacks_per_second

@@ -8,27 +8,30 @@ var last_progress_ratio : float = 0.0
 var enemy : BaseEnemy
 
 var projectile_speed : float = 0.25
+var projectile_height : float = 3.0
 
 
 func spawn(tower: BaseTower,
 		   local_enemy: BaseEnemy,
 		   projectile_mesh_scene: PackedScene,
 		   projectile_mesh_rotation_degrees: Vector3,
-		   _projectile_speed) -> void:
+		   _projectile_speed,
+		   _projectile_height) -> void:
 
 	enemy = local_enemy
 	projectile_speed = _projectile_speed
+	projectile_height = _projectile_height
 
 	var projectile_instance = projectile_mesh_scene.instantiate()
 	projectile_instance.rotation_degrees = projectile_mesh_rotation_degrees 
 	path_follow.add_child(projectile_instance)
 
-	path.curve.add_point(path.to_local(tower.global_position))
-	path.curve.add_point(path.to_local(enemy.global_position))
+	var height = Vector3(0, projectile_height, 0)
+	path.curve.add_point(path.to_local(tower.global_position), Vector3(0, 0, 0), height)
+	path.curve.add_point(path.to_local(enemy.global_position), height)
 
 
 func _process(delta: float) -> void:
-	print(path_follow.progress, " | ", path_follow.progress_ratio)
 	path_follow.progress += projectile_speed
 
 	# Update curve to enemy position
