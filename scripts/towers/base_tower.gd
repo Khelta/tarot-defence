@@ -32,6 +32,9 @@ signal grabbed
 signal grab_released
 signal stats_updated
 
+var projectile = preload("res://scenes/models/towers/projectile.tscn")
+var projectile_mesh = preload("res://assets/KayKit_Adventurers_2.0_FREE/Assets/fbx/arrow_bow.fbx")
+
 func _ready() -> void:
 	default_rotation = rotation
 	
@@ -53,7 +56,11 @@ func _process(delta):
 	if attack_cooldown <= 0.0:
 		if len(enemies_in_range) != 0:
 			if not is_grabbed:
-				apply_damage(enemies_in_range[0].get_parent())
+				var enemy = enemies_in_range[0].get_parent()
+				var local_projectile = projectile.instantiate()
+				add_child(local_projectile)
+				local_projectile.spawn(self, enemy, projectile_mesh)
+				apply_damage(enemy)
 				attacked.emit()
 				attack_cooldown = 1.0 / attacks_per_second
 

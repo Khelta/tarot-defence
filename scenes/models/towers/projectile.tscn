@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://buchyyt4dbdk6"]
+
+[ext_resource type="Script" uid="uid://bakklulu6nnco" path="res://scenes/models/towers/projectile.gd" id="1_qirtb"]
+
+[sub_resource type="Curve3D" id="Curve3D_mdlsd"]
+
+[node name="Projectile" type="Node3D" unique_id=844860692]
+script = ExtResource("1_qirtb")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1779406906]
+curve = SubResource("Curve3D_mdlsd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=221398136]
