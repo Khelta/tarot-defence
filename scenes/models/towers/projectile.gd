@@ -10,6 +10,8 @@ var enemy : BaseEnemy
 var projectile_speed : float = 0.25
 var projectile_height : float = 3.0
 
+signal projectile_hitted(enemy: BaseEnemy)
+
 
 func spawn(tower: BaseTower,
 		   local_enemy: BaseEnemy,
@@ -38,6 +40,7 @@ func _process(delta: float) -> void:
 	path.curve.set_point_position(1, path.to_local(enemy.global_position))
 
 	if path_follow.progress_ratio >= 1.0 or last_progress_ratio > path_follow.progress_ratio:
+		projectile_hitted.emit(enemy)
 		destroy()
 
 	last_progress_ratio = path_follow.progress_ratio

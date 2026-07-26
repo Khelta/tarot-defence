@@ -57,23 +57,25 @@ func _ready() -> void:
 
 func _process(delta):
 	attack_cooldown -= delta
-	if attack_cooldown <= 0.0:
-		if len(enemies_in_range) != 0:
-			if not is_grabbed:
-				var enemy = enemies_in_range[0].get_parent()
-				if has_projectile:
-					var local_projectile = projectile.instantiate()
-					add_child(local_projectile)
-					local_projectile.spawn(self,
-										   enemy,
-										   projectile_mesh,
-										   projectile_mesh_rotation_degrees,
-										   projectile_speed,
-										   projectile_height,
-										   )
-				apply_damage(enemy)
-				attacked.emit()
-				attack_cooldown = 1.0 / attacks_per_second
+	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
+		var enemy = enemies_in_range[0].get_parent()
+
+		if has_projectile:
+			var local_projectile : Projectile = projectile.instantiate()
+			add_child(local_projectile)
+			local_projectile.spawn(self,
+								   enemy,
+								   projectile_mesh,
+								   projectile_mesh_rotation_degrees,
+								   projectile_speed,
+								   projectile_height,
+								   )
+			local_projectile.projectile_hitted.connect(apply_damage)
+		else:
+			apply_damage(enemy)
+
+		attacked.emit()
+		attack_cooldown = 1.0 / attacks_per_second
 
 
 func destroy() -> void:
