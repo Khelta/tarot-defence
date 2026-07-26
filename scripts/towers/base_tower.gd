@@ -10,6 +10,7 @@ var damage_dealt : float = 0
 var enemies_killed : int = 0
 
 var star_level : int = 1
+var base_value : int = 1
 
 var enemies_in_range : Array[Area3D] = []
 var attack_cooldown: float = 0.0
@@ -96,12 +97,15 @@ func upgrade():
 	var scale_value = 1 + 0.5 * (star_level - 1)
 	model.scale = Vector3(scale_value, scale_value, scale_value)
 
+
 func attack_range_indicator_init():
 	var s = tower_range * 2
 	attack_range_indicator.scale = Vector3(s, s, s)
 
+
 func set_attack_range_indicator_visibility(_is_visible: bool) -> void:
 	attack_range_indicator.visible = _is_visible
+
 
 func set_viewport_camera(camera_position: Vector3) -> void:
 	get_node("BaseTower/SubViewport/Camera3D").position = camera_position + Vector3(1.0, 2.0, -1.0)
@@ -125,8 +129,13 @@ func set_selected(value: bool):
 	is_selected = value
 	set_attack_range_indicator_visibility(is_selected)
 
+
 func set_tower_range(value: float) -> void: 
 	tower_range = value
 	get_node("BaseTower/Area3D/CollisionShape3D").shape.radius = tower_range
 	get_node("BaseTower/DebugMesh").mesh.radius = tower_range
 	get_node("BaseTower/DebugMesh").mesh.height = tower_range * 2
+
+
+func get_value() -> int:
+	return base_value

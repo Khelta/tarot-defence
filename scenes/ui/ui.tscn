@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cldxl6iomvmm8" path="res://scenes/ui/ui_booster_pack.tscn" id="6_pfayw"]
 [ext_resource type="PackedScene" uid="uid://id4ttvp8yd45" path="res://scenes/ui/TowerPanel.tscn" id="7_7vp6q"]
 [ext_resource type="Script" uid="uid://cec3ck4pb0t8d" path="res://scenes/ui/buy_booster_button.gd" id="7_jcn1r"]
+[ext_resource type="Script" uid="uid://3sfy6l1o3ubc" path="res://scenes/ui/sell_tower_button.gd" id="7_uegxj"]
 
 [node name="Ui" type="CanvasLayer" unique_id=1417531588 groups=["ui"]]
 script = ExtResource("1_f5cxw")
@@ -64,5 +65,12 @@ script = ExtResource("7_jcn1r")
 
 [node name="TowerPanel" parent="." unique_id=629360425 instance=ExtResource("7_7vp6q")]
 
+[node name="SellTowerButton" type="Button" parent="." unique_id=1327854542]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Sell"
+script = ExtResource("7_uegxj")
+
 [connection signal="button_down" from="StartWaveButton" to="StartWaveButton" method="_on_button_down"]
 [connection signal="button_down" from="SubViewportContainer/BuyBoosterButton" to="SubViewportContainer/BuyBoosterButton" method="_on_button_down"]
+[connection signal="pressed" from="SellTowerButton" to="SellTowerButton" method="_on_pressed"]

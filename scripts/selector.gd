@@ -4,6 +4,8 @@ class_name Selector
 var ui_selected_tower : String = ""
 var custom_ui : UI = null
 
+var game_state : GameState
+
 # Selection for tower_panel
 var selected_slot_for_panel : Slot:
 	set(value):
@@ -42,7 +44,12 @@ signal placement_mode_changed(is_on: bool)
 
 func _ready() -> void:
 	custom_ui = get_tree().get_first_node_in_group("ui")
+	var sell_tower_button : SellTowerButton = custom_ui.get_node("SellTowerButton")
+	sell_tower_button.sell_requested.connect(sell_selected)
+	
 	tower_panel = custom_ui.get_node("TowerPanel")
+	
+	game_state = get_tree().get_first_node_in_group("game_state")
 
 
 func _process(delta: float) -> void:
@@ -167,13 +174,21 @@ func reset_hold() -> void:
 	hold_completed = false
 
 
-func tower_input(slot: Slot):
+func tower_input(slot: Slot) -> void:
 	if slot is BenchSlot:
 		if slot.tower:
 			grab_tower(slot)
 		elif slot.is_free():
 			place_grabbed_tower_in_slot(slot)
-				
+
 	if slot is TowerTile:
 		if grabbed_tower:
 			place_grabbed_tower_in_slot(slot)
+
+
+func sell_selected() -> void:
+	if selected_slot_for_panel:
+		if selected_slot_for_panel.tower:
+			var sell_value : int = ceili(0.75 * selected_slot_for_panel.tower.get_value())
+			game_state._change_player_gold(sell_value)
+			selected_slot_for_panel.tower.destroy()
