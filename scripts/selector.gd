@@ -43,7 +43,6 @@ signal placement_mode_changed(is_on: bool)
 func _ready() -> void:
 	custom_ui = get_tree().get_first_node_in_group("ui")
 	tower_panel = custom_ui.get_node("TowerPanel")
-	connect_to_buttons()
 
 
 func _process(delta: float) -> void:
@@ -85,18 +84,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if holding and hold_completed:
 			tower_input(slot)
 		reset_hold()
-
-
-func connect_to_buttons() -> void:
-	await get_tree().process_frame
-	var ranger_button = get_tree().get_first_node_in_group("ranger_button")
-	ranger_button.toggled.connect(_on_unit_button_toggle.bind("ranger"))
-	
-	var knight_button = get_tree().get_first_node_in_group("knight_button")
-	knight_button.toggled.connect(_on_unit_button_toggle.bind("knight"))
-	
-	var delete_button = get_tree().get_first_node_in_group("delete_button")
-	delete_button.pressed.connect(_on_delete_button_pressed)
 
 
 func _on_unit_button_toggle(toggle_on: bool, _selected_tower: String) -> void:
