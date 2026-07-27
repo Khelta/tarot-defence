@@ -6,7 +6,7 @@ var effects : Array[EnemyStatusEffect]
 
 func update(delta: float) -> void:
 	for effect in effects:
-		effect.on_update(get_parent(), delta)
+		effect.on_update(delta)
 
 		if effect.is_finished():
-			effect.on_remove(get_parent())
+			effect.on_remove()
