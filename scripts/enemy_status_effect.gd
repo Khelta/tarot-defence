@@ -1,10 +1,22 @@
 extends Node
 class_name EnemyStatusEffect
 
-var enemy: BaseEnemy
+enum StackType{
+	STACK_REFRESH,    # Multiple copies refresh on appliance
+	STACK_NO_REFRESH, # Multiple copies no refresh on appliance
+	REFRESH,          # Refresh without stacking
+	REPLACE,          # Replace old effect
+	IGNORE,           # Do nothing if already active
+}
 
-var base_duration: float
-var duration: float
+var id : String
+
+var enemy : BaseEnemy
+
+var base_duration : float
+var duration : float
+
+var stack_type : StackType = StackType.IGNORE
 
 var ticks : bool = true
 var tick_timer : float = 0.0
