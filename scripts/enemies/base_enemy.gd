@@ -9,11 +9,14 @@ class_name BaseEnemy
 var current_hp: float = max_hp
 var is_alive: bool = true
 
+var enemy_effect_manager : EnemyEffectManager
+
 signal hp_changed(current_hp: float, max_hp: float)
 signal enemy_died(gold_on_death: int)
 
 
 func _ready() -> void:
+	enemy_effect_manager = get_node("EnemyEffectManager")
 	hp_changed.emit(current_hp, max_hp)
 
 

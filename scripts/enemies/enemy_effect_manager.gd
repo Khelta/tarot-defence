@@ -37,11 +37,12 @@ func add_effect(effect: EnemyStatusEffect) -> void:
 				effects.append(effect)
 
 
-func update(delta: float) -> void:
+func _process(delta: float) -> void:
 	for effect in effects:
 		effect.on_update(delta)
 
 		if effect.is_finished():
+			effects.erase(effect)
 			effect.on_remove()
 
 

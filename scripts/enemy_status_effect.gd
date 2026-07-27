@@ -39,6 +39,7 @@ func on_update(delta: float) -> void:
 	duration -= delta
 
 	if ticks:
+		tick_timer += delta
 		if tick_timer >= tick_rate:
 			tick_timer = 0.0
 			on_tick()
