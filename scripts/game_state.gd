@@ -59,7 +59,7 @@ func _process(delta):
 
 
 	for enemy_path in path.get_children():
-		var enemy = enemy_path.get_child(0).get_node("BaseEnemy")
+		var enemy = enemy_path.get_child(0)
 		if enemy.is_alive:
 			var previous_progress_ratio = enemy_path.progress_ratio
 			enemy_path.progress_ratio += progress_ratio_speed * delta

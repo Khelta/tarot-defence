@@ -27,6 +27,3 @@ disable_3d = true
 transparent_bg = true
 
 [node name="HealthBar" parent="HealthBarViewPort" unique_id=421004880 instance=ExtResource("3_5t1fh")]
-
-[connection signal="enemy_died" from="BaseEnemy" to="." method="_on_base_enemy_enemy_died"]
-[connection signal="hp_changed" from="BaseEnemy" to="HealthBarViewPort/HealthBar" method="_update_hp"]

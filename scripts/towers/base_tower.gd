@@ -59,7 +59,7 @@ func _ready() -> void:
 func _process(delta):
 	attack_cooldown -= delta
 	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
-		var enemy = enemies_in_range[0].get_parent()
+		var enemy = enemies_in_range[0].get_parent().get_parent()
 
 		if has_projectile:
 			var local_projectile : Projectile = projectile.instantiate()
