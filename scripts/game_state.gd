@@ -2,6 +2,7 @@ extends Node
 class_name GameState
 
 @export var path : Path3D
+const path_speed = 10
 
 @export var max_player_health : float = 100.0
 var current_player_health: float
@@ -52,17 +53,22 @@ func buy_booster(price: int) -> void:
 
 
 func _process(delta):
-	var path_length: float = get_node("Path").curve.get_baked_length()
-	var enemy_speed = 20
-	var time_for_path = path_length * enemy_speed
-	var progress_ratio_speed = 100 / time_for_path
-
-
 	for enemy_path in path.get_children():
-		var enemy = enemy_path.get_child(0).get_node("BaseEnemy")
+		var enemy : BaseEnemy = enemy_path.get_child(0).get_node("BaseEnemy")
+
 		if enemy.is_alive:
 			var previous_progress_ratio = enemy_path.progress_ratio
+			var progress_ratio_speed = calculate_progress_ratio_speed(enemy)
+
 			enemy_path.progress_ratio += progress_ratio_speed * delta
 
 			if enemy_path.progress_ratio < previous_progress_ratio:
 				_change_player_health(-enemy.damage)
+
+
+func calculate_progress_ratio_speed(enemy: BaseEnemy) -> float:
+	var path_length: float = path.curve.get_baked_length()
+	var time_for_path = path_length * path_speed
+	var progress_ratio_speed = 100 / time_for_path * enemy.get_speed()
+	return progress_ratio_speed
+	

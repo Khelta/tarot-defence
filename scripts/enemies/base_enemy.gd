@@ -2,7 +2,7 @@ extends Node3D
 class_name BaseEnemy
 
 @export var max_hp: float = 100.0
-@export var speed: float = 20.0
+@export var base_speed: float = 1.0
 @export var damage: float = 1.0
 @export var gold_on_death: int = 1
 
@@ -48,3 +48,8 @@ func on_death() -> bool:
 	enemy_died.emit(gold_on_death)
 	
 	return true
+
+
+func get_speed() -> float:
+	return base_speed * enemy_effect_manager.get_speed_modifier()
+	

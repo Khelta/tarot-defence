@@ -48,3 +48,14 @@ func _process(delta: float) -> void:
 
 func get_effects_by_id(status_id: String) -> Array[EnemyStatusEffect]:
 	return effects.filter(func(effect): return effect.id == status_id)
+
+
+func get_speed_modifier() -> float:
+	var slows = get_effects_by_id("slow")
+	var speed_modifier = 1.0
+	
+	for slow in slows:
+		speed_modifier *= slow.factor
+	
+	speed_modifier = min(speed_modifier, 0.3)
+	return speed_modifier
