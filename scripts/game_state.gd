@@ -54,8 +54,7 @@ func buy_booster(price: int) -> void:
 
 func _process(delta):
 	for enemy_path in path.get_children():
-		var enemy : BaseEnemy = enemy_path.get_child(0).get_node("BaseEnemy")
-
+		var enemy = enemy_path.get_child(0)
 		if enemy.is_alive:
 			var previous_progress_ratio = enemy_path.progress_ratio
 			var progress_ratio_speed = calculate_progress_ratio_speed(enemy)

@@ -78,9 +78,8 @@ func spawn_wave(wave_string: String):
 		for x in enemy_count:
 			var path_follow = PathFollow3D.new()
 			var enemy_instance = enemy_dict[enemy_type].instantiate()
-			var base_enemy_of_enemy_instance : BaseEnemy = enemy_instance.get_node("BaseEnemy")
-			base_enemy_of_enemy_instance.enemy_died.connect(game_state._change_player_gold)
-			base_enemy_of_enemy_instance.enemy_died.connect(_on_enemy_died)
+			enemy_instance.enemy_died.connect(game_state._change_player_gold)
+			enemy_instance.enemy_died.connect(_on_enemy_died)
 			path_follow.add_child(enemy_instance)
 			level_path.add_child(path_follow)
 			await get_tree().create_timer(spawn_delay).timeout

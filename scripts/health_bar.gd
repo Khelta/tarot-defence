@@ -1,4 +1,5 @@
 extends Control
+class_name HealthBar
 
 func _update_hp(current_hp: float, max_hp: float) -> void:
 	var progress_bar : ProgressBar = get_child(0)
