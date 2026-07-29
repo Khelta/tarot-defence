@@ -62,16 +62,7 @@ func _process(delta):
 		var enemy = enemies_in_range[0].get_parent().get_parent()
 
 		if has_projectile:
-			var local_projectile : Projectile = projectile.instantiate()
-			add_child(local_projectile)
-			local_projectile.spawn(self,
-								   enemy,
-								   projectile_mesh,
-								   projectile_mesh_rotation_degrees,
-								   projectile_speed,
-								   projectile_height,
-								   )
-			local_projectile.projectile_hitted.connect(apply_damage)
+			spawn_projectile(enemy)
 		else:
 			apply_damage(enemy)
 
@@ -139,3 +130,16 @@ func set_tower_range(value: float) -> void:
 
 func get_value() -> int:
 	return base_value
+
+
+func spawn_projectile(enemy: BaseEnemy) -> void:
+	var local_projectile : Projectile = projectile.instantiate()
+	add_child(local_projectile)
+	local_projectile.spawn(self,
+						   enemy,
+						   projectile_mesh,
+						   projectile_mesh_rotation_degrees,
+						   projectile_speed,
+						   projectile_height,
+						   )
+	local_projectile.projectile_hitted.connect(apply_damage)
