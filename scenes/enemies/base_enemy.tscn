@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mil7mhe0gmxj"]
 
 [ext_resource type="PackedScene" uid="uid://c45ikxfvogmob" path="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/gltf/coin_gold.gltf" id="2_lns46"]
-[ext_resource type="PackedScene" uid="uid://ds2g20xw1dotb" path="res://scenes/models/enemies/enemy_effect_manager.tscn" id="3_g3v8v"]
+[ext_resource type="PackedScene" uid="uid://ds2g20xw1dotb" path="res://scenes/enemies/components/enemy_effect_manager.tscn" id="3_g3v8v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 
