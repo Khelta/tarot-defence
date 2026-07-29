@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://babiuy4sfeoba"]
 
-[ext_resource type="Script" uid="uid://ciephuijwunt4" path="res://scripts/tiles/PathTile.gd" id="1_7x25j"]
+[ext_resource type="Script" uid="uid://ciephuijwunt4" path="res://scenes/tiles/PathTile.gd" id="1_7x25j"]
 [ext_resource type="ArrayMesh" uid="uid://b4ntcmoompmri" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_small.obj" id="1_603sr"]
 [ext_resource type="PackedScene" uid="uid://c7ukq0eg310ma" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_A.fbx" id="2_yiprl"]
 [ext_resource type="PackedScene" uid="uid://b3o06rsq36qjx" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/path_B.fbx" id="3_mu73k"]

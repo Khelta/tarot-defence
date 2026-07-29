@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://buchyyt4dbdk6"]
+[gd_scene format=3 uid="uid://bw44l352hiqvo"]
 
-[ext_resource type="Script" uid="uid://bakklulu6nnco" path="res://scenes/models/towers/projectile.gd" id="1_qirtb"]
+[ext_resource type="Script" path="res://scenes/models/towers/status_effects/projectile.gd" id="1_1bugq"]
 
 [sub_resource type="Curve3D" id="Curve3D_mdlsd"]
 resource_local_to_scene = true
 
 [node name="Projectile" type="Node3D" unique_id=844860692]
-script = ExtResource("1_qirtb")
+script = ExtResource("1_1bugq")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1779406906]
 curve = SubResource("Curve3D_mdlsd")

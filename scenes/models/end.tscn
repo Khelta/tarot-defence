@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b4ntcmoompmri" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt_small.obj" id="3_jclhh"]
 [ext_resource type="Material" uid="uid://b7vu321dupt24" path="res://materials/invalid_placeable_material.tres" id="3_s4tl2"]
 [ext_resource type="ArrayMesh" uid="uid://cba8pbbfq2h2b" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/fence.obj" id="4_bvfni"]
-[ext_resource type="Shader" uid="uid://b82dtcytah40b" path="res://materials/portal_shader.gdshader" id="6_8hmjt"]
+[ext_resource type="Shader" uid="uid://b82dtcytah40b" path="res://materials/shader/portal_shader.gdshader" id="6_8hmjt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o5lv4"]
 

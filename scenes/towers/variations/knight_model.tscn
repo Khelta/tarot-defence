@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://6ppmlwu3vroj"]
 
 [ext_resource type="Texture2D" uid="uid://38xwxoutnfwe" path="res://assets/KayKit_Adventurers_2.0_FREE/Characters/fbx/knight_texture.png" id="1_ch1ty"]
-[ext_resource type="Script" uid="uid://r0aitqkwpdgu" path="res://scenes/models/towers/knight_animation.gd" id="1_pelct"]
+[ext_resource type="Script" uid="uid://r0aitqkwpdgu" path="res://scenes/towers/variations/knight_animation.gd" id="1_pelct"]
 [ext_resource type="PackedScene" uid="uid://c0nebpixn83li" path="res://scenes/animations.tscn" id="2_850oy"]
 [ext_resource type="PackedScene" uid="uid://b7ka7f1xffoul" path="res://assets/KayKit_Adventurers_2.0_FREE/Assets/fbx/sword_2handed.fbx" id="3_uh0gy"]
 

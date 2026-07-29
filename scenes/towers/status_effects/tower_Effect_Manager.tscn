@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dfdh7yy17587j"]
+
+[ext_resource type="Script" path="res://scenes/models/towers/status_effects/tower_effect_manager.gd" id="1_21l3f"]
+
+[node name="TowerEffectManager" type="Node" unique_id=1887337904]
+script = ExtResource("1_21l3f")

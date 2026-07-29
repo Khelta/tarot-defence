@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://boog8aoaw2pyd"]
 
-[ext_resource type="Script" uid="uid://ban37eis30e5w" path="res://scripts/enemies/skeleton_minion.gd" id="1_ckts4"]
+[ext_resource type="Script" uid="uid://ban37eis30e5w" path="res://scenes/enemies/variations/skeleton_minion.gd" id="1_ckts4"]
 [ext_resource type="Texture2D" uid="uid://b7espqkucbd4v" path="res://assets/KayKit_Skeletons_1.1_FREE/characters/fbx/skeleton_texture.png" id="1_fjcq6"]
 [ext_resource type="AnimationLibrary" uid="uid://dpu87cpeuvkou" path="res://assets/KayKit_Character_Animations_1.1/Animations/fbx/Rig_Medium/Rig_Medium_General.fbx" id="2_vj3rj"]
 [ext_resource type="AnimationLibrary" uid="uid://cdvpjywg6y3hh" path="res://assets/KayKit_Character_Animations_1.1/Animations/fbx/Rig_Medium/Rig_Medium_MovementBasic.fbx" id="3_m2ou7"]

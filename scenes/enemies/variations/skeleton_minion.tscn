@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bhlx172x46b74"]
 
-[ext_resource type="PackedScene" uid="uid://mil7mhe0gmxj" path="res://scenes/models/enemies/base_enemy.tscn" id="1_4rhop"]
-[ext_resource type="Script" uid="uid://ban37eis30e5w" path="res://scripts/enemies/skeleton_minion.gd" id="1_mx17y"]
+[ext_resource type="PackedScene" uid="uid://mil7mhe0gmxj" path="res://scenes/enemies/base_enemy.tscn" id="1_4rhop"]
+[ext_resource type="Script" uid="uid://ban37eis30e5w" path="res://scenes/enemies/variations/skeleton_minion.gd" id="1_mx17y"]
 [ext_resource type="PackedScene" uid="uid://djqcqk5k20cb1" path="res://scenes/ui/health_bar.tscn" id="3_5t1fh"]
-[ext_resource type="PackedScene" uid="uid://boog8aoaw2pyd" path="res://scenes/models/enemies/skeleton_minion_model.tscn" id="3_mx17y"]
+[ext_resource type="PackedScene" uid="uid://boog8aoaw2pyd" path="res://scenes/enemies/variations/skeleton_minion_model.tscn" id="3_mx17y"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pp3pc"]
 viewport_path = NodePath("HealthBarViewPort")

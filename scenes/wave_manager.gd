@@ -8,7 +8,7 @@ class_name WaveManager
 
 var wave_index : int = 0
 
-var skeleton_minion = preload("res://scenes/models/enemies/skeleton_minion.tscn")
+var skeleton_minion = preload("res://scenes/enemies/variations/skeleton_minion.tscn")
 var enemy_dict = {"s": skeleton_minion}
 
 var wave_enemy_count : int = 0

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ukqaac80khhx"]
 
-[ext_resource type="Script" uid="uid://dy3ww5et2o0uo" path="res://scenes/models/towers/tower_effect_manager.gd" id="1_sf7co"]
+[ext_resource type="Script" uid="uid://dy3ww5et2o0uo" path="res://scenes/towers/components/tower_effect_manager.gd" id="1_sf7co"]
 
 [node name="TowerEffectManager" type="Node" unique_id=1887337904]
 script = ExtResource("1_sf7co")
