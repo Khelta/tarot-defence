@@ -68,3 +68,11 @@ func get_attack_speed_modifier() -> float:
 	for effect in haste_effects:
 		attack_speed_modifier *= effect.factor
 	return attack_speed_modifier
+
+
+func get_damage_modifier() -> float:
+	var reinforcement_effects = get_effects_by_id("reinforce")
+	var damage_modifier = 1.0
+	for effect in reinforcement_effects:
+		damage_modifier *= effect.factor
+	return damage_modifier

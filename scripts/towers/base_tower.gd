@@ -87,18 +87,23 @@ func apply_damage(target: BaseEnemy) -> void:
 
 
 func _apply_target_damage(target: BaseEnemy, damage = base_damage) -> void:
+	damage = damage * tower_effect_manager.get_damage_modifier()
+
 	var target_info = target.take_damage(damage)
 	damage_dealt += target_info[0]
 	if target_info[1] == true:
 		enemies_killed += 1
+
 	stats_updated.emit()
 
 
 func _apply_aoe_damage(target: BaseEnemy, damage = base_damage) -> void:
+	damage = damage * tower_effect_manager.get_damage_modifier()
+
 	if attack_area > 0:
 		var shape = SphereShape3D.new()
 		shape.radius = attack_area
-		
+
 		var query := PhysicsShapeQueryParameters3D.new()
 		query.shape = shape
 		query.collide_with_areas = true
