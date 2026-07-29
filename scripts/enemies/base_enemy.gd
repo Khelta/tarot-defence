@@ -27,12 +27,15 @@ func _ready() -> void:
 
 
 func take_damage(amount: float) -> Array:
-	current_hp -= amount
+	var weakend_modifier = enemy_effect_manager.get_weakend_modifier()
+	var hp_damage = amount * weakend_modifier
+	
+	current_hp -= hp_damage
 	hp_changed.emit(current_hp, max_hp)
 	var died = false
 	if current_hp <= 0:
 		died = on_death()
-	return [amount, died]
+	return [hp_damage, died]
 
 func death_animation(_no_value: int) -> void:
 	pass

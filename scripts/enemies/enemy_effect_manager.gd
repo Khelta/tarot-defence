@@ -66,13 +66,24 @@ func get_effects_by_id(status_id: String) -> Array[EnemyStatusEffect]:
 
 func get_speed_modifier() -> float:
 	var slows = get_effects_by_id("slow")
-	var speed_modifier = 1.0
+	var speed_modifier : float = 1.0
 	
 	for slow in slows:
 		speed_modifier *= slow.factor
 	
 	speed_modifier = min(speed_modifier, 0.3)
 	return speed_modifier
+
+
+func get_weakend_modifier() -> float:
+	var modifiers = get_effects_by_id("weakend")
+	var weakend_modifier : float = 1.0
+	
+	for weakend in modifiers:
+		weakend_modifier *= weakend.factor
+	
+	weakend_modifier = clampf(weakend_modifier, 1.0, 3.0)
+	return weakend_modifier
 
 
 func is_frozen():
