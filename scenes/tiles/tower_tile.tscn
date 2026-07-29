@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcyhfyysyes3h"]
 
 [ext_resource type="ArrayMesh" uid="uid://baarovawwwsqh" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/floor_dirt.obj" id="1_3cgtp"]
-[ext_resource type="Script" uid="uid://reuik7gk8rcu" path="res://scripts/tiles/tower_tile.gd" id="1_w0cn8"]
+[ext_resource type="Script" uid="uid://reuik7gk8rcu" path="res://scenes/tiles/tower_tile.gd" id="1_w0cn8"]
 [ext_resource type="PackedScene" uid="uid://dmvrwyc6lcwcu" path="res://scenes/tiles/valid_tower_position_vfx.tscn" id="3_3c3ku"]
 [ext_resource type="Material" uid="uid://b7vu321dupt24" path="res://materials/invalid_placeable_material.tres" id="3_hpuji"]
 
