@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ds2g20xw1dotb"]
+
+[ext_resource type="Script" uid="uid://drrotsji43pt0" path="res://scripts/enemies/enemy_effect_manager.gd" id="1_lawu2"]
+
+[node name="EnemyEffectManager" type="Node" unique_id=799205632]
+script = ExtResource("1_lawu2")

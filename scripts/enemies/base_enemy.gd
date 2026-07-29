@@ -2,32 +2,42 @@ extends Node3D
 class_name BaseEnemy
 
 @export var max_hp: float = 100.0
-@export var speed: float = 20.0
+@export var base_speed: float = 1.0
 @export var damage: float = 1.0
 @export var gold_on_death: int = 1
 
 var current_hp: float = max_hp
 var is_alive: bool = true
 
+var enemy_effect_manager : EnemyEffectManager
+var animation_player : AnimationPlayer
+var health_bar : HealthBar
+
 signal hp_changed(current_hp: float, max_hp: float)
 signal enemy_died(gold_on_death: int)
 
 
 func _ready() -> void:
-	var health_bar : HealthBar = get_node("HealthBarViewPort/HealthBar")
+	enemy_effect_manager = get_node("BaseEnemy/EnemyEffectManager")
+	animation_player = get_node("Model").get_node("AnimationPlayer") as AnimationPlayer
+	
+	health_bar = get_node("HealthBarViewPort/HealthBar")
 	hp_changed.connect(health_bar._update_hp)
 	hp_changed.emit(current_hp, max_hp)
 
 
 func take_damage(amount: float) -> Array:
-	current_hp -= amount
+	var weakend_modifier = enemy_effect_manager.get_weakend_modifier()
+	var hp_damage = amount * weakend_modifier
+	
+	current_hp -= hp_damage
 	hp_changed.emit(current_hp, max_hp)
 	var died = false
 	if current_hp <= 0:
 		died = on_death()
-	return [amount, died]
+	return [hp_damage, died]
 
-func death_animation(no_value: int) -> void:
+func death_animation(_no_value: int) -> void:
 	pass
 
 func on_death() -> bool:
@@ -50,3 +60,23 @@ func on_death() -> bool:
 	enemy_died.emit(gold_on_death)
 	
 	return true
+
+
+func is_frozen() -> bool:
+	return enemy_effect_manager.is_frozen()
+
+
+func on_freeze_started() -> void:
+	animation_player.pause()
+
+
+func on_freeze_ended() -> void:
+	animation_player.play()
+
+
+func get_speed() -> float:
+	if is_frozen():
+		return 0
+	else:
+		return base_speed * enemy_effect_manager.get_speed_modifier()
+	
