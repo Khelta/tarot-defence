@@ -59,12 +59,12 @@ func _ready() -> void:
 func _process(delta):
 	attack_cooldown -= delta
 	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
-		var enemy = enemies_in_range[0].get_parent().get_parent()
+		var target_enemy = enemies_in_range[0].get_parent().get_parent()
 
 		if has_projectile:
-			spawn_projectile(enemy)
+			spawn_projectile(target_enemy)
 		else:
-			apply_damage(enemy)
+			apply_damage(target_enemy)
 
 		attacked.emit()
 		attack_cooldown = 1.0 / attacks_per_second
@@ -74,12 +74,37 @@ func destroy() -> void:
 	queue_free()
 
 
-func apply_damage(target: BaseEnemy):
-	var target_info = target.take_damage(base_damage)
+func apply_damage(target: BaseEnemy) -> void:
+	_apply_target_damage(target)
+	_apply_aoe_damage(target)
+
+
+func _apply_target_damage(target: BaseEnemy, damage = base_damage) -> void:
+	var target_info = target.take_damage(damage)
 	damage_dealt += target_info[0]
 	if target_info[1] == true:
 		enemies_killed += 1
 	stats_updated.emit()
+
+
+func _apply_aoe_damage(target: BaseEnemy, damage = base_damage) -> void:
+	if attack_area > 0:
+		var shape = SphereShape3D.new()
+		shape.radius = attack_area
+		
+		var query := PhysicsShapeQueryParameters3D.new()
+		query.shape = shape
+		query.collide_with_areas = true
+		query.collision_mask = 1 << 1
+		query.transform = Transform3D(Basis(), target.global_position)
+		query.exclude = [self]
+
+		var results = get_world_3d().direct_space_state.intersect_shape(query)
+
+		for result in results:
+			var enemy = result["collider"].get_parent().get_parent()
+			if enemy != target:
+				_apply_target_damage(enemy, damage)
 
 
 func upgrade():
