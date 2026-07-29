@@ -60,3 +60,11 @@ func _process(delta: float) -> void:
 
 func get_effects_by_id(status_id: String) -> Array[EnemyStatusEffect]:
 	return effects.filter(func(effect): return effect.id == status_id)
+
+
+func get_attack_speed_modifier() -> float: 
+	var haste_effects = get_effects_by_id("haste")
+	var attack_speed_modifier = 1.0
+	for effect in haste_effects:
+		attack_speed_modifier *= effect.factor
+	return attack_speed_modifier
