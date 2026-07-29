@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://do5m6kksqscjp"]
 
 [ext_resource type="Shader" uid="uid://cnqynrojqqxdq" path="res://materials/attack_range_indicator.gdshader" id="2_ebdug"]
+[ext_resource type="PackedScene" uid="uid://ukqaac80khhx" path="res://scenes/models/towers/tower_Effect_Manager.tscn" id="3_r5n7h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yf5fn"]
 radius = 5.0
@@ -49,3 +50,5 @@ size = Vector2i(524, 524)
 transform = Transform3D(-0.76604444, -0.32139382, 0.5566704, 0, 0.8660254, 0.5, -0.64278764, 0.38302222, -0.66341394, 0, 2, -3)
 projection = 1
 size = 3.41
+
+[node name="TowerEffectManager" parent="." unique_id=1887337904 instance=ExtResource("3_r5n7h")]
