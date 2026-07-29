@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://do5m6kksqscjp"]
 
 [ext_resource type="Shader" uid="uid://cnqynrojqqxdq" path="res://materials/shader/attack_range_indicator.gdshader" id="2_ebdug"]
-[ext_resource type="PackedScene" uid="uid://ukqaac80khhx" path="res://scenes/models/towers/tower_Effect_Manager.tscn" id="3_r5n7h"]
+[ext_resource type="PackedScene" uid="uid://ukqaac80khhx" path="res://scenes/towers/components/tower_Effect_Manager.tscn" id="3_r5n7h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yf5fn"]
 radius = 5.0

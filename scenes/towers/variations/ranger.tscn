@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://byf2lvnbei6tr"]
 
-[ext_resource type="Script" uid="uid://dmbx350w3g8ru" path="res://scripts/towers/ranger.gd" id="1_vsabo"]
-[ext_resource type="PackedScene" uid="uid://bqw8ny1jhy7q8" path="res://scenes/models/towers/ranger_model.tscn" id="2_dd6ky"]
-[ext_resource type="PackedScene" uid="uid://do5m6kksqscjp" path="res://scenes/models/towers/base_tower.tscn" id="2_vsabo"]
+[ext_resource type="Script" uid="uid://dmbx350w3g8ru" path="res://scenes/towers/variations/ranger.gd" id="1_vsabo"]
+[ext_resource type="PackedScene" uid="uid://bqw8ny1jhy7q8" path="res://scenes/towers/variations/ranger_model.tscn" id="2_dd6ky"]
+[ext_resource type="PackedScene" uid="uid://do5m6kksqscjp" path="res://scenes/towers/base_tower.tscn" id="2_vsabo"]
 
 [node name="Ranger" type="Node3D" unique_id=893937668]
 script = ExtResource("1_vsabo")

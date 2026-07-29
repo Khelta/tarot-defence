@@ -38,7 +38,7 @@ signal grabbed
 signal grab_released
 signal stats_updated
 
-var projectile = preload("res://scenes/models/towers/projectile.tscn")
+var projectile = preload("res://scenes/towers/components/projectile.tscn")
 @export var has_projectile : bool = false
 @export var projectile_mesh = preload("res://assets/KayKit_Adventurers_2.0_FREE/Assets/fbx/arrow_bow.fbx")
 @export var projectile_mesh_rotation_degrees : Vector3 = Vector3(0.0, 0.0, 0.0)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buchyyt4dbdk6"]
 
-[ext_resource type="Script" uid="uid://bakklulu6nnco" path="res://scenes/models/towers/projectile.gd" id="1_qirtb"]
+[ext_resource type="Script" uid="uid://bakklulu6nnco" path="res://scenes/towers/components/projectile.gd" id="1_qirtb"]
 
 [sub_resource type="Curve3D" id="Curve3D_mdlsd"]
 resource_local_to_scene = true

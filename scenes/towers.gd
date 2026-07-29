@@ -1,9 +1,9 @@
 extends Node
 class_name Towers
 
-const RangerClass = preload("res://scenes/models/towers/ranger.tscn")
-const KnightClass = preload("res://scenes/models/towers/knight.tscn")
-const WizardClass = preload("res://scenes/models/towers/wizard.tscn")
+const RangerClass = preload("res://scenes/towers/variations/ranger.tscn")
+const KnightClass = preload("res://scenes/towers/variations/knight.tscn")
+const WizardClass = preload("res://scenes/towers/variations/wizard.tscn")
 
 var tower_class_dict : Dictionary[String, PackedScene] = {
 	"Ranger": RangerClass,
