@@ -41,7 +41,7 @@ func _on_base_tower_attack() -> void:
 
 func _set_selection(is_on: bool) -> void:
 	var mat = ShaderMaterial.new()
-	mat.shader = preload("res://scenes/models/towers/fresnel.gdshader")
+	mat.shader = preload("res://materials/fresnel.gdshader")
 	
 	for ranger_mesh in get_node("Rig_Medium/Skeleton3D").get_children():
 		if ranger_mesh is MeshInstance3D:
