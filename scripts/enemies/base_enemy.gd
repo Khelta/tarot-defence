@@ -10,6 +10,8 @@ var current_hp: float = max_hp
 var is_alive: bool = true
 
 var enemy_effect_manager : EnemyEffectManager
+var animation_player : AnimationPlayer
+var health_bar : HealthBar
 
 signal hp_changed(current_hp: float, max_hp: float)
 signal enemy_died(gold_on_death: int)
@@ -17,8 +19,9 @@ signal enemy_died(gold_on_death: int)
 
 func _ready() -> void:
 	enemy_effect_manager = get_node("BaseEnemy/EnemyEffectManager")
+	animation_player = get_node("Model").get_node("AnimationPlayer") as AnimationPlayer
 	
-	var health_bar : HealthBar = get_node("HealthBarViewPort/HealthBar")
+	health_bar = get_node("HealthBarViewPort/HealthBar")
 	hp_changed.connect(health_bar._update_hp)
 	hp_changed.emit(current_hp, max_hp)
 
@@ -56,6 +59,21 @@ func on_death() -> bool:
 	return true
 
 
+func is_frozen() -> bool:
+	return enemy_effect_manager.is_frozen()
+
+
+func on_freeze_started() -> void:
+	animation_player.pause()
+
+
+func on_freeze_ended() -> void:
+	animation_player.play()
+
+
 func get_speed() -> float:
-	return base_speed * enemy_effect_manager.get_speed_modifier()
+	if is_frozen():
+		return 0
+	else:
+		return base_speed * enemy_effect_manager.get_speed_modifier()
 	

@@ -3,13 +3,13 @@ class_name SkeletonMinion
 
 func _ready() -> void:
 	super._ready()
-	get_node("SkeletonMinionModel").get_node("AnimationPlayer").play("Running_B")
+	get_node("Model").get_node("AnimationPlayer").play("Running_B")
 
 
 func death_animation(_no_value: int) -> void:
 	get_node("HealthBarViewPort/HealthBar").queue_free()
 	
-	var animation_player = get_node("SkeletonMinionModel").get_node("AnimationPlayer")
+	var animation_player = get_node("Model").get_node("AnimationPlayer")
 	animation_player.play("Rig_Medium_General/Death_A")
 	await animation_player.animation_finished
 	

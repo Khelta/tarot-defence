@@ -2,8 +2,16 @@ extends Node
 class_name EnemyEffectManager
 
 var effects : Array[EnemyStatusEffect]
+var enemy : BaseEnemy
+
+
+func _ready() -> void:
+	enemy = get_parent().get_parent()
+
 
 func add_effect(effect: EnemyStatusEffect) -> void:
+	connect_signals(effect)
+
 	var existing = get_effects_by_id(effect.id)
 
 	match effect.stack_type:
@@ -37,6 +45,12 @@ func add_effect(effect: EnemyStatusEffect) -> void:
 				effects.append(effect)
 
 
+func connect_signals(effect: EnemyStatusEffect) -> void:
+	if effect is Freeze:
+		effect.freeze_started.connect(enemy.on_freeze_started)
+		effect.freeze_ended.connect(enemy.on_freeze_ended)
+
+
 func _process(delta: float) -> void:
 	for effect in effects:
 		effect.on_update(delta)
@@ -59,3 +73,7 @@ func get_speed_modifier() -> float:
 	
 	speed_modifier = min(speed_modifier, 0.3)
 	return speed_modifier
+
+
+func is_frozen():
+	return len(effects.filter(func(effect): return effect.id == "freeze")) > 0
