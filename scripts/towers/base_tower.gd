@@ -13,9 +13,12 @@ var star_level : int = 1
 var base_value : int = 1
 
 var enemies_in_range : Array[Area3D] = []
+
 var attack_cooldown: float = 0.0
+
 const default_timeout = 0.5
 var default_rotation = Vector3()
+
 var is_grabbed: bool = false:
 	set(new_is_grabbed):
 		is_grabbed = new_is_grabbed
@@ -26,7 +29,9 @@ var is_grabbed: bool = false:
 			grab_released.emit()
 var is_selected: bool = false
 
-var attack_range_indicator : MeshInstance3D = null 
+var attack_range_indicator : MeshInstance3D = null
+
+var tower_effect_manager : TowerEffectManager
 
 signal attacked
 signal grabbed
@@ -42,18 +47,20 @@ var projectile = preload("res://scenes/models/towers/projectile.tscn")
 
 func _ready() -> void:
 	default_rotation = rotation
-	
+
 	var area : Area3D = get_node("BaseTower/Area3D")
 	area.area_entered.connect(_on_area_3d_area_entered)
 	area.area_exited.connect(_on_area_3d_area_exited)
-	
+
 	var collision : CollisionShape3D = get_node("BaseTower/Area3D/CollisionShape3D")
 	collision.shape = collision.shape.duplicate(true)
-	
+
 	attack_range_indicator = get_node("BaseTower/AttackRangeIndicator")
 	attack_range_indicator_init()
-	
+
 	set_tower_range(tower_range)
+
+	tower_effect_manager = get_node("BaseTower/TowerEffectManager")
 
 
 func _process(delta):
@@ -67,7 +74,7 @@ func _process(delta):
 			apply_damage(target_enemy)
 
 		attacked.emit()
-		attack_cooldown = 1.0 / attacks_per_second
+		attack_cooldown = 1.0 / (attacks_per_second * tower_effect_manager.get_attack_speed_modifier())
 
 
 func destroy() -> void:
@@ -80,18 +87,23 @@ func apply_damage(target: BaseEnemy) -> void:
 
 
 func _apply_target_damage(target: BaseEnemy, damage = base_damage) -> void:
+	damage = damage * tower_effect_manager.get_damage_modifier()
+
 	var target_info = target.take_damage(damage)
 	damage_dealt += target_info[0]
 	if target_info[1] == true:
 		enemies_killed += 1
+
 	stats_updated.emit()
 
 
 func _apply_aoe_damage(target: BaseEnemy, damage = base_damage) -> void:
+	damage = damage * tower_effect_manager.get_damage_modifier()
+
 	if attack_area > 0:
 		var shape = SphereShape3D.new()
 		shape.radius = attack_area
-		
+
 		var query := PhysicsShapeQueryParameters3D.new()
 		query.shape = shape
 		query.collide_with_areas = true
