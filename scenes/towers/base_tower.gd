@@ -12,7 +12,7 @@ var enemies_killed : int = 0
 var star_level : int = 1
 var base_value : int = 1
 
-var enemies_in_range : Array[Area3D] = []
+var enemies_in_range : Array[BaseEnemy] = []
 
 var attack_cooldown: float = 0.0
 
@@ -32,6 +32,17 @@ var is_selected: bool = false
 var attack_range_indicator : MeshInstance3D = null
 
 var tower_effect_manager : TowerEffectManager
+
+enum TargetPriority {
+	FIRST,
+	LAST,
+	LOWEST_HP,
+	HIGHEST_HP,
+	CLOSEST,
+	FARTHEST
+}
+
+var target_priority = TargetPriority.FIRST
 
 signal attacked
 signal grabbed
@@ -66,7 +77,40 @@ func _ready() -> void:
 func _process(delta):
 	attack_cooldown -= delta
 	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
-		var target_enemy = enemies_in_range[0].get_parent().get_parent()
+
+		var target_enemy : BaseEnemy
+		match target_priority:
+
+			TargetPriority.FIRST:
+				enemies_in_range.sort_custom(func(a, b): 
+					return a.get_parent().progress_ratio < b.get_parent().progress_ratio)
+				target_enemy = enemies_in_range[-1]
+
+			TargetPriority.LAST:
+				enemies_in_range.sort_custom(func(a, b): 
+					return a.get_parent().progress_ratio < b.get_parent().progress_ratio)
+				target_enemy = enemies_in_range[0]
+
+			TargetPriority.HIGHEST_HP:
+				enemies_in_range.sort_custom(func(a, b): 
+					return a.current_hp < b.current_hp)
+				target_enemy = enemies_in_range[-1]
+
+			TargetPriority.LOWEST_HP:
+				enemies_in_range.sort_custom(func(a, b): 
+					return a.current_hp < b.current_hp)
+				target_enemy = enemies_in_range[0]
+
+			TargetPriority.CLOSEST:
+				enemies_in_range.sort_custom(func(a, b): 
+					return abs(global_position - a.global_position) < abs(global_position - b.global_position))
+				target_enemy = enemies_in_range[0]
+
+			TargetPriority.FARTHEST:
+				enemies_in_range.sort_custom(func(a, b): 
+					return abs(global_position - a.global_position) < abs(global_position - b.global_position))
+				target_enemy = enemies_in_range[-1]
+
 
 		if has_projectile:
 			spawn_projectile(target_enemy)
@@ -141,12 +185,12 @@ func set_viewport_camera(camera_position: Vector3) -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent().name == "BaseEnemy":
-		enemies_in_range.push_back(area)
+		enemies_in_range.push_back(area.get_parent().get_parent())
 
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.get_parent().name == "BaseEnemy":
-		enemies_in_range.erase(area)
+		enemies_in_range.erase(area.get_parent().get_parent())
 
 
 func _on_grabbed_changed(_is_grabbed: bool) -> void:
