@@ -182,7 +182,7 @@ func tower_input(slot: Slot) -> void:
 			place_grabbed_tower_in_slot(slot)
 
 	if slot is TowerTile:
-		if grabbed_tower:
+		if grabbed_tower and slot.is_eligible:
 			place_grabbed_tower_in_slot(slot)
 
 
