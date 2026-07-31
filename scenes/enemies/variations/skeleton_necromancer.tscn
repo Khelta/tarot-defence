@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://xqomemaq0kqn"]
+
+[ext_resource type="Script" uid="uid://cg57v24cnabvx" path="res://scenes/enemies/variations/skeleton_necromancer.gd" id="1_v70si"]
+[ext_resource type="PackedScene" uid="uid://mil7mhe0gmxj" path="res://scenes/enemies/base_enemy.tscn" id="2_h5f1b"]
+[ext_resource type="PackedScene" uid="uid://ekv5m0o5n5r" path="res://scenes/enemies/variations/skeleton_necromancer_model.tscn" id="3_v70si"]
+[ext_resource type="PackedScene" uid="uid://djqcqk5k20cb1" path="res://scenes/ui/health_bar.tscn" id="4_0mame"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pp3pc"]
+viewport_path = NodePath("HealthBarViewPort")
+
+[node name="SkeletonNecromancer" type="Node3D" unique_id=2066997011]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_v70si")
+
+[node name="BaseEnemy" parent="." unique_id=2124445037 instance=ExtResource("2_h5f1b")]
+
+[node name="Model" parent="." unique_id=2116891516 instance=ExtResource("3_v70si")]
+
+[node name="HealthBarSprite" type="Sprite3D" parent="." unique_id=1479746916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5642228, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_pp3pc")
+
+[node name="HealthBarViewPort" type="SubViewport" parent="." unique_id=841713789]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar" parent="HealthBarViewPort" unique_id=421004880 instance=ExtResource("4_0mame")]
