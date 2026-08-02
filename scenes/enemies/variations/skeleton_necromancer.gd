@@ -2,7 +2,11 @@ extends BaseEnemy
 class_name SkeletonNecromancer
 
 func _ready() -> void:
+	is_caster = true
+	cast_cooldown = 3.0
+	cast_duration = 1.0
 	super._ready()
+
 	animation_player.play("Running_B")
 
 
@@ -20,3 +24,9 @@ func death_animation(_no_value: int) -> void:
 	await get_tree().create_timer(1).timeout
 	
 	get_parent().queue_free()
+
+
+func cast_spell() -> void:
+	for i in range(0, 2):
+		var enemy_instance = EnemyUtils.dict["s"].instantiate()
+		enemy_spawned.emit(enemy_instance)
