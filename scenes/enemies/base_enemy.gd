@@ -6,12 +6,26 @@ class_name BaseEnemy
 @export var damage: float = 1.0
 @export var gold_on_death: int = 1
 
+enum State {
+	MOVING,
+	CASTING
+}
+
+var state = State.MOVING
+
 var current_hp: float = max_hp
 var is_alive: bool = true
 
 var enemy_effect_manager : EnemyEffectManager
 var animation_player : AnimationPlayer
 var health_bar : HealthBar
+
+var is_caster : bool
+var cast_cooldown : float
+var cast_duration : float
+
+signal enemy_spawned(enemy: BaseEnemy)
+
 
 signal hp_changed(current_hp: float, max_hp: float)
 signal enemy_died(gold_on_death: int)
@@ -24,6 +38,10 @@ func _ready() -> void:
 	health_bar = get_node("HealthBarViewPort/HealthBar")
 	hp_changed.connect(health_bar._update_hp)
 	hp_changed.emit(current_hp, max_hp)
+	
+	if is_caster:
+		casting_loop()
+
 
 
 func take_damage(amount: float) -> Array:
@@ -79,4 +97,26 @@ func get_speed() -> float:
 		return 0
 	else:
 		return base_speed * enemy_effect_manager.get_speed_modifier()
+
+
+func casting_loop():
+	await get_tree().create_timer(cast_cooldown).timeout
+	while is_alive:
+		await get_tree().create_timer(cast_cooldown).timeout
+		await start_cast()
+
+
+func start_cast():
+	if state == State.CASTING:
+		return
 	
+	state = State.CASTING
+	
+	await get_tree().create_timer(cast_duration).timeout
+	
+	cast_spell()
+	state = State.MOVING
+
+
+func cast_spell() -> void:
+	assert(false, "Implement on_cast_finished")
