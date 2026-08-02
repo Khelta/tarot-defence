@@ -8,14 +8,9 @@ class_name WaveManager
 
 var wave_index : int = 0
 
-var skeleton_minion = preload("res://scenes/enemies/variations/skeleton_minion.tscn")
-var skeleton_necromancer = preload("res://scenes/enemies/variations/skeleton_necromancer.tscn")
-
-var enemy_dict = {"s": skeleton_minion,
-				  "n": skeleton_necromancer,
-				 }
-
 var wave_enemy_count : int = 0
+
+var wave_spawn_ended : bool = true
 
 signal wave_started(wave_index: int, waves_length: int)
 signal wave_ended(wave_index: int, waves_length: int)
@@ -52,7 +47,7 @@ func validate_wave_string(wave_string: String) -> bool:
 		if wave_data[1].is_valid_int() or wave_data[1].is_valid_float():
 			assert(false, "Second parameter of wave_string must be a String")
 			
-		if wave_data[1] not in enemy_dict:
+		if wave_data[1] not in EnemyUtils.dict:
 			assert(false, "Second parameter of wave_string must be in enemy_dict")
 			
 		if not wave_data[2].is_valid_float():
@@ -64,13 +59,9 @@ func validate_wave_string(wave_string: String) -> bool:
 func spawn_wave(wave_string: String):
 	assert(validate_wave_string(wave_string))
 
+	wave_spawn_ended = false
+
 	var sub_waves = wave_string.split(";")
-
-
-	for sub_wave in sub_waves:
-		var wave_data = sub_wave.split(",")
-		wave_enemy_count += int(wave_data[0])
-
 
 	for sub_wave in sub_waves:
 		var wave_data = sub_wave.split(",")
@@ -80,16 +71,28 @@ func spawn_wave(wave_string: String):
 		var spawn_delay = float(wave_data[2])
 
 		for x in enemy_count:
-			var path_follow = PathFollow3D.new()
-			var enemy_instance = enemy_dict[enemy_type].instantiate()
-			enemy_instance.enemy_died.connect(game_state._change_player_gold)
-			enemy_instance.enemy_died.connect(_on_enemy_died)
-			path_follow.add_child(enemy_instance)
-			level_path.add_child(path_follow)
+			var enemy_instance = EnemyUtils.dict[enemy_type].instantiate()
+			add_enemy(enemy_instance)
 			await get_tree().create_timer(spawn_delay).timeout
+		
+		wave_spawn_ended = true
+
+
+func add_enemy(enemy: BaseEnemy) -> PathFollow3D:
+	wave_enemy_count += 1
+	
+	var path_follow = PathFollow3D.new()
+	
+	enemy.enemy_died.connect(game_state._change_player_gold)
+	enemy.enemy_died.connect(_on_enemy_died)
+	enemy.enemy_spawned.connect(add_enemy)
+	path_follow.add_child(enemy)
+	level_path.add_child(path_follow)
+	
+	return path_follow
 
 
 func _on_enemy_died(_v):
 	wave_enemy_count -= 1
-	if wave_enemy_count == 0:
+	if wave_enemy_count == 0 and wave_spawn_ended:
 		wave_ended.emit(wave_index, len(waves))
