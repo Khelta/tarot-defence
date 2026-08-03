@@ -15,7 +15,6 @@ script = ExtResource("1_mx17y")
 [node name="BaseEnemy" parent="." unique_id=2124445037 instance=ExtResource("1_4rhop")]
 
 [node name="Model" parent="." unique_id=2116891516 instance=ExtResource("3_mx17y")]
-script = null
 
 [node name="HealthBarSprite" type="Sprite3D" parent="." unique_id=1479746916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5642228, 0)
