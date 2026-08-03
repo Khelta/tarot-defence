@@ -8,24 +8,33 @@ class_name BaseEnemy
 
 enum State {
 	MOVING,
-	CASTING
+	CASTING,
 }
 
-var state = State.MOVING
+var state = State.MOVING:
+	set(value):
+		state = value
+		state_changed.emit(value)
 
 var current_hp: float = max_hp
 var is_alive: bool = true
 
 var enemy_effect_manager : EnemyEffectManager
-var animation_player : AnimationPlayer
 var health_bar : HealthBar
+
+var animation_player : AnimationPlayer
+var animation_class : BasicEnemyAnimation
 
 var is_caster : bool
 var cast_cooldown : float
 var cast_duration : float
 
+signal state_changed(state: State)
+
 signal enemy_spawned(enemy: BaseEnemy)
 
+signal begined_casting()
+signal casting_finished()
 
 signal hp_changed(current_hp: float, max_hp: float)
 signal enemy_died(gold_on_death: int)
@@ -38,6 +47,8 @@ func _ready() -> void:
 	health_bar = get_node("HealthBarViewPort/HealthBar")
 	hp_changed.connect(health_bar._update_hp)
 	hp_changed.emit(current_hp, max_hp)
+	
+	state_changed.connect(animation_class._on_state_change)
 	
 	if is_caster:
 		casting_loop()
@@ -100,7 +111,6 @@ func get_speed() -> float:
 
 
 func casting_loop():
-	await get_tree().create_timer(cast_cooldown).timeout
 	while is_alive:
 		await get_tree().create_timer(cast_cooldown).timeout
 		await start_cast()
@@ -109,12 +119,15 @@ func casting_loop():
 func start_cast():
 	if state == State.CASTING:
 		return
-	
+
 	state = State.CASTING
-	
+	begined_casting.emit()
 	await get_tree().create_timer(cast_duration).timeout
-	
+
+	casting_finished.emit()
 	cast_spell()
+	await animation_player.animation_finished
+
 	state = State.MOVING
 
 

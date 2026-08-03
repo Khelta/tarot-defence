@@ -3,8 +3,13 @@ class_name SkeletonNecromancer
 
 func _ready() -> void:
 	is_caster = true
-	cast_cooldown = 3.0
-	cast_duration = 1.0
+	cast_cooldown = 2.0
+	cast_duration = 3.0
+
+	animation_class = get_node("Model") as SkeletonNecromancerAnimation
+	begined_casting.connect(animation_class._casting)
+	casting_finished.connect(animation_class._on_cast_finished)
+
 	super._ready()
 
 	animation_player.play("Running_B")

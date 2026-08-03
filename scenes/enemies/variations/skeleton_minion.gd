@@ -2,6 +2,8 @@ extends BaseEnemy
 class_name SkeletonMinion
 
 func _ready() -> void:
+	animation_class = get_node("Model")
+
 	super._ready()
 	animation_player.play("Running_B")
 
