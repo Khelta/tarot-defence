@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://id4ttvp8yd45"]
 
 [ext_resource type="Script" uid="uid://ba2sus67u4mna" path="res://scenes/ui/tower_panel.gd" id="1_85r87"]
+[ext_resource type="Script" uid="uid://ofrcupgak385" path="res://scenes/ui/target_priority_selector.gd" id="2_fj743"]
 
 [node name="TowerPanel" type="Control" unique_id=629360425]
 layout_mode = 3
@@ -35,3 +36,13 @@ layout_mode = 2
 
 [node name="EnemiesKilled" type="Label" parent="VBoxContainer" unique_id=419222305]
 layout_mode = 2
+
+[node name="TargetPrioritySelector" type="MenuButton" parent="." unique_id=330820468 node_paths=PackedStringArray("tower_panel")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 35.0
+offset_right = 136.0
+offset_bottom = 43.0
+text = "Target_Priority"
+script = ExtResource("2_fj743")
+tower_panel = NodePath("..")

@@ -224,3 +224,7 @@ func spawn_projectile(enemy: BaseEnemy) -> void:
 						   projectile_height,
 						   )
 	local_projectile.projectile_hitted.connect(apply_damage)
+
+
+func set_target_priority(_target_priority: TargetPriority) -> void:
+	target_priority = _target_priority
