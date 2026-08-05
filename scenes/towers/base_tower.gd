@@ -55,6 +55,7 @@ var projectile = preload("res://scenes/towers/components/projectile.tscn")
 @export var projectile_mesh_rotation_degrees : Vector3 = Vector3(0.0, 0.0, 0.0)
 @export var projectile_speed : float = 0.3
 @export var projectile_height : float = 3.0
+@export var projectile_particle_effect : PackedScene = null
 
 func _ready() -> void:
 	default_rotation = rotation
@@ -222,5 +223,6 @@ func spawn_projectile(enemy: BaseEnemy) -> void:
 						   projectile_mesh_rotation_degrees,
 						   projectile_speed,
 						   projectile_height,
+						   projectile_particle_effect,
 						   )
 	local_projectile.projectile_hitted.connect(apply_damage)

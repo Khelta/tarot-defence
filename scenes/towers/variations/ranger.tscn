@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://byf2lvnbei6tr"]
 
 [ext_resource type="Script" uid="uid://dmbx350w3g8ru" path="res://scenes/towers/variations/ranger.gd" id="1_vsabo"]
+[ext_resource type="PackedScene" uid="uid://e3n4qs7eyt10" path="res://scenes/burn_particles.tscn" id="2_ax1ch"]
 [ext_resource type="PackedScene" uid="uid://bqw8ny1jhy7q8" path="res://scenes/towers/variations/ranger_model.tscn" id="2_dd6ky"]
 [ext_resource type="PackedScene" uid="uid://do5m6kksqscjp" path="res://scenes/towers/base_tower.tscn" id="2_vsabo"]
 
@@ -11,6 +12,7 @@ base_damage = 25.0
 attacks_per_second = 1.5
 has_projectile = true
 projectile_mesh_rotation_degrees = Vector3(0, 180, 0)
+projectile_particle_effect = ExtResource("2_ax1ch")
 
 [node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_vsabo")]
 
