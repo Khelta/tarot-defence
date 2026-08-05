@@ -124,11 +124,12 @@ func start_cast():
 	begined_casting.emit()
 	await get_tree().create_timer(cast_duration).timeout
 
-	casting_finished.emit()
-	cast_spell()
-	await animation_player.animation_finished
+	if is_alive:
+		casting_finished.emit()
+		cast_spell()
+		await animation_player.animation_finished
 
-	state = State.MOVING
+		state = State.MOVING
 
 
 func cast_spell() -> void:
