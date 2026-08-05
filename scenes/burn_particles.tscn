@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://e3n4qs7eyt10"]
+
+[ext_resource type="Script" uid="uid://c4c68763614o7" path="res://scenes/towers/components/projectile_effect.gd" id="1_q1iea"]
+
+[sub_resource type="Gradient" id="Gradient_qu7bv"]
+offsets = PackedFloat32Array(0, 0.8448276)
+colors = PackedColorArray(0.96862745, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g8atc"]
+gradient = SubResource("Gradient_qu7bv")
+
+[sub_resource type="Gradient" id="Gradient_q1iea"]
+offsets = PackedFloat32Array(0.24568966, 0.8103448)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d1gme"]
+gradient = SubResource("Gradient_q1iea")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4v7s"]
+emission_shape = 2
+emission_sphere_radius = 1.0
+color_ramp = SubResource("GradientTexture1D_d1gme")
+color_initial_ramp = SubResource("GradientTexture1D_g8atc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywmha"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_qu7bv"]
+material = SubResource("StandardMaterial3D_ywmha")
+radius = 0.1
+height = 0.2
+
+[node name="BurnParticles" type="GPUParticles3D" unique_id=232313526]
+amount = 25
+sub_emitter = NodePath(".")
+lifetime = 0.25
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_g4v7s")
+draw_pass_1 = SubResource("SphereMesh_qu7bv")
+script = ExtResource("1_q1iea")
