@@ -3,9 +3,7 @@ class_name StartWaveButton
 
 var wave_manager: WaveManager = null
 
-func _ready() -> void:
-	var game_state : GameState = get_tree().get_first_node_in_group("game_state")
-	wave_manager = game_state.get_node("WaveManager")
+signal start_wave_button_pressed
 
 
 func _on_wave_started(_wave_index: int, _waves_length: int) -> void:
@@ -18,4 +16,4 @@ func _on_wave_ended(wave_index: int, waves_length: int) -> void:
 
 
 func _on_button_down() -> void:
-	wave_manager.next_wave()
+	start_wave_button_pressed.emit()

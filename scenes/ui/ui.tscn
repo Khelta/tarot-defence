@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://cec3ck4pb0t8d" path="res://scenes/ui/buy_booster_button.gd" id="7_jcn1r"]
 [ext_resource type="Script" uid="uid://3sfy6l1o3ubc" path="res://scenes/ui/sell_tower_button.gd" id="7_uegxj"]
 
-[node name="Ui" type="CanvasLayer" unique_id=1417531588 groups=["ui"]]
+[node name="Ui" type="CanvasLayer" unique_id=1417531588 node_paths=PackedStringArray("start_wave_button") groups=["ui"]]
 script = ExtResource("1_f5cxw")
+start_wave_button = NodePath("StartWaveButton")
 
 [node name="InfoPanel" parent="." unique_id=1633793101 instance=ExtResource("2_aac20")]
 anchors_preset = 1
