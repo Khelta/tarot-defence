@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bm0a6ds7e78y0"]
 
+[ext_resource type="Script" uid="uid://dee53pedckgwt" path="res://scenes/ui/info_panel.gd" id="1_bt36l"]
 [ext_resource type="Script" uid="uid://cx5u2affrrn1b" path="res://scenes/ui/life_bar.gd" id="1_fompm"]
 [ext_resource type="Script" uid="uid://cso21asv47rgp" path="res://scenes/ui/gold_label.gd" id="2_rr1xh"]
 
@@ -8,13 +9,16 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
 bg_color = Color(1, 0.33380696, 0.34895712, 1)
 
-[node name="InfoPanel" type="Control" unique_id=1633793101]
+[node name="InfoPanel" type="Control" unique_id=1633793101 node_paths=PackedStringArray("life_bar", "gold_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bt36l")
+life_bar = NodePath("VBoxContainer/LifeBar")
+gold_label = NodePath("VBoxContainer/GoldLabel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1124678223]
 layout_mode = 1

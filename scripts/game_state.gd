@@ -10,6 +10,7 @@ var current_player_health: float
 @export var current_player_gold : int = 10
 
 @export var tower_pool : TowerPool
+@export var ui : UI
 
 signal player_health_changed(c_player_health: float)
 signal player_gold_changed(c_player_gold: int)
@@ -29,11 +30,11 @@ func _ready() -> void:
 	
 	current_player_health = max_player_health
 	
-	var lifebar = get_node("../Ui/InfoPanel/VBoxContainer/LifeBar")
+	var lifebar = ui.info_panel.life_bar
 	player_health_changed.connect(lifebar._on_lifepoints_changed)
 	_change_player_health(current_player_health)
 	
-	var goldlabel = get_node("../Ui/InfoPanel/VBoxContainer/GoldLabel")
+	var goldlabel = ui.info_panel.gold_label
 	player_gold_changed.connect(goldlabel._on_gold_changed)
 	_change_player_gold(0)
 
@@ -46,7 +47,6 @@ func buy_booster(price: int) -> void:
 		
 		await get_tree().process_frame
 
-		var ui = get_tree().get_first_node_in_group("ui")
 		var card_selection_scene = preload("res://scenes/ui/card_selection.tscn")
 		var card_selection = card_selection_scene.instantiate()
 		
