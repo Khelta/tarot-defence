@@ -16,24 +16,39 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_d1gme"]
 gradient = SubResource("Gradient_q1iea")
 
+[sub_resource type="Curve" id="Curve_q1iea"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ndtyj"]
+curve = SubResource("Curve_q1iea")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4v7s"]
-emission_shape = 2
-emission_sphere_radius = 1.0
+inherit_velocity_ratio = 0.9
+spread = 15.0
+initial_velocity_min = -2.0
+initial_velocity_max = -2.0
+damping_min = 3.0000002
+damping_max = 3.0000002
+scale_min = 0.099999994
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_ndtyj")
 color_ramp = SubResource("GradientTexture1D_d1gme")
 color_initial_ramp = SubResource("GradientTexture1D_g8atc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywmha"]
 vertex_color_use_as_albedo = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="SphereMesh" id="SphereMesh_qu7bv"]
 material = SubResource("StandardMaterial3D_ywmha")
-radius = 0.1
-height = 0.2
 
 [node name="BurnParticles" type="GPUParticles3D" unique_id=232313526]
-amount = 25
+amount = 20
 sub_emitter = NodePath(".")
-lifetime = 0.25
+lifetime = 0.2
+randomness = 0.2
 fixed_fps = 0
 process_material = SubResource("ParticleProcessMaterial_g4v7s")
 draw_pass_1 = SubResource("SphereMesh_qu7bv")
