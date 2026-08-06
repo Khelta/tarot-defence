@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dmvrwyc6lcwcu"]
 
+[ext_resource type="Script" uid="uid://bclfenpr68ho5" path="res://scenes/tiles/valid_tower_position_vfx.gd" id="1_dkrg6"]
 [ext_resource type="Shader" uid="uid://vkhqyueiysi3" path="res://materials/shader/green_gradient_shader.gdshader" id="1_qhvea"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33pmp"]
@@ -47,6 +48,7 @@ shader = ExtResource("1_qhvea")
 shader_parameter/bottom_color = Color(0, 1, 0, 1)
 
 [node name="ValidTowerPositionVFX" type="Node3D" unique_id=95068320]
+script = ExtResource("1_dkrg6")
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=1927362587]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)

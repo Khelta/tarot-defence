@@ -8,8 +8,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(4, 0.6, 4)
 
-[node name="TowerTile" type="Node3D" unique_id=1658459195]
+[node name="TowerTile" type="Node3D" unique_id=1658459195 node_paths=PackedStringArray("valid_tower_position_vfx")]
 script = ExtResource("1_w0cn8")
+valid_tower_position_vfx = NodePath("ValidTowerPositionVFX")
 
 [node name="FloorDirt" type="MeshInstance3D" parent="." unique_id=265700949]
 mesh = ExtResource("1_3cgtp")

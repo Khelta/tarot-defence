@@ -14,6 +14,8 @@ class_name Slot
 @export var tower_rotation: Vector3 = Vector3(1, 0, 0):
 	set(new_tower_rotation):
 		tower_rotation = new_tower_rotation
+		
+@export var valid_tower_position_vfx : ValidTowerPositionVFX
 
 func _ready():
 	connect_to_selector()
@@ -40,8 +42,8 @@ func connect_to_selector():
 
 
 func set_valid_tower_position_vfx_visibility(vfx_is_visible : bool) -> void:
-	var vfx = get_node("ValidTowerPositionVFX")
-	vfx.visible = vfx_is_visible
+	if valid_tower_position_vfx:
+		valid_tower_position_vfx.visible = vfx_is_visible
 
 
 func _on_placement_mode_changed(placement_mode_is_on: bool) -> void:
