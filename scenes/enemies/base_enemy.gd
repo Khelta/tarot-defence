@@ -16,7 +16,7 @@ var state = State.MOVING:
 		state = value
 		state_changed.emit(value)
 
-var current_hp: float = max_hp
+var current_hp: float
 var is_alive: bool = true
 
 var enemy_effect_manager : EnemyEffectManager
@@ -45,6 +45,7 @@ func _ready() -> void:
 	animation_player = get_node("Model").get_node("AnimationPlayer") as AnimationPlayer
 	
 	health_bar = get_node("HealthBarViewPort/HealthBar")
+	current_hp = max_hp
 	hp_changed.connect(health_bar._update_hp)
 	hp_changed.emit(current_hp, max_hp)
 	
