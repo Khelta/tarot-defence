@@ -23,7 +23,8 @@ func _ready() -> void:
 	
 	var ui : UI = game_state.ui
 
-	var start_wave_button : StartWaveButton = ui.get_node("StartWaveButton")
+	var start_wave_button : StartWaveButton = ui.start_wave_button
+	start_wave_button.start_wave_button_pressed.connect(next_wave)
 	wave_started.connect(start_wave_button._on_wave_started)
 	wave_ended.connect(start_wave_button._on_wave_ended)
 	wave_ended.connect(ui.end_screen.on_game_won)
