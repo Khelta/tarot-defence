@@ -11,10 +11,10 @@ var tower_class_dict : Dictionary[String, PackedScene] = {
 	"Wizard": WizardClass,
 }
 
-var bench : Bench = null
+@export var bench : Bench
 
 func _ready() -> void: 
-	bench = get_node("Bench")
+	assert(bench != null)
 	add_tower("Ranger")
 	add_tower("Ranger2")
 	add_tower("Knight")
