@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jlrb8h7et52w" path="res://scenes/ui/card_selection.gd" id="1_yppf5"]
 
-[node name="CardSelection" type="Control" unique_id=1303188900]
+[node name="CardSelection" type="Control" unique_id=1303188900 node_paths=PackedStringArray("hbox")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yppf5")
+hbox = NodePath("MarginContainer/CenterContainer/VBoxContainer/HBoxContainer")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=296832888]
 layout_mode = 1
