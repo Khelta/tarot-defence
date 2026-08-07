@@ -16,8 +16,10 @@ func _process(delta) -> void:
 	attack_cooldown -= delta
 	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
 
-		for target_enemy in enemies_in_range:
-			apply_damage(target_enemy)
-
 		attacked.emit()
 		attack_cooldown = 1.0 / (attacks_per_second * tower_effect_manager.get_attack_speed_modifier())
+
+		await get_tree().create_timer(0.5).timeout
+
+		for target_enemy in enemies_in_range:
+			apply_damage(target_enemy)
