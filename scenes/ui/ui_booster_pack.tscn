@@ -7,9 +7,11 @@
 script = ExtResource("1_odv7w")
 
 [node name="BoosterPack" parent="." unique_id=594863763 instance=ExtResource("1_4sdj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70848626, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1986614984]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4089806)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6108626)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1011271073]
 transform = Transform3D(0.91870767, 0.18844649, -0.34707943, 0, 0.8788195, 0.47715434, 0.39493823, -0.43836537, 0.80737823, 0, 0, 5.0443115)
+sky_mode = 1
