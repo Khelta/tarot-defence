@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://bdsri62j63sa"]
+
+[ext_resource type="Script" uid="uid://q07m78qmy5g6" path="res://scenes/towers/resources/tower_data.gd" id="1_4s4s0"]
+[ext_resource type="PackedScene" uid="uid://jc4ookbr2fes" path="res://scenes/towers/variations/knight.tscn" id="2_f2pq0"]
+
+[resource]
+script = ExtResource("1_4s4s0")
+name = "Knight"
+tower_scene = ExtResource("2_f2pq0")
+rarity = 2
+metadata/_custom_type_script = "uid://q07m78qmy5g6"

@@ -9,6 +9,8 @@ var current_player_health: float
 
 @export var current_player_gold : int = 10
 
+@export var tower_pool : TowerPool
+
 signal player_health_changed(c_player_health: float)
 signal player_gold_changed(c_player_gold: int)
 
@@ -47,7 +49,10 @@ func buy_booster(price: int) -> void:
 		var ui = get_tree().get_first_node_in_group("ui")
 		var card_selection_scene = preload("res://scenes/ui/card_selection.tscn")
 		var card_selection = card_selection_scene.instantiate()
-		card_selection.setup("Ranger", "Knight", "Wizard")
+		
+		card_selection.setup(tower_pool.draw_weighted().name,
+							 tower_pool.draw_weighted().name,
+							 tower_pool.draw_weighted().name)
 
 		ui.add_child(card_selection)
 
