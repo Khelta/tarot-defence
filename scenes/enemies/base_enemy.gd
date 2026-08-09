@@ -114,16 +114,18 @@ func get_speed() -> float:
 func casting_loop():
 	while is_alive:
 		await get_tree().create_timer(cast_cooldown).timeout
-		await start_cast()
+		if is_alive:
+			await start_cast()
 
 
 func start_cast():
 	if state == State.CASTING:
 		return
 
-	state = State.CASTING
-	begined_casting.emit()
-	await get_tree().create_timer(cast_duration).timeout
+	if is_alive:
+		state = State.CASTING
+		begined_casting.emit()
+		await get_tree().create_timer(cast_duration).timeout
 
 	if is_alive:
 		casting_finished.emit()
