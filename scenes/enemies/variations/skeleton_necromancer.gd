@@ -33,5 +33,5 @@ func death_animation(_no_value: int) -> void:
 
 func cast_spell() -> void:
 	for i in range(0, 2):
-		var enemy_instance = EnemyUtils.dict["s"].instantiate()
+		var enemy_instance = EnemyUtils.enemy_scenes_dict["s"].instantiate()
 		enemy_spawned.emit(enemy_instance)

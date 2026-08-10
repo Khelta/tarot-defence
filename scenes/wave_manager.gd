@@ -47,7 +47,7 @@ func validate_wave_string(wave_string: String) -> bool:
 		if wave_data[1].is_valid_int() or wave_data[1].is_valid_float():
 			assert(false, "Second parameter of wave_string must be a String")
 			
-		if wave_data[1] not in EnemyUtils.dict:
+		if wave_data[1] not in EnemyUtils.enemy_scenes_dict:
 			assert(false, "Second parameter of wave_string must be in enemy_dict")
 			
 		if not wave_data[2].is_valid_float():
@@ -71,7 +71,7 @@ func spawn_wave(wave_string: String):
 		var spawn_delay = float(wave_data[2])
 
 		for x in enemy_count:
-			var enemy_instance = EnemyUtils.dict[enemy_type].instantiate()
+			var enemy_instance = EnemyUtils.enemy_scenes_dict[enemy_type].instantiate()
 			add_enemy(enemy_instance)
 			await get_tree().create_timer(spawn_delay).timeout
 		
