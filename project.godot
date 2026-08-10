@@ -24,7 +24,7 @@ config/icon="res://assets/icon.svg"
 MouseUtils="*uid://cvnk5hnebvq8q"
 TowerUtils="*uid://df7icv44fws43"
 EnemyUtils="*uid://5ykhntbokisr"
-WaveStringUtils="*uid://f1sc1keq6le8"
+WaveDataUtils="*uid://f1sc1keq6le8"
 
 [global_group]
 

@@ -14,13 +14,23 @@
 [ext_resource type="ArrayMesh" uid="uid://2b5lb7b3peed" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/skull_candle.obj" id="13_2aecg"]
 [ext_resource type="ArrayMesh" uid="uid://n6phrxbbfw3y" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/candle.obj" id="13_6dial"]
 [ext_resource type="PackedScene" uid="uid://0qt802lj2j3e" path="res://scenes/models/lantern.tscn" id="14_7nomh"]
+[ext_resource type="PackedScene" uid="uid://cf6nv0a81nh3b" path="res://scenes/enemies/enemy_wave_preview.tscn" id="14_o7j4k"]
+[ext_resource type="Script" uid="uid://cok8rk1dpvk60" path="res://scenes/towers/tower_pool.gd" id="15_7o3do"]
 [ext_resource type="PackedScene" uid="uid://c7l1jeywb6u2b" path="res://scenes/towers.tscn" id="16_mkypq"]
+[ext_resource type="Script" uid="uid://q07m78qmy5g6" path="res://scenes/towers/resources/tower_data.gd" id="16_o7j4k"]
+[ext_resource type="Resource" uid="uid://dt6e6rpqmmxvj" path="res://scenes/towers/resources/Ranger.tres" id="17_31oqk"]
 [ext_resource type="PackedScene" uid="uid://bp8hthw2bfva" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_broken.fbx" id="17_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://dbdidc8qnliod" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/fence_gate.fbx" id="18_2cbcq"]
 [ext_resource type="Script" uid="uid://celp2f3jse3sm" path="res://scenes/wave_manager.gd" id="18_isj1j"]
+[ext_resource type="Resource" uid="uid://bdsri62j63sa" path="res://scenes/towers/resources/Knight.tres" id="18_x7jkp"]
 [ext_resource type="PackedScene" uid="uid://bcyhfyysyes3h" path="res://scenes/tiles/tower_tile.tscn" id="20_isj1j"]
 [ext_resource type="PackedScene" uid="uid://c2ni8776ochta" path="res://scenes/ui/ui.tscn" id="20_so66j"]
 [ext_resource type="PackedScene" uid="uid://novpduw0tymo" path="res://scenes/Selector.tscn" id="20_tr1x6"]
+
+[sub_resource type="Resource" id="Resource_p0x1a"]
+script = ExtResource("15_7o3do")
+towers = Array[ExtResource("16_o7j4k")]([ExtResource("17_31oqk"), ExtResource("18_x7jkp")])
+metadata/_custom_type_script = "uid://cok8rk1dpvk60"
 
 [sub_resource type="Curve3D" id="Curve3D_g4v7s"]
 bake_interval = 0.01
@@ -129,16 +139,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -24)
 [node name="fence_gate" parent="Assets/Deco" unique_id=962961513 instance=ExtResource("18_2cbcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
 
+[node name="EnemyWavePreview" parent="Assets" unique_id=1870985153 node_paths=PackedStringArray("node_position") instance=ExtResource("14_o7j4k")]
+node_position = NodePath("../Start")
+position_offset = Vector3(0, 6, 0)
+
 [node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path") groups=["game_state"]]
 script = ExtResource("6_fcfvj")
 path = NodePath("Path")
+tower_pool = SubResource("Resource_p0x1a")
 
-[node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state", "ui")]
+[node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state", "ui", "enemy_wave_preview")]
 script = ExtResource("18_isj1j")
-waves = Array[String](["3,s,1;2,s,2", "10,s,1;5,s,0.3"])
+waves = Array[String](["1,n,1", "1,s,1", "1,s,1;1,n,1;1,s,1"])
 level_path = NodePath("../Path")
 game_state = NodePath("..")
 ui = NodePath("../../Ui")
+enemy_wave_preview = NodePath("../../Assets/EnemyWavePreview")
 
 [node name="Path" type="Path3D" parent="GameState" unique_id=210619031]
 curve = SubResource("Curve3D_g4v7s")
