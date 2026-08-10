@@ -39,7 +39,7 @@ func spawn_wave(wave_string: String):
 	var sub_waves = wave_string.split(";")
 
 	for sub_wave in sub_waves:
-		var wave_data : WaveData = WaveStringUtils.get_wave_data_from_string(sub_wave)
+		var wave_data : WaveData = WaveStringUtils.get_wave_data_from_sub_wave_string(sub_wave)
 
 		for x in wave_data.enemy_count:
 			var enemy_instance = EnemyUtils.enemy_scenes_dict[wave_data.enemy_type].instantiate()
