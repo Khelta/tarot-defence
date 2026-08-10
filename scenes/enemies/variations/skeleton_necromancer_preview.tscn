@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ny4qj2hfgoie"]
+
+[ext_resource type="PackedScene" uid="uid://c507586wbrtl4" path="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/fbx(unity)/tile_skeleton_mage.fbx" id="1_0lni0"]
+
+[node name="tile_skeleton_mage" unique_id=1949783868 instance=ExtResource("1_0lni0")]

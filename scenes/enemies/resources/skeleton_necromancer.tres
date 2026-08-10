@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://xqomemaq0kqn" path="res://scenes/enemies/variations/skeleton_necromancer.tscn" id="1_43jiv"]
 [ext_resource type="Script" uid="uid://cw1w22nqjnan" path="res://scenes/enemies/resources/enemy_data.gd" id="1_51ljs"]
+[ext_resource type="PackedScene" uid="uid://ny4qj2hfgoie" path="res://scenes/enemies/variations/skeleton_necromancer_preview.tscn" id="1_foqho"]
 
 [resource]
 script = ExtResource("1_51ljs")
 name = "Skeleton Necromancer"
 abbreviation = "n"
 enemy_scene = ExtResource("1_43jiv")
+enemy_preview_tile = ExtResource("1_foqho")
 metadata/_custom_type_script = "uid://cw1w22nqjnan"
