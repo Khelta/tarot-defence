@@ -5,8 +5,8 @@ var enemies: Array[EnemyData] = [
 	preload("res://scenes/enemies/resources/skeleton_necromancer.tres"),
 ]
 
-var enemy_data_dict : Dictionary = {}
-var enemy_scenes_dict : Dictionary = {}
+var enemy_data_dict : Dictionary[String, EnemyData] = {}
+var enemy_scenes_dict : Dictionary[String, PackedScene] = {}
 
 
 func _ready() -> void:
