@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://ce6i8dmuiey3p" path="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/fbx(unity)/tile_skeleton_minion.fbx" id="1_5nsil"]
 
 [node name="tile_skeleton_minion" unique_id=1898705973 instance=ExtResource("1_5nsil")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
