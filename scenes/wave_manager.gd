@@ -33,47 +33,18 @@ func next_wave() -> void:
 	wave_index += 1
 
 
-func validate_wave_string(wave_string: String) -> bool: 
-	var sub_waves = wave_string.split(";")
-	
-	for sub_wave in sub_waves:
-		var wave_data = sub_wave.split(",")
-		if len(wave_data) != 3:
-			assert(false, "Length of sub_wave must be 3")
-		
-		if not wave_data[0].is_valid_int():
-			assert(false, "First parameter of wave_string must be an integer")
-			
-		if wave_data[1].is_valid_int() or wave_data[1].is_valid_float():
-			assert(false, "Second parameter of wave_string must be a String")
-			
-		if wave_data[1] not in EnemyUtils.enemy_scenes_dict:
-			assert(false, "Second parameter of wave_string must be in enemy_dict")
-			
-		if not wave_data[2].is_valid_float():
-			assert(false, "Third parameter of wave_string must be a float")
-			
-	return true
-
-
 func spawn_wave(wave_string: String):
-	assert(validate_wave_string(wave_string))
-
 	wave_spawn_ended = false
 
 	var sub_waves = wave_string.split(";")
 
 	for sub_wave in sub_waves:
-		var wave_data = sub_wave.split(",")
+		var wave_data : WaveData = WaveStringUtils.get_wave_data_from_string(sub_wave)
 
-		var enemy_count = int(wave_data[0])
-		var enemy_type = wave_data[1]
-		var spawn_delay = float(wave_data[2])
-
-		for x in enemy_count:
-			var enemy_instance = EnemyUtils.enemy_scenes_dict[enemy_type].instantiate()
+		for x in wave_data.enemy_count:
+			var enemy_instance = EnemyUtils.enemy_scenes_dict[wave_data.enemy_type].instantiate()
 			add_enemy(enemy_instance)
-			await get_tree().create_timer(spawn_delay).timeout
+			await get_tree().create_timer(wave_data.spawn_delay).timeout
 		
 		wave_spawn_ended = true
 
