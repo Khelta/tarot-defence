@@ -15,12 +15,21 @@ func get_wave_data_from_sub_wave_string(sub_wave_string: String) -> WaveData:
 
 
 func get_wave_data_from_wave_string(wave_string: String) -> Array[WaveData]:
-	var result = []
+	var result : Array[WaveData] = []
 
 	for sub_wave_string in wave_string.split(";"):
 		result.push_back(get_wave_data_from_sub_wave_string(sub_wave_string))
 
 	return result
+
+
+func get_enemy_counts(wave_data: Array[WaveData]) -> Dictionary[String, int]:
+	var counts : Dictionary[String, int] = {}
+
+	for wave in wave_data:
+		counts[wave.enemy_type] = counts.get(wave.enemy_type, 0) + wave.enemy_count
+
+	return counts
 
 
 func validate_wave_string(wave_string: String) -> bool: 
