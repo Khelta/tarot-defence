@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cf6nv0a81nh3b"]
+
+[ext_resource type="Script" uid="uid://b7jwnn5biojy1" path="res://scenes/enemies/enemy_wave_preview.gd" id="1_i1xlr"]
+
+[node name="EnemyWavePreview" type="Node3D" unique_id=1870985153]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_i1xlr")
+position_offset = Vector3(0, 6, 0)
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1715341328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11248895, 0)
