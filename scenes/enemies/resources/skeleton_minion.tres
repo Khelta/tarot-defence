@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://im3rq5jteick"]
+
+[ext_resource type="Script" uid="uid://cw1w22nqjnan" path="res://scenes/enemies/resources/enemy_data.gd" id="1_1g33e"]
+[ext_resource type="PackedScene" uid="uid://bhlx172x46b74" path="res://scenes/enemies/variations/skeleton_minion.tscn" id="1_1ngiw"]
+
+[resource]
+script = ExtResource("1_1g33e")
+name = "Skeleton Minion"
+abbreviation = "s"
+enemy_scene = ExtResource("1_1ngiw")
+metadata/_custom_type_script = "uid://cw1w22nqjnan"
