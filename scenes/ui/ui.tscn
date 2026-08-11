@@ -7,11 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://id4ttvp8yd45" path="res://scenes/ui/TowerPanel.tscn" id="7_7vp6q"]
 [ext_resource type="Script" uid="uid://cec3ck4pb0t8d" path="res://scenes/ui/buy_booster_button.gd" id="7_jcn1r"]
 [ext_resource type="Script" uid="uid://3sfy6l1o3ubc" path="res://scenes/ui/sell_tower_button.gd" id="7_uegxj"]
+[ext_resource type="PackedScene" uid="uid://o7qclvnq25gx" path="res://scenes/ui/end_screen.tscn" id="8_jcn1r"]
 
-[node name="Ui" type="CanvasLayer" unique_id=1417531588 node_paths=PackedStringArray("info_panel", "start_wave_button") groups=["ui"]]
+[node name="Ui" type="CanvasLayer" unique_id=1417531588 node_paths=PackedStringArray("info_panel", "start_wave_button", "end_screen") groups=["ui"]]
 script = ExtResource("1_f5cxw")
 info_panel = NodePath("InfoPanel")
 start_wave_button = NodePath("StartWaveButton")
+end_screen = NodePath("EndScreen")
 
 [node name="InfoPanel" parent="." unique_id=1633793101 instance=ExtResource("2_aac20")]
 anchors_preset = 1
@@ -72,6 +74,9 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "Sell"
 script = ExtResource("7_uegxj")
+
+[node name="EndScreen" parent="." unique_id=963385865 instance=ExtResource("8_jcn1r")]
+visible = false
 
 [connection signal="button_down" from="StartWaveButton" to="StartWaveButton" method="_on_button_down"]
 [connection signal="button_down" from="SubViewportContainer/BuyBoosterButton" to="SubViewportContainer/BuyBoosterButton" method="_on_button_down"]
