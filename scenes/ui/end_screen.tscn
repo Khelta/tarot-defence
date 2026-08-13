@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://o7qclvnq25gx"]
 
 [ext_resource type="Script" uid="uid://dpagsf5mjvo0l" path="res://scenes/ui/end_screen.gd" id="1_4ttpn"]
+[ext_resource type="PackedScene" uid="uid://vppvfovcnybt" path="res://scenes/ui/retry_button.tscn" id="2_n8r4t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n8r4t"]
 font_size = 42
 
-[node name="EndScreen" type="Control" unique_id=963385865]
+[node name="EndScreen" type="Control" unique_id=963385865 node_paths=PackedStringArray("continue_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ttpn")
+continue_button = NodePath("VBoxContainer/ContinueButton")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2039080794]
 layout_mode = 1
@@ -43,5 +45,10 @@ text = "Win"
 label_settings = SubResource("LabelSettings_n8r4t")
 
 [node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=1121506677]
+visible = false
 layout_mode = 2
 text = "Continue"
+
+[node name="RetryButton" parent="VBoxContainer" unique_id=487594820 instance=ExtResource("2_n8r4t")]
+visible = false
+layout_mode = 2
