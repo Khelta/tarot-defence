@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d4jk0eo541115"]
 
+[ext_resource type="Script" uid="uid://coyswasj7xso5" path="res://scenes/levels/level.gd" id="1_31oqk"]
 [ext_resource type="Script" uid="uid://b17u3o22auvp7" path="res://scripts/Camera3D.gd" id="1_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://bmfal2nbyxxdt" path="res://scenes/tiles/straight_bb.tscn" id="2_4nkto"]
 [ext_resource type="PackedScene" uid="uid://rq4a1xvwgvo2" path="res://scenes/tiles/turn_left.tscn" id="3_fcfvj"]
@@ -40,7 +41,11 @@ _data = {
 }
 point_count = 4
 
-[node name="Level1" type="Node3D" unique_id=365219656]
+[node name="Level1" type="Node3D" unique_id=365219656 node_paths=PackedStringArray("ui")]
+script = ExtResource("1_31oqk")
+ui = NodePath("Ui")
+
+[node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
 
 [node name="Camera" type="Node3D" parent="." unique_id=256259413]
 transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -3, 0, -16)
@@ -141,19 +146,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
 
 [node name="EnemyWavePreview" parent="Assets" unique_id=1870985153 node_paths=PackedStringArray("node_position") instance=ExtResource("14_o7j4k")]
 node_position = NodePath("../Start")
-position_offset = Vector3(0, 6, 0)
 
-[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path") groups=["game_state"]]
+[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path", "ui") groups=["game_state"]]
 script = ExtResource("6_fcfvj")
 path = NodePath("Path")
 tower_pool = SubResource("Resource_p0x1a")
+ui = NodePath("../Ui")
 
-[node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state", "ui", "enemy_wave_preview")]
+[node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state", "enemy_wave_preview")]
 script = ExtResource("18_isj1j")
-waves = Array[String](["1,n,1", "1,s,1", "1,s,1;1,n,1;1,s,1"])
+waves = Array[String](["1,s,0.3", "1,s,1"])
 level_path = NodePath("../Path")
 game_state = NodePath("..")
-ui = NodePath("../../Ui")
 enemy_wave_preview = NodePath("../../Assets/EnemyWavePreview")
 
 [node name="Path" type="Path3D" parent="GameState" unique_id=210619031]
@@ -222,5 +226,3 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11,
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light" unique_id=2000744609]
 transform = Transform3D(-0.25881907, -0.4829629, 0.83651626, -8.230112e-09, 0.86602545, 0.5, -0.9659259, 0.12940954, -0.22414389, 0, 9, 0)
-
-[node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]

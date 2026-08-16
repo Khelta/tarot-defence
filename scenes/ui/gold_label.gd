@@ -1,4 +1,5 @@
 extends Label
+class_name GoldLabel
 
 var suffix = " Gold"
 
