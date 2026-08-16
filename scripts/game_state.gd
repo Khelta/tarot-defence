@@ -15,9 +15,15 @@ var current_player_health: float
 signal player_health_changed(c_player_health: float)
 signal player_gold_changed(c_player_gold: int)
 
+signal game_lost
+signal game_won
+
 func _change_player_health(value: float):
 	current_player_health = clamp(current_player_health + value , 0.0, max_player_health)
 	player_health_changed.emit(current_player_health)
+
+	if current_player_health <= 0:
+		game_lost.emit()
 
 
 func _change_player_gold(value: int):
@@ -30,13 +36,16 @@ func _ready() -> void:
 	
 	current_player_health = max_player_health
 	
-	var lifebar = ui.info_panel.life_bar
+	var lifebar : LifeBar = ui.info_panel.life_bar
 	player_health_changed.connect(lifebar._on_lifepoints_changed)
 	_change_player_health(current_player_health)
 	
-	var goldlabel = ui.info_panel.gold_label
+	var goldlabel : GoldLabel = ui.info_panel.gold_label
 	player_gold_changed.connect(goldlabel._on_gold_changed)
 	_change_player_gold(0)
+	
+	game_won.connect(ui.end_screen.on_game_won)
+	game_lost.connect(ui.end_screen.on_game_lost)
 
 
 func buy_booster(price: int) -> void:

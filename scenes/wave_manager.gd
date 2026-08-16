@@ -4,7 +4,6 @@ class_name WaveManager
 @export var waves : Array[String] = ["3,s,1", "10,s,1;5,s,0.3"]
 @export var level_path : Path3D
 @export var game_state : GameState
-@export var ui : UI
 @export var enemy_wave_preview : EnemyWavePreview
 
 var wave_index : int = 0
@@ -20,13 +19,15 @@ signal wave_ended(wave_index: int, waves_length: int)
 func _ready() -> void: 
 	assert(level_path != null)
 	assert(game_state != null)
-	assert(ui != null)
 	assert(enemy_wave_preview != null)
+	
+	var ui : UI = game_state.ui
 
 	var start_wave_button : StartWaveButton = ui.get_node("StartWaveButton")
 	wave_started.connect(start_wave_button._on_wave_started)
 	wave_ended.connect(start_wave_button._on_wave_ended)
-	
+	wave_ended.connect(ui.end_screen.on_game_won)
+
 	enemy_wave_preview.set_wave_preview_from_wave_string(waves[0])
 
 
@@ -72,5 +73,9 @@ func _on_enemy_died(_v):
 	wave_enemy_count -= 1
 	if wave_enemy_count == 0 and wave_spawn_ended:
 		wave_ended.emit(wave_index, len(waves))
+
 		if wave_index < len(waves):
 			enemy_wave_preview.set_wave_preview_from_wave_string(waves[wave_index])
+
+		if wave_index == len(waves):
+			game_state.game_won.emit()

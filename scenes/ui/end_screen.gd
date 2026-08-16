@@ -3,7 +3,6 @@ class_name EndScreen
 
 signal continue_button_pressed
 
-
 @export var continue_button : Button
 @export var retry_button : Button
 
