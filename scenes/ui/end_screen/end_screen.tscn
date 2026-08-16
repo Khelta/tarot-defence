@@ -57,4 +57,5 @@ visible = false
 layout_mode = 2
 
 [node name="ExitLevelButton" parent="VBoxContainer" unique_id=1529698293 instance=ExtResource("3_s6fqt")]
+visible = false
 layout_mode = 2

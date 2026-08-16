@@ -17,13 +17,17 @@ func _on_continue_button_pressed() -> void:
 
 func on_game_won() -> void: 
 	visible = true
-	
-	continue_button.visible = true
+
 	$VBoxContainer/Label.text = "Win"
+
+	# continue_button.visible = true
+	exit_level_button.visible = true
 
 
 func on_game_lost() -> void:
 	visible = true
-	
-	retry_button.visible = true
+
 	$VBoxContainer/Label.text = "Lose"
+
+	# retry_button.visible = true
+	exit_level_button.visible = true
