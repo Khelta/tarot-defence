@@ -29,5 +29,5 @@ func on_game_lost() -> void:
 
 	$VBoxContainer/Label.text = "Lose"
 
-	# retry_button.visible = true
+	retry_button.visible = true
 	exit_level_button.visible = true

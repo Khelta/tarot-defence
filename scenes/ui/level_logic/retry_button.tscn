@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vppvfovcnybt"]
 
-[ext_resource type="Script" uid="uid://b1b6u4okqqfwa" path="res://scenes/ui/level_logic/retry_button.gd" id="1_uaur4"]
+[ext_resource type="Script" uid="uid://b1b6u4okqqfwa" path="res://scenes/ui/level_logic/retry_button.gd" id="1_v3rfk"]
 
 [node name="RetryButton" type="Button" unique_id=487594820]
 text = "Retry"
-script = ExtResource("1_uaur4")
+script = ExtResource("1_v3rfk")

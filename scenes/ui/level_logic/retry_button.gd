@@ -1,4 +1,5 @@
 extends Button
+class_name RetryButton
 
 signal replay_button_pressed
 
