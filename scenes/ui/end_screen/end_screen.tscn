@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://o7qclvnq25gx"]
 
 [ext_resource type="Script" uid="uid://dpagsf5mjvo0l" path="res://scenes/ui/end_screen/end_screen.gd" id="1_20hmq"]
-[ext_resource type="PackedScene" uid="uid://vppvfovcnybt" path="res://scenes/ui/level_logic/retry_button.tscn" id="2_s6fqt"]
+[ext_resource type="PackedScene" uid="uid://vppvfovcnybt" path="res://scenes/ui/level_logic/retry_button.tscn" id="2_20hmq"]
+[ext_resource type="PackedScene" uid="uid://bbr47hba8b8qg" path="res://scenes/ui/level_logic/exit_level_button.tscn" id="3_s6fqt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n8r4t"]
 font_size = 42
 
-[node name="EndScreen" type="Control" unique_id=963385865 node_paths=PackedStringArray("continue_button", "retry_button")]
+[node name="EndScreen" type="Control" unique_id=963385865 node_paths=PackedStringArray("continue_button", "retry_button", "exit_level_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_20hmq")
 continue_button = NodePath("VBoxContainer/ContinueButton")
 retry_button = NodePath("VBoxContainer/RetryButton")
+exit_level_button = NodePath("VBoxContainer/ExitLevelButton")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2039080794]
 layout_mode = 1
@@ -50,6 +52,9 @@ visible = false
 layout_mode = 2
 text = "Continue"
 
-[node name="RetryButton" parent="VBoxContainer" unique_id=487594820 instance=ExtResource("2_s6fqt")]
+[node name="RetryButton" parent="VBoxContainer" unique_id=487594820 instance=ExtResource("2_20hmq")]
 visible = false
+layout_mode = 2
+
+[node name="ExitLevelButton" parent="VBoxContainer" unique_id=1529698293 instance=ExtResource("3_s6fqt")]
 layout_mode = 2

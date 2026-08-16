@@ -5,6 +5,7 @@ signal continue_button_pressed
 
 @export var continue_button : Button
 @export var retry_button : Button
+@export var exit_level_button : ExitLevelButton
 
 func _ready() -> void:
 	$VBoxContainer/ContinueButton.pressed.connect(_on_continue_button_pressed)

@@ -24,6 +24,9 @@ func load_level(level_number: int = 1) -> void:
 	var level = level_scene.instantiate() as Level
 	add_child(level)
 
+	var exit_level_button = level.ui.end_screen.exit_level_button
+	exit_level_button.exit_level_pressed.connect(load_main_menu)
+
 
 func delete_current_scene() -> void:
 	for child in get_children():

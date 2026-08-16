@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bbr47hba8b8qg"]
+
+[ext_resource type="Script" uid="uid://d301ba1d0jmw5" path="res://scenes/ui/level_logic/exit_level_button.gd" id="1_agph8"]
+
+[node name="ExitLevelButton" type="Button" unique_id=1529698293]
+text = "Exit"
+script = ExtResource("1_agph8")
