@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d4jk0eo541115"]
 
+[ext_resource type="Script" uid="uid://coyswasj7xso5" path="res://scenes/levels/level.gd" id="1_31oqk"]
 [ext_resource type="Script" uid="uid://b17u3o22auvp7" path="res://scripts/Camera3D.gd" id="1_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://bmfal2nbyxxdt" path="res://scenes/tiles/straight_bb.tscn" id="2_4nkto"]
 [ext_resource type="PackedScene" uid="uid://rq4a1xvwgvo2" path="res://scenes/tiles/turn_left.tscn" id="3_fcfvj"]
@@ -40,7 +41,9 @@ _data = {
 }
 point_count = 4
 
-[node name="Level1" type="Node3D" unique_id=365219656]
+[node name="Level1" type="Node3D" unique_id=365219656 node_paths=PackedStringArray("ui")]
+script = ExtResource("1_31oqk")
+ui = NodePath("Ui")
 
 [node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
 
