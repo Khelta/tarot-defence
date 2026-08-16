@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://o7qclvnq25gx"]
 
-[ext_resource type="Script" uid="uid://dpagsf5mjvo0l" path="res://scenes/ui/end_screen.gd" id="1_4ttpn"]
-[ext_resource type="PackedScene" uid="uid://vppvfovcnybt" path="res://scenes/ui/retry_button.tscn" id="2_n8r4t"]
+[ext_resource type="Script" uid="uid://dpagsf5mjvo0l" path="res://scenes/ui/end_screen/end_screen.gd" id="1_20hmq"]
+[ext_resource type="PackedScene" uid="uid://vppvfovcnybt" path="res://scenes/ui/level_logic/retry_button.tscn" id="2_s6fqt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n8r4t"]
 font_size = 42
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4ttpn")
+script = ExtResource("1_20hmq")
 continue_button = NodePath("VBoxContainer/ContinueButton")
 retry_button = NodePath("VBoxContainer/RetryButton")
 
@@ -50,6 +50,6 @@ visible = false
 layout_mode = 2
 text = "Continue"
 
-[node name="RetryButton" parent="VBoxContainer" unique_id=487594820 instance=ExtResource("2_n8r4t")]
+[node name="RetryButton" parent="VBoxContainer" unique_id=487594820 instance=ExtResource("2_s6fqt")]
 visible = false
 layout_mode = 2
