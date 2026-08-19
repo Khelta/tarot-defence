@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ni8776ochta" path="res://scenes/ui/ui.tscn" id="20_so66j"]
 [ext_resource type="PackedScene" uid="uid://novpduw0tymo" path="res://scenes/Selector.tscn" id="20_tr1x6"]
 [ext_resource type="Script" uid="uid://ce2ogfokv1vot" path="res://scripts/level_path.gd" id="28_x7jkp"]
+[ext_resource type="PackedScene" uid="uid://cqm8482hhioqd" path="res://scenes/models/bench/bench.tscn" id="29_0qwwm"]
 
 [sub_resource type="Resource" id="Resource_p0x1a"]
 script = ExtResource("15_7o3do")
@@ -42,7 +43,7 @@ _data = {
 }
 point_count = 4
 
-[node name="Level1" type="Node3D" unique_id=365219656 node_paths=PackedStringArray("ui", "game_state", "selector", "wave_manager", "towers", "level_path") groups=["level"]]
+[node name="Level1" type="Node3D" unique_id=365219656 node_paths=PackedStringArray("ui", "game_state", "selector", "wave_manager", "towers", "level_path", "bench") groups=["level"]]
 script = ExtResource("1_31oqk")
 ui = NodePath("Ui")
 game_state = NodePath("GameState")
@@ -50,6 +51,7 @@ selector = NodePath("Selector")
 wave_manager = NodePath("WaveManager")
 towers = NodePath("Towers")
 level_path = NodePath("Path")
+bench = NodePath("Bench")
 
 [node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
 
@@ -227,9 +229,13 @@ is_tower_two_placeable = false
 [node name="StraightBb7" parent="Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
 
-[node name="Towers" parent="." unique_id=1918403248 instance=ExtResource("16_mkypq")]
+[node name="Towers" parent="." unique_id=1918403248 node_paths=PackedStringArray("level") instance=ExtResource("16_mkypq")]
+level = NodePath("..")
 
 [node name="Path" type="Path3D" parent="." unique_id=210619031]
 curve = SubResource("Curve3D_g4v7s")
 debug_custom_color = Color(0, 1, 0, 1)
 script = ExtResource("28_x7jkp")
+
+[node name="Bench" parent="." unique_id=1071650749 instance=ExtResource("29_0qwwm")]
+transform = Transform3D(0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.64278764, 10.29, 0, -33.875)
