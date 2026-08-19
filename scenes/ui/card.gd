@@ -1,7 +1,7 @@
 extends AspectRatioContainer
 class_name Card
 
-var game_state : GameState
+var level : Level
 @export var tower_name : String
 @onready var button : TextureButton
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 	button = get_node("Card")
 
 	await get_tree().process_frame
-	game_state = get_tree().get_first_node_in_group("game_state")
+	level = get_tree().get_first_node_in_group("level")
 
 	button.texture_normal = tower_to_texture_dict[
 		TowerUtils.remove_star_level_from_tower_string(tower_name)
@@ -29,6 +29,6 @@ func _ready() -> void:
 
 
 func _on_card_button_down() -> void:
-	var towers : Towers = game_state.get_node("Towers")
+	var towers : Towers = level.towers
 	towers.add_tower(tower_name)
 	card_selected.emit(self)
