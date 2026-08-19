@@ -8,4 +8,4 @@ func _ready() -> void:
 	game_state = get_tree().get_first_node_in_group("game_state")
 
 func _on_button_down() -> void:
-	game_state.buy_booster(1)
+	game_state.buy_booster(5)

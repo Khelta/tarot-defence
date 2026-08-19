@@ -15,9 +15,6 @@ var bench : Bench = null
 
 func _ready() -> void: 
 	bench = get_node("Bench")
-	add_tower("Ranger")
-	add_tower("Ranger2")
-	add_tower("Knight")
 
 
 func check_upgrade() -> void:

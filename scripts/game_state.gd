@@ -4,10 +4,10 @@ class_name GameState
 @export var path : Path3D
 const path_speed = 10
 
-@export var max_player_health : float = 100.0
+@export var max_player_health : float = 50.0
 var current_player_health: float
 
-@export var current_player_gold : int = 10
+@export var current_player_gold : int = 5
 
 @export var tower_pool : TowerPool
 @export var ui : UI

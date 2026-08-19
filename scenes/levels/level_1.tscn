@@ -155,7 +155,7 @@ ui = NodePath("../Ui")
 
 [node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state", "enemy_wave_preview")]
 script = ExtResource("18_isj1j")
-waves = Array[String](["1,s,0.3", "1,s,1"])
+waves = Array[String](["5,s,1", "5,s,1;3,s,2", "15,s,1", "20,s,0.5", "30,s,1"])
 level_path = NodePath("../Path")
 game_state = NodePath("..")
 enemy_wave_preview = NodePath("../../Assets/EnemyWavePreview")
