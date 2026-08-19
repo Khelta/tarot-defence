@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bcyhfyysyes3h" path="res://scenes/tiles/tower_tile.tscn" id="20_isj1j"]
 [ext_resource type="PackedScene" uid="uid://c2ni8776ochta" path="res://scenes/ui/ui.tscn" id="20_so66j"]
 [ext_resource type="PackedScene" uid="uid://novpduw0tymo" path="res://scenes/Selector.tscn" id="20_tr1x6"]
+[ext_resource type="Script" uid="uid://ce2ogfokv1vot" path="res://scripts/level_path.gd" id="28_x7jkp"]
 
 [sub_resource type="Resource" id="Resource_p0x1a"]
 script = ExtResource("15_7o3do")
@@ -41,9 +42,13 @@ _data = {
 }
 point_count = 4
 
-[node name="Level1" type="Node3D" unique_id=365219656 node_paths=PackedStringArray("ui")]
+[node name="Level1" type="Node3D" unique_id=365219656 node_paths=PackedStringArray("ui", "game_state", "selector", "wave_manager", "towers") groups=["level"]]
 script = ExtResource("1_31oqk")
 ui = NodePath("Ui")
+game_state = NodePath("GameState")
+selector = NodePath("Selector")
+wave_manager = NodePath("WaveManager")
+towers = NodePath("Towers")
 
 [node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
 
@@ -147,78 +152,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
 [node name="EnemyWavePreview" parent="Assets" unique_id=1870985153 node_paths=PackedStringArray("node_position") instance=ExtResource("14_o7j4k")]
 node_position = NodePath("../Start")
 
-[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("path", "ui") groups=["game_state"]]
+[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("level_path", "ui") groups=["game_state"]]
 script = ExtResource("6_fcfvj")
-path = NodePath("Path")
+level_path = NodePath("../Path")
 tower_pool = SubResource("Resource_p0x1a")
 ui = NodePath("../Ui")
-
-[node name="WaveManager" type="Node" parent="GameState" unique_id=103093318 node_paths=PackedStringArray("level_path", "game_state", "enemy_wave_preview")]
-script = ExtResource("18_isj1j")
-waves = Array[String](["5,s,1", "5,s,1;3,s,2", "15,s,1", "20,s,0.5", "30,s,1"])
-level_path = NodePath("../Path")
-game_state = NodePath("..")
-enemy_wave_preview = NodePath("../../Assets/EnemyWavePreview")
-
-[node name="Path" type="Path3D" parent="GameState" unique_id=210619031]
-curve = SubResource("Curve3D_g4v7s")
-debug_custom_color = Color(0, 1, 0, 1)
-
-[node name="Towers" parent="GameState" unique_id=1918403248 instance=ExtResource("16_mkypq")]
-
-[node name="Tiles" type="Node" parent="GameState" unique_id=1298637272]
-
-[node name="TowerTile" parent="GameState/Tiles" unique_id=1658459195 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
-
-[node name="TowerTile2" parent="GameState/Tiles" unique_id=211774091 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
-
-[node name="TowerTile3" parent="GameState/Tiles" unique_id=1196411302 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
-
-[node name="TowerTile4" parent="GameState/Tiles" unique_id=1521474126 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -16)
-
-[node name="TowerTile5" parent="GameState/Tiles" unique_id=1379583805 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
-
-[node name="TowerTile6" parent="GameState/Tiles" unique_id=1187378878 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
-
-[node name="TowerTile7" parent="GameState/Tiles" unique_id=1991203557 instance=ExtResource("20_isj1j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
-
-[node name="TurnLeft" parent="GameState/Tiles" unique_id=977008734 instance=ExtResource("3_fcfvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
-is_tower_two_placeable = false
-is_tower_four_placeable = false
-
-[node name="StraightBb" parent="GameState/Tiles" unique_id=1879107471 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-is_tower_one_placeable = false
-is_tower_two_placeable = false
-
-[node name="StraightBb2" parent="GameState/Tiles" unique_id=1412603414 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-
-[node name="StraightBb3" parent="GameState/Tiles" unique_id=2038935107 instance=ExtResource("2_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
-is_tower_one_placeable = false
-is_tower_two_placeable = false
-
-[node name="StraightBb4" parent="GameState/Tiles" unique_id=2114964066 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
-is_tower_one_placeable = false
-is_tower_two_placeable = false
-
-[node name="StraightBb6" parent="GameState/Tiles" unique_id=1464113000 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -19)
-is_tower_one_placeable = false
-is_tower_two_placeable = false
-
-[node name="StraightBb7" parent="GameState/Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
 
 [node name="Selector" parent="." unique_id=879494282 instance=ExtResource("20_tr1x6")]
 
@@ -226,3 +164,70 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11,
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light" unique_id=2000744609]
 transform = Transform3D(-0.25881907, -0.4829629, 0.83651626, -8.230112e-09, 0.86602545, 0.5, -0.9659259, 0.12940954, -0.22414389, 0, 9, 0)
+
+[node name="WaveManager" type="Node" parent="." unique_id=103093318 node_paths=PackedStringArray("game_state", "enemy_wave_preview")]
+script = ExtResource("18_isj1j")
+waves = Array[String](["5,s,1", "5,s,1;3,s,2", "15,s,1", "20,s,0.5", "30,s,1"])
+game_state = NodePath("../GameState")
+enemy_wave_preview = NodePath("../Assets/EnemyWavePreview")
+
+[node name="Tiles" type="Node" parent="." unique_id=1298637272]
+
+[node name="TowerTile" parent="Tiles" unique_id=1658459195 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -16)
+
+[node name="TowerTile2" parent="Tiles" unique_id=211774091 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -20)
+
+[node name="TowerTile3" parent="Tiles" unique_id=1196411302 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -12)
+
+[node name="TowerTile4" parent="Tiles" unique_id=1521474126 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -16)
+
+[node name="TowerTile5" parent="Tiles" unique_id=1379583805 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
+
+[node name="TowerTile6" parent="Tiles" unique_id=1187378878 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
+
+[node name="TowerTile7" parent="Tiles" unique_id=1991203557 instance=ExtResource("20_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -12)
+
+[node name="TurnLeft" parent="Tiles" unique_id=977008734 instance=ExtResource("3_fcfvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+is_tower_two_placeable = false
+is_tower_four_placeable = false
+
+[node name="StraightBb" parent="Tiles" unique_id=1879107471 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+is_tower_one_placeable = false
+is_tower_two_placeable = false
+
+[node name="StraightBb2" parent="Tiles" unique_id=1412603414 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="StraightBb3" parent="Tiles" unique_id=2038935107 instance=ExtResource("2_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+is_tower_one_placeable = false
+is_tower_two_placeable = false
+
+[node name="StraightBb4" parent="Tiles" unique_id=2114964066 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, -19)
+is_tower_one_placeable = false
+is_tower_two_placeable = false
+
+[node name="StraightBb6" parent="Tiles" unique_id=1464113000 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -19)
+is_tower_one_placeable = false
+is_tower_two_placeable = false
+
+[node name="StraightBb7" parent="Tiles" unique_id=1228781833 instance=ExtResource("2_4nkto")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0, -19)
+
+[node name="Towers" parent="." unique_id=1918403248 instance=ExtResource("16_mkypq")]
+
+[node name="Path" type="Path3D" parent="." unique_id=210619031]
+curve = SubResource("Curve3D_g4v7s")
+debug_custom_color = Color(0, 1, 0, 1)
+script = ExtResource("28_x7jkp")

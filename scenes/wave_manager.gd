@@ -2,7 +2,6 @@ extends Node
 class_name WaveManager
 
 @export var waves : Array[String] = ["3,s,1", "10,s,1;5,s,0.3"]
-@export var level_path : Path3D
 @export var game_state : GameState
 @export var enemy_wave_preview : EnemyWavePreview
 
@@ -17,7 +16,6 @@ signal wave_ended(wave_index: int, waves_length: int)
 
 
 func _ready() -> void: 
-	assert(level_path != null)
 	assert(game_state != null)
 	assert(enemy_wave_preview != null)
 	
@@ -65,7 +63,7 @@ func add_enemy(enemy: BaseEnemy) -> PathFollow3D:
 	enemy.enemy_died.connect(_on_enemy_died)
 	enemy.enemy_spawned.connect(add_enemy)
 	path_follow.add_child(enemy)
-	level_path.add_child(path_follow)
+	game_state.level_path.add_child(path_follow)
 	
 	return path_follow
 
