@@ -1,8 +1,10 @@
 extends Node
 class_name GameState
 
-@export var path : Path3D
-const path_speed = 10
+@export var level : Level
+
+var level_path : LevelPath
+const level_path_speed = 10
 
 @export var max_player_health : float = 50.0
 var current_player_health: float
@@ -33,6 +35,8 @@ func _change_player_gold(value: int):
 
 func _ready() -> void:
 	add_to_group("game_state")
+	
+	level_path = level.level_path
 	
 	current_player_health = max_player_health
 	
@@ -67,7 +71,7 @@ func buy_booster(price: int) -> void:
 
 
 func _process(delta):
-	for enemy_path in path.get_children():
+	for enemy_path in level_path.get_children():
 		var enemy = enemy_path.get_child(0)
 
 		if enemy.is_alive:
@@ -84,8 +88,8 @@ func _process(delta):
 
 
 func calculate_progress_ratio_speed(enemy: BaseEnemy) -> float:
-	var path_length: float = path.curve.get_baked_length()
-	var time_for_path = path_length * path_speed
+	var path_length: float = level_path.curve.get_baked_length()
+	var time_for_path = path_length * level_path_speed
 	var progress_ratio_speed = 100 / time_for_path * enemy.get_speed()
 	return progress_ratio_speed
 	
