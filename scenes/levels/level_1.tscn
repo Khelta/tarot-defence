@@ -156,12 +156,11 @@ node_position = NodePath("../Start")
 [node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("level", "ui") groups=["game_state"]]
 script = ExtResource("6_fcfvj")
 level = NodePath("..")
-max_player_health = null
-current_player_gold = null
 tower_pool = SubResource("Resource_p0x1a")
 ui = NodePath("../Ui")
 
-[node name="Selector" parent="." unique_id=879494282 instance=ExtResource("20_tr1x6")]
+[node name="Selector" parent="." unique_id=879494282 node_paths=PackedStringArray("level") instance=ExtResource("20_tr1x6")]
+level = NodePath("..")
 
 [node name="Light" type="Node" parent="." unique_id=1985433111]
 

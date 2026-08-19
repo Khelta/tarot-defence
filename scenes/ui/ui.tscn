@@ -9,11 +9,13 @@
 [ext_resource type="Script" uid="uid://3sfy6l1o3ubc" path="res://scenes/ui/level_logic/sell_tower_button.gd" id="7_uegxj"]
 [ext_resource type="PackedScene" uid="uid://o7qclvnq25gx" path="res://scenes/ui/end_screen/end_screen.tscn" id="8_jcn1r"]
 
-[node name="Ui" type="CanvasLayer" unique_id=1417531588 node_paths=PackedStringArray("info_panel", "start_wave_button", "end_screen") groups=["ui"]]
+[node name="Ui" type="CanvasLayer" unique_id=1417531588 node_paths=PackedStringArray("info_panel", "start_wave_button", "end_screen", "sell_tower_button", "tower_panel") groups=["ui"]]
 script = ExtResource("1_f5cxw")
 info_panel = NodePath("InfoPanel")
 start_wave_button = NodePath("StartWaveButton")
 end_screen = NodePath("EndScreen")
+sell_tower_button = NodePath("SellTowerButton")
+tower_panel = NodePath("TowerPanel")
 
 [node name="InfoPanel" parent="." unique_id=1633793101 instance=ExtResource("2_aac20")]
 anchors_preset = 1
