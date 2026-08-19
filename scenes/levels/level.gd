@@ -6,6 +6,7 @@ class_name Level
 @export var selector : Selector
 @export var wave_manager : WaveManager
 @export var towers : Towers
+@export var level_path : LevelPath
 
 func _ready() -> void:
 	assert(ui != null)
@@ -13,3 +14,4 @@ func _ready() -> void:
 	assert(selector != null)
 	assert(wave_manager != null)
 	assert(towers != null)
+	assert(level_path != null)

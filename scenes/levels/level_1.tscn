@@ -42,13 +42,14 @@ _data = {
 }
 point_count = 4
 
-[node name="Level1" type="Node3D" unique_id=365219656 node_paths=PackedStringArray("ui", "game_state", "selector", "wave_manager", "towers") groups=["level"]]
+[node name="Level1" type="Node3D" unique_id=365219656 node_paths=PackedStringArray("ui", "game_state", "selector", "wave_manager", "towers", "level_path") groups=["level"]]
 script = ExtResource("1_31oqk")
 ui = NodePath("Ui")
 game_state = NodePath("GameState")
 selector = NodePath("Selector")
 wave_manager = NodePath("WaveManager")
 towers = NodePath("Towers")
+level_path = NodePath("Path")
 
 [node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
 
@@ -152,9 +153,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
 [node name="EnemyWavePreview" parent="Assets" unique_id=1870985153 node_paths=PackedStringArray("node_position") instance=ExtResource("14_o7j4k")]
 node_position = NodePath("../Start")
 
-[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("level_path", "ui") groups=["game_state"]]
+[node name="GameState" type="Node" parent="." unique_id=464651959 node_paths=PackedStringArray("level", "ui") groups=["game_state"]]
 script = ExtResource("6_fcfvj")
-level_path = NodePath("../Path")
+level = NodePath("..")
+max_player_health = null
+current_player_gold = null
 tower_pool = SubResource("Resource_p0x1a")
 ui = NodePath("../Ui")
 
