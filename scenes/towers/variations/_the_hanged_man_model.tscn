@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dx7a085a5fuk0"]
 
+[ext_resource type="Script" uid="uid://dvr8orxel3a06" path="res://scenes/towers/variations/_the_hanged_man_animation.gd" id="1_gcpj8"]
 [ext_resource type="PackedScene" uid="uid://yfbiqa3f5j0l" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/fbx/post.fbx" id="2_7rxo3"]
 [ext_resource type="Texture2D" uid="uid://c61wae4p4iocx" path="res://assets/KayKit_Adventurers_2.0_FREE/Assets/fbx/ranger_texture.png" id="2_gcpj8"]
 [ext_resource type="Shader" uid="uid://ldawugtw8as4" path="res://scenes/towers/variations/_the_hanged_man_model.gdshader" id="2_n0sxy"]
@@ -345,7 +346,10 @@ bind/22/name = &"toes.r"
 bind/22/bone = -1
 bind/22/pose = Transform3D(-1, -1.534363e-07, 1.6390669e-14, 3.0757736e-12, -1.3510248e-07, 0.9999992, -1.5343625e-07, 1.0000002, -4.37114e-08, -0.17094526, -0.09639295, 1.215435)
 
-[node name="TheHangedManModel" type="Node3D" unique_id=2036702991]
+[node name="TheHangedManModel" type="Node3D" unique_id=2036702991 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_gcpj8")
+animation_player = NodePath("AnimationPlayer")
+idle_animation_path = "idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1082472478]
 libraries/ = SubResource("AnimationLibrary_ch0qk")
