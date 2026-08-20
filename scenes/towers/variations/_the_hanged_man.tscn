@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bt3fx3gsayjen"]
+
+[ext_resource type="PackedScene" uid="uid://do5m6kksqscjp" path="res://scenes/towers/base_tower.tscn" id="2_l4fle"]
+[ext_resource type="PackedScene" uid="uid://dx7a085a5fuk0" path="res://scenes/towers/variations/_the_hanged_man_model.tscn" id="3_hms4x"]
+[ext_resource type="Script" uid="uid://hrm1ibgu15ld" path="res://scenes/towers/variations/_the_hanged_man.gd" id="4_kawqg"]
+
+[node name="TheHangedMan" type="Node3D" unique_id=893937668]
+script = ExtResource("4_kawqg")
+tower_range = 10.0
+base_damage = 25.0
+attacks_per_second = 1.5
+projectile_mesh = null
+projectile_mesh_rotation_degrees = Vector3(0, 180, 0)
+
+[node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_l4fle")]
+
+[node name="Model" parent="." unique_id=2036702991 instance=ExtResource("3_hms4x")]
