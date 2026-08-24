@@ -52,5 +52,4 @@ func _zoom_camera(delta) -> void:
 		zoom_input -= 1
 
 	if zoom_input != 0.0:
-		print("YES")
 		size = clamp(size + zoom_input, min_size, max_size)
