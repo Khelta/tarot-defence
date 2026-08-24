@@ -20,6 +20,5 @@ func _ready() -> void:
 
 func _on_card_button_down() -> void:
 	var towers : Towers = level.towers
-	# TODO change function to take TowerData as parameter
-	towers.add_tower(tower.name)
+	towers.add_tower(tower)
 	card_selected.emit(self)

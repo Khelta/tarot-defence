@@ -42,14 +42,11 @@ func check_upgrade() -> void:
 		check_upgrade()
 
 
-func add_tower(tower_name: String) -> bool:
+func add_tower(tower_data: TowerData, star_level: int = 1) -> bool:
 	if not bench.has_free_slot():
 		return false
-
-	var star_level = TowerUtils.get_star_level_from_tower_string(tower_name)
-	tower_name = TowerUtils.remove_star_level_from_tower_string(tower_name)
 	
-	var tower_class = tower_class_dict[tower_name]
+	var tower_class = tower_class_dict[tower_data.name]
 	var tower : BaseTower = tower_class.instantiate()
 	
 	for i in range(1, star_level):
