@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://dt6e6rpqmmxvj"]
 
 [ext_resource type="Script" uid="uid://q07m78qmy5g6" path="res://scenes/towers/resources/tower_data.gd" id="1_txf03"]
+[ext_resource type="Texture2D" uid="uid://jgywshm0o3rn" path="res://assets/preview_images/Ranger.png" id="1_u532y"]
 [ext_resource type="PackedScene" uid="uid://byf2lvnbei6tr" path="res://scenes/towers/variations/ranger.tscn" id="2_qbwq3"]
 
 [resource]
@@ -8,4 +9,5 @@ script = ExtResource("1_txf03")
 name = "Ranger"
 tower_scene = ExtResource("2_qbwq3")
 weight = 5.0
+image = ExtResource("1_u532y")
 metadata/_custom_type_script = "uid://q07m78qmy5g6"

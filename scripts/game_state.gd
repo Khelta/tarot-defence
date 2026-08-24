@@ -63,9 +63,9 @@ func buy_booster(price: int) -> void:
 		var card_selection_scene = preload("res://scenes/ui/card_selection.tscn")
 		var card_selection = card_selection_scene.instantiate()
 		
-		card_selection.setup(tower_pool.draw_weighted().name,
-							 tower_pool.draw_weighted().name,
-							 tower_pool.draw_weighted().name)
+		card_selection.setup(tower_pool.draw_weighted(),
+							 tower_pool.draw_weighted(),
+							 tower_pool.draw_weighted())
 
 		ui.add_child(card_selection)
 
