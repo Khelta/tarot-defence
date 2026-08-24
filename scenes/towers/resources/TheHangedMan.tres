@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_fvkjt")
-name = "The Hanged Man"
+name = "TheHangedMan"
 tower_scene = ExtResource("2_d6di1")
 rarity = 5
 weight = 20.0
