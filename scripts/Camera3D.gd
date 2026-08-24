@@ -10,6 +10,7 @@ extends Camera3D
 func _process(delta):
 	_move_camera(delta)
 	_rotate_camera(delta)
+	_zoom_camera(delta)
 
 
 func _move_camera(delta):
@@ -40,3 +41,16 @@ func _rotate_camera(delta):
 		
 	if yaw_input != 0.0:
 		get_parent().rotate_y(yaw_input * rotate_speed * delta)
+		
+
+func _zoom_camera(delta) -> void:
+	var zoom_input = 0.0
+	
+	if Input.is_action_just_pressed("zoom_in"):
+		zoom_input += 1
+	if Input.is_action_just_pressed("zoom_out"):
+		zoom_input -= 1
+
+	if zoom_input != 0.0:
+		print("YES")
+		size = clamp(size + zoom_input, min_size, max_size)
