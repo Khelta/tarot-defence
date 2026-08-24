@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d4jk0eo541115"]
 
 [ext_resource type="Script" uid="uid://coyswasj7xso5" path="res://scenes/levels/level.gd" id="1_31oqk"]
-[ext_resource type="Script" uid="uid://b17u3o22auvp7" path="res://scripts/Camera3D.gd" id="1_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://bmfal2nbyxxdt" path="res://scenes/tiles/straight_bb.tscn" id="2_4nkto"]
+[ext_resource type="PackedScene" uid="uid://b5miliewitljd" path="res://scenes/camera_rig.tscn" id="3_0qwwm"]
 [ext_resource type="PackedScene" uid="uid://rq4a1xvwgvo2" path="res://scenes/tiles/turn_left.tscn" id="3_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://ci1hts682dfx" path="res://scenes/models/start.tscn" id="5_4nkto"]
 [ext_resource type="ArrayMesh" uid="uid://6mnwokk6m5k4" path="res://assets/KayKit_HalloweenBits_1.0_FREE/Assets/obj/tree_pine_orange_large.obj" id="6_15mv3"]
@@ -55,14 +55,8 @@ bench = NodePath("Bench")
 
 [node name="Ui" parent="." unique_id=1417531588 instance=ExtResource("20_so66j")]
 
-[node name="Camera" type="Node3D" parent="." unique_id=256259413]
+[node name="CameraRig" parent="." unique_id=1252255881 instance=ExtResource("3_0qwwm")]
 transform = Transform3D(0.99999976, 0, 4.7699512e-08, 0, 1, 0, -4.7699512e-08, 0, 0.99999976, -3, 0, -16)
-
-[node name="Camera3D" type="Camera3D" parent="Camera" unique_id=2057554183]
-transform = Transform3D(-0.7660446, -0.35008726, 0.5390872, 0, 0.83867055, 0.54463917, -0.6427878, 0.4172177, -0.6424591, 63.00124, 63.059456, -74.004776)
-projection = 1
-size = 30.0
-script = ExtResource("1_pa8r4")
 
 [node name="Assets" type="Node3D" parent="." unique_id=1259634882]
 

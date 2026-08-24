@@ -1,10 +1,15 @@
-extends Camera3D
+extends Node3D
 
 @export var move_speed := 20.0
 @export var rotate_speed := 1.0
 @export var zoom_speed := 10
 @export var min_size := 2.0
 @export var max_size := 50.0
+
+@export var camera : Camera3D
+
+func _ready() -> void:
+	assert(camera != null)
 
 
 func _process(delta):
@@ -38,10 +43,10 @@ func _rotate_camera(delta):
 		yaw_input += 1
 	if Input.is_action_pressed("rotate_right"):
 		yaw_input -= 1
-		
+
 	if yaw_input != 0.0:
-		get_parent().rotate_y(yaw_input * rotate_speed * delta)
-		
+		rotate_y(yaw_input * rotate_speed * delta)
+
 
 func _zoom_camera(delta) -> void:
 	var zoom_input = 0.0
@@ -52,4 +57,4 @@ func _zoom_camera(delta) -> void:
 		zoom_input -= 1
 
 	if zoom_input != 0.0:
-		size = clamp(size + zoom_input, min_size, max_size)
+		camera.size = clamp(camera.size + zoom_input, min_size, max_size)
