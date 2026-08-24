@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://dathsstt03hhs"]
+
+[ext_resource type="Texture2D" uid="uid://cghh6jy3bcluq" path="res://assets/preview_images/Wizard.png" id="1_d6di1"]
+[ext_resource type="Script" uid="uid://q07m78qmy5g6" path="res://scenes/towers/resources/tower_data.gd" id="1_fvkjt"]
+[ext_resource type="PackedScene" uid="uid://bt3fx3gsayjen" path="res://scenes/towers/variations/_the_hanged_man.tscn" id="2_d6di1"]
+
+[resource]
+script = ExtResource("1_fvkjt")
+name = "The Hanged Man"
+tower_scene = ExtResource("2_d6di1")
+rarity = 5
+weight = 20.0
+image = ExtResource("1_d6di1")

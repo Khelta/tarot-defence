@@ -1,15 +1,6 @@
 extends Node
 class_name Towers
 
-const RangerClass = preload("res://scenes/towers/variations/ranger.tscn")
-const KnightClass = preload("res://scenes/towers/variations/knight.tscn")
-const WizardClass = preload("res://scenes/towers/variations/wizard.tscn")
-
-var tower_class_dict : Dictionary[String, PackedScene] = {
-	"Ranger": RangerClass,
-	"Knight": KnightClass,
-	"Wizard": WizardClass,
-}
 
 @export var level : Level
 var bench : Bench
@@ -19,10 +10,12 @@ func _ready() -> void:
 
 
 func check_upgrade() -> void:
+	const TOWER_DATABASE : TowerPool = preload("uid://k5ny03sks1x7")
+	
 	var counter = {}
-	for key in tower_class_dict:
-		counter[key + "1"] = []
-		counter[key + "2"] = []
+	for tower in TOWER_DATABASE.towers:
+		counter[tower.name + "1"] = []
+		counter[tower.name + "2"] = []
 
 	var upgraded : bool = false
 
@@ -46,8 +39,8 @@ func add_tower(tower_data: TowerData, star_level: int = 1) -> bool:
 	if not bench.has_free_slot():
 		return false
 	
-	var tower_class = tower_class_dict[tower_data.name]
-	var tower : BaseTower = tower_class.instantiate()
+	var tower_scene = tower_data.tower_scene
+	var tower : BaseTower = tower_scene.instantiate()
 	
 	for i in range(1, star_level):
 		tower.upgrade()
