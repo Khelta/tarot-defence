@@ -33,6 +33,14 @@ var attack_range_indicator : MeshInstance3D = null
 
 var tower_effect_manager : TowerEffectManager
 
+enum State {
+	BENCHED,
+	GRABBED,
+	PLACED
+}
+
+var current_state : State = State.BENCHED
+
 enum TargetPriority {
 	FIRST,
 	LAST,
@@ -76,7 +84,7 @@ func _ready() -> void:
 
 func _process(delta):
 	attack_cooldown -= delta
-	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
+	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and current_state == State.PLACED:
 
 		var target_enemy : BaseEnemy
 		match target_priority:
@@ -123,6 +131,41 @@ func _process(delta):
 
 func destroy() -> void:
 	queue_free()
+
+
+func enter_state(state: State) -> void:
+	match State:
+		State.BENCHED:
+			pass
+
+		State.GRABBED:
+			get_node("BaseTower/AttackRangeIndicator").visible = true
+			grabbed.emit()
+
+		State.PLACED:
+			pass
+
+
+func exit_state(state: State) -> void:
+	match State:
+		State.BENCHED:
+			pass
+
+		State.GRABBED:
+			get_node("BaseTower/AttackRangeIndicator").visible = false
+			grab_released.emit()
+
+		State.PLACED:
+			pass
+
+
+func change_state(new_state: State) -> void:
+	if current_state == new_state:
+		return
+
+	exit_state(current_state)
+	current_state = new_state
+	enter_state(current_state)
 
 
 func apply_damage(target: BaseEnemy) -> void:
