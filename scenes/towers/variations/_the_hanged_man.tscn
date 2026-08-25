@@ -3,15 +3,31 @@
 [ext_resource type="PackedScene" uid="uid://do5m6kksqscjp" path="res://scenes/towers/base_tower.tscn" id="2_l4fle"]
 [ext_resource type="PackedScene" uid="uid://dx7a085a5fuk0" path="res://scenes/towers/variations/_the_hanged_man_model.tscn" id="3_hms4x"]
 [ext_resource type="Script" uid="uid://hrm1ibgu15ld" path="res://scenes/towers/variations/_the_hanged_man.gd" id="4_kawqg"]
+[ext_resource type="Material" uid="uid://bx6b0xbu62feh" path="res://materials/halo.tres" id="4_l4fle"]
+
+[sub_resource type="Curve" id="Curve_kawqg"]
+_limits = [5.0, 20.0, 0.0, 5.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(5, 20), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="TorusMesh" id="TorusMesh_g4v7s"]
+material = ExtResource("4_l4fle")
+inner_radius = 4.7
+outer_radius = 5.0
 
 [node name="TheHangedMan" type="Node3D" unique_id=893937668]
 script = ExtResource("4_kawqg")
-tower_range = 10.0
+max_range = 20.0
+min_range = 5.0
+halo_expansion_time = 5.0
+halo_curve = SubResource("Curve_kawqg")
 base_damage = 1.0
 attacks_per_second = 5.0
-projectile_mesh = null
 projectile_mesh_rotation_degrees = Vector3(0, 180, 0)
 
 [node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_l4fle")]
 
 [node name="Model" parent="." unique_id=2036702991 instance=ExtResource("3_hms4x")]
+
+[node name="HaloIndicator" type="MeshInstance3D" parent="." unique_id=119993192]
+mesh = SubResource("TorusMesh_g4v7s")
