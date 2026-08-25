@@ -19,14 +19,6 @@ var attack_cooldown: float = 0.0
 const default_timeout = 0.5
 var default_rotation = Vector3()
 
-var is_grabbed: bool = false:
-	set(new_is_grabbed):
-		is_grabbed = new_is_grabbed
-		get_node("BaseTower/AttackRangeIndicator").visible = is_grabbed
-		if is_grabbed:
-			grabbed.emit()
-		else:
-			grab_released.emit()
 var is_selected: bool = false
 
 var attack_range_indicator : MeshInstance3D = null
@@ -134,7 +126,7 @@ func destroy() -> void:
 
 
 func enter_state(state: State) -> void:
-	match State:
+	match current_state:
 		State.BENCHED:
 			pass
 
@@ -147,7 +139,7 @@ func enter_state(state: State) -> void:
 
 
 func exit_state(state: State) -> void:
-	match State:
+	match current_state:
 		State.BENCHED:
 			pass
 
@@ -166,6 +158,8 @@ func change_state(new_state: State) -> void:
 	exit_state(current_state)
 	current_state = new_state
 	enter_state(current_state)
+
+	# print(State.keys()[current_state])
 
 
 func apply_damage(target: BaseEnemy) -> void:
@@ -234,10 +228,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.get_parent().name == "BaseEnemy":
 		enemies_in_range.erase(area.get_parent().get_parent())
-
-
-func _on_grabbed_changed(_is_grabbed: bool) -> void:
-	self.is_grabbed = _is_grabbed
 
 
 func set_selected(value: bool):
