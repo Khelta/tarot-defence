@@ -17,6 +17,8 @@ func _ready() -> void:
 	super()
 	
 	create_halo_curve()
+	
+	grab_released.connect(set_halo_indicator_visibility)
 
 
 func _process(delta) -> void:
@@ -35,7 +37,7 @@ func _process(delta) -> void:
 		halo_expansion_direction = 1
 
 	attack_cooldown -= delta
-	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
+	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and State.PLACED:
 
 		for enemy in enemies_in_range:
 			apply_damage(enemy)
@@ -58,7 +60,8 @@ func create_halo_curve() -> void:
 	halo_curve = curve
 
 
-"""
-	var hanged_man_animation : TheHangedManAnimation = get_node("Model")
-	self.attacked.connect(hanged_man_animation._on_base_tower_attack)
-"""
+func set_halo_indicator_visibility() -> void:
+	if current_state == BaseTower.State.PLACED:
+		$HaloIndicator.visible = true
+	else:
+		$HaloIndicator.visible = false

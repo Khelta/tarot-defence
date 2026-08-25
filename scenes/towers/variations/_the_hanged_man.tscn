@@ -30,4 +30,5 @@ projectile_mesh_rotation_degrees = Vector3(0, 180, 0)
 [node name="Model" parent="." unique_id=2036702991 instance=ExtResource("3_hms4x")]
 
 [node name="HaloIndicator" type="MeshInstance3D" parent="." unique_id=119993192]
+visible = false
 mesh = SubResource("TorusMesh_g4v7s")
