@@ -9,12 +9,12 @@ class_name CardSelection
 
 var card_scene = preload("res://scenes/ui/card.tscn")
 
-func setup(first_tower: TowerData, second_tower: TowerData, third_tower: TowerData) -> void:
+func setup(_first_tower: TowerData, _second_tower: TowerData, _third_tower: TowerData) -> void:
 	var hbox = get_node("MarginContainer/CenterContainer/VBoxContainer/HBoxContainer")
 
-	first_tower  = first_tower
-	second_tower = second_tower
-	third_tower  = third_tower
+	first_tower  = _first_tower
+	second_tower = _second_tower
+	third_tower  = _third_tower
 
 	_add_card(first_tower)
 	_add_card(second_tower)
