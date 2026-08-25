@@ -10,6 +10,7 @@ size = Vector3(4, 0.6, 4)
 
 [node name="TowerTile" type="Node3D" unique_id=1658459195]
 script = ExtResource("1_w0cn8")
+type = "Tile"
 
 [node name="FloorDirt" type="MeshInstance3D" parent="." unique_id=265700949]
 mesh = ExtResource("1_3cgtp")

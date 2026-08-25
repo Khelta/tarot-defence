@@ -1,6 +1,7 @@
 extends Node3D
 class_name Slot
 
+@export var type : String
 @export var is_eligible : bool = false:
 	set(value):
 		is_eligible = value
@@ -16,6 +17,7 @@ class_name Slot
 		tower_rotation = new_tower_rotation
 
 func _ready():
+	assert(type != "")
 	connect_to_selector()
 	set_valid_tower_position_vfx_visibility(false)
 

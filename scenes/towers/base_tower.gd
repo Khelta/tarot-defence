@@ -19,19 +19,19 @@ var attack_cooldown: float = 0.0
 const default_timeout = 0.5
 var default_rotation = Vector3()
 
-var is_grabbed: bool = false:
-	set(new_is_grabbed):
-		is_grabbed = new_is_grabbed
-		get_node("BaseTower/AttackRangeIndicator").visible = is_grabbed
-		if is_grabbed:
-			grabbed.emit()
-		else:
-			grab_released.emit()
 var is_selected: bool = false
 
 var attack_range_indicator : MeshInstance3D = null
 
 var tower_effect_manager : TowerEffectManager
+
+enum State {
+	BENCHED,
+	GRABBED,
+	PLACED
+}
+
+var current_state : State = State.BENCHED
 
 enum TargetPriority {
 	FIRST,
@@ -76,7 +76,7 @@ func _ready() -> void:
 
 func _process(delta):
 	attack_cooldown -= delta
-	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
+	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and current_state == State.PLACED:
 
 		var target_enemy : BaseEnemy
 		match target_priority:
@@ -123,6 +123,43 @@ func _process(delta):
 
 func destroy() -> void:
 	queue_free()
+
+
+func enter_state(state: State) -> void:
+	match current_state:
+		State.BENCHED:
+			pass
+
+		State.GRABBED:
+			get_node("BaseTower/AttackRangeIndicator").visible = true
+			grabbed.emit()
+
+		State.PLACED:
+			pass
+
+
+func exit_state(state: State) -> void:
+	match current_state:
+		State.BENCHED:
+			pass
+
+		State.GRABBED:
+			get_node("BaseTower/AttackRangeIndicator").visible = false
+			grab_released.emit()
+
+		State.PLACED:
+			pass
+
+
+func change_state(new_state: State) -> void:
+	if current_state == new_state:
+		return
+
+	exit_state(current_state)
+	current_state = new_state
+	enter_state(current_state)
+
+	# print(State.keys()[current_state])
 
 
 func apply_damage(target: BaseEnemy) -> void:
@@ -191,10 +228,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.get_parent().name == "BaseEnemy":
 		enemies_in_range.erase(area.get_parent().get_parent())
-
-
-func _on_grabbed_changed(_is_grabbed: bool) -> void:
-	self.is_grabbed = _is_grabbed
 
 
 func set_selected(value: bool):

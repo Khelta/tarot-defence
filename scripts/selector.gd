@@ -22,13 +22,7 @@ var selected_slot_for_panel : Slot:
 		# set_ui_tower_preview(value.tower if value else null)
 var tower_panel : TowerPanel
 
-var grabbed_tower : BaseTower:
-	set(new_grabbed_tower):
-		if grabbed_tower:
-			grabbed_tower._on_grabbed_changed(false)
-		grabbed_tower = new_grabbed_tower
-		if grabbed_tower:
-			grabbed_tower._on_grabbed_changed(true)
+var grabbed_tower : BaseTower
 var grabbed_tower_slot : Slot
 
 var holding : bool = false
@@ -136,6 +130,7 @@ func grab_tower(slot: Slot) -> void:
 		grabbed_tower = slot.tower
 		grabbed_tower_slot = slot
 		slot.tower = null
+		grabbed_tower.change_state(BaseTower.State.GRABBED)
 	
 		is_placement_mode = true
 
@@ -151,8 +146,18 @@ func deselect() -> void:
 func try_placement(slot: Slot) -> void:
 	if slot.is_free():
 		slot.tower = grabbed_tower
-		grabbed_tower = null
+		var state = BaseTower.State.PLACED if slot.type == "Tile" else BaseTower.State.BENCHED
+		set_grabbed_tower(null, state)
 
+
+func set_grabbed_tower(new_grabbed_tower: BaseTower, state: BaseTower.State = BaseTower.State.BENCHED) -> void:
+		if grabbed_tower:
+			grabbed_tower.change_state(state)
+
+		grabbed_tower = new_grabbed_tower
+
+		if grabbed_tower:
+			grabbed_tower.change_state(BaseTower.State.GRABBED)
 
 func set_ui_tower_preview(tower: BaseTower) -> void:
 	ui.get_node("TowerPreview").texture = tower.get_node("BaseTower/SubViewport").get_texture() if tower else null
