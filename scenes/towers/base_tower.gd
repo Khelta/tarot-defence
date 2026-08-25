@@ -145,7 +145,6 @@ func exit_state(state: State) -> void:
 
 		State.GRABBED:
 			get_node("BaseTower/AttackRangeIndicator").visible = false
-			grab_released.emit()
 
 		State.PLACED:
 			pass
@@ -155,9 +154,14 @@ func change_state(new_state: State) -> void:
 	if current_state == new_state:
 		return
 
+	var old_state = current_state
+
 	exit_state(current_state)
 	current_state = new_state
 	enter_state(current_state)
+
+	if old_state == State.GRABBED:
+		grab_released.emit()
 
 	# print(State.keys()[current_state])
 
