@@ -18,3 +18,5 @@ enum StackType{
 @export var ticks : bool = true
 @export var tick_rate : float = 1.0
 @export var tick_damage : float = 0.0
+
+@export var particle_effect : PackedScene
