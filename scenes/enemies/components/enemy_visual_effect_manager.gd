@@ -6,6 +6,9 @@ var particle_effects : Array
 
 
 func add_effect(effect: EnemyStatusEffect) -> void:
+	if not effect.definition.particle_effect:
+		return 
+
 	for existing in effects:
 		if existing.get_script() == effect.get_script():
 			return
