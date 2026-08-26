@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(delta) -> void:
 	attack_cooldown -= delta
-	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and not is_grabbed:
+	if attack_cooldown <= 0.0 and len(enemies_in_range) != 0 and State.PLACED:
 
 		attacked.emit()
 		attack_cooldown = 1.0 / (attacks_per_second * tower_effect_manager.get_attack_speed_modifier())

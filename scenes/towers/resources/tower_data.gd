@@ -6,3 +6,5 @@ class_name TowerData
 @export var rarity: int = 1
 @export var weight: float = 1.0
 @export var cost: int
+
+@export var image : Texture2D

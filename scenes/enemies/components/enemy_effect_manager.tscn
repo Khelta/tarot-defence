@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://ds2g20xw1dotb"]
 
 [ext_resource type="Script" uid="uid://drrotsji43pt0" path="res://scenes/enemies/components/enemy_effect_manager.gd" id="1_lawu2"]
+[ext_resource type="Script" uid="uid://dys6kjqhrfbq7" path="res://scenes/enemies/components/enemy_visual_effect_manager.gd" id="2_yuirm"]
 
-[node name="EnemyEffectManager" type="Node" unique_id=799205632]
+[node name="EnemyEffectManager" type="Node3D" unique_id=1167564203 node_paths=PackedStringArray("visual_effect_manager")]
 script = ExtResource("1_lawu2")
+visual_effect_manager = NodePath("EnemyVisualEffectManager")
+
+[node name="EnemyVisualEffectManager" type="Node3D" parent="." unique_id=1412655523]
+script = ExtResource("2_yuirm")

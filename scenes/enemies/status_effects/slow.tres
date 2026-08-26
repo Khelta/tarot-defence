@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyStatusEffectDefinition" format=3 uid="uid://i73r5mh4tnh0"]
+
+[ext_resource type="Script" uid="uid://b8ckbnsllpnkx" path="res://scenes/enemies/status_effects/enemy_status_effect_definition.gd" id="1_x50pr"]
+
+[resource]
+script = ExtResource("1_x50pr")
+id = "slow"
+base_duration = 3.0
+stack_type = 2
+metadata/_custom_type_script = "uid://b8ckbnsllpnkx"

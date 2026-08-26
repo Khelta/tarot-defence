@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TowerPool" format=3 uid="uid://k5ny03sks1x7"]
+
+[ext_resource type="Script" uid="uid://cok8rk1dpvk60" path="res://scenes/towers/tower_pool.gd" id="1_s38h1"]
+[ext_resource type="Script" uid="uid://q07m78qmy5g6" path="res://scenes/towers/resources/tower_data.gd" id="2_e3pgy"]
+[ext_resource type="Resource" uid="uid://dt6e6rpqmmxvj" path="res://scenes/towers/resources/Ranger.tres" id="3_dg03d"]
+[ext_resource type="Resource" uid="uid://bdsri62j63sa" path="res://scenes/towers/resources/Knight.tres" id="4_v54gu"]
+[ext_resource type="Resource" uid="uid://damcwythgpfta" path="res://scenes/towers/resources/Wizard.tres" id="5_d328w"]
+[ext_resource type="Resource" uid="uid://dathsstt03hhs" path="res://scenes/towers/resources/TheHangedMan.tres" id="6_3xgs6"]
+
+[resource]
+script = ExtResource("1_s38h1")
+towers = Array[ExtResource("2_e3pgy")]([ExtResource("3_dg03d"), ExtResource("4_v54gu"), ExtResource("5_d328w"), ExtResource("6_3xgs6")])
+metadata/_custom_type_script = "uid://cok8rk1dpvk60"

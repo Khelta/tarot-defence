@@ -1,30 +1,30 @@
 extends Control
 class_name CardSelection
 
-@export var  first_tower : String
-@export var second_tower : String
-@export var  third_tower : String
+@export var  first_tower : TowerData
+@export var second_tower : TowerData
+@export var  third_tower : TowerData
 
 @export var hbox : HBoxContainer
 
 var card_scene = preload("res://scenes/ui/card.tscn")
 
-func setup(first_tower_string: String, second_tower_string: String, third_tower_string: String) -> void:
+func setup(_first_tower: TowerData, _second_tower: TowerData, _third_tower: TowerData) -> void:
 	var hbox = get_node("MarginContainer/CenterContainer/VBoxContainer/HBoxContainer")
 
-	first_tower  = first_tower_string
-	second_tower = second_tower_string
-	third_tower  = third_tower_string
+	first_tower  = _first_tower
+	second_tower = _second_tower
+	third_tower  = _third_tower
 
 	_add_card(first_tower)
 	_add_card(second_tower)
 	_add_card(third_tower)
 
 
-func _add_card(tower_string: String) -> void:
+func _add_card(tower: TowerData) -> void:
 	var card = card_scene.instantiate()
 	hbox.add_child(card)
-	card.tower_name = tower_string
+	card.tower = tower
 	card.card_selected.connect(selected_card)
 
 

@@ -1,2 +1,2 @@
 extends EnemyStatusEffect
-class_name Burn
+class_name HolyBurn

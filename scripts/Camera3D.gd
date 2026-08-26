@@ -22,18 +22,19 @@ func _move_camera(delta):
 	var direction = Vector3.ZERO
 
 	if Input.is_action_pressed("ui_up"):      # W
-		direction.y += 1
+		direction -= camera.global_transform.basis.z
 	if Input.is_action_pressed("ui_down"):    # S
-		direction.y -= 1
+		direction += camera.global_transform.basis.z
 	if Input.is_action_pressed("ui_left"):    # A
-		direction.x -= 1
+		direction -= camera.global_transform.basis.x
 	if Input.is_action_pressed("ui_right"):   # D
-		direction.x += 1
+		direction += camera.global_transform.basis.x
+
+	direction.y = 0
 
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-
-		translate(direction * move_speed * delta)
+		global_position += direction * move_speed * delta
 
 
 func _rotate_camera(delta):

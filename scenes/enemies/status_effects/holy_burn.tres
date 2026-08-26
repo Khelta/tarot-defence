@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyStatusEffectDefinition" format=3 uid="uid://dv5smewedggjp"]
+
+[ext_resource type="PackedScene" uid="uid://66lcw4qodaab" path="res://scenes/enemies/status_effects/holy_fire_particles.tscn" id="1_hhxwl"]
+[ext_resource type="Script" uid="uid://b8ckbnsllpnkx" path="res://scenes/enemies/status_effects/enemy_status_effect_definition.gd" id="1_oqdqr"]
+
+[resource]
+script = ExtResource("1_oqdqr")
+id = "holy_burn"
+base_duration = 1.0
+stack_type = 0
+tick_rate = 0.25
+tick_damage = 0.25
+particle_effect = ExtResource("1_hhxwl")
+metadata/_custom_type_script = "uid://b8ckbnsllpnkx"
