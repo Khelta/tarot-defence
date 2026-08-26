@@ -9,6 +9,8 @@ class_name TheHangedMan
 var halo_expansion_direction : int = 1
 var halo_time : float = 0.0
 
+var holy_burn : Resource = preload("res://scenes/enemies/status_effects/holy_burn.tres")
+
 func _ready() -> void:
 	assert(max_range != -1)
 	assert(min_range != -1)
@@ -45,6 +47,10 @@ func _process(delta) -> void:
 		attacked.emit()
 		attack_cooldown = 1.0 / (attacks_per_second * tower_effect_manager.get_attack_speed_modifier())
 
+
+func apply_damage(target: BaseEnemy) -> void:
+	super.apply_damage(target)
+	target.enemy_effect_manager.add_effect(HolyBurn.new(target, holy_burn))
 
 func create_halo_curve() -> void:
 	var curve = Curve.new()
