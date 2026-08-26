@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyStatusEffectDefinition" format=3 uid="uid://c2dsmxhaqf8ou"]
+
+[ext_resource type="Script" uid="uid://b8ckbnsllpnkx" path="res://scenes/enemies/status_effects/enemy_status_effect_definition.gd" id="1_l2wql"]
+
+[resource]
+script = ExtResource("1_l2wql")
+id = "burn"
+base_duration = 3.0
+metadata/_custom_type_script = "uid://dqjl18qf06rfy"

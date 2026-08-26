@@ -16,30 +16,30 @@ func add_effect(effect: EnemyStatusEffect) -> void:
 
 	match effect.stack_type:
 
-		EnemyStatusEffect.StackType.STACK_REFRESH:
+		EnemyStatusEffectDefinition.StackType.STACK_REFRESH:
 			for old_effect in existing:
 				old_effect.refresh()
 			effect.on_apply()
 			effects.append(effect)
 
-		EnemyStatusEffect.StackType.STACK_NO_REFRESH:
+		EnemyStatusEffectDefinition.StackType.STACK_NO_REFRESH:
 			effect.on_apply()
 			effects.append(effect)
 
-		EnemyStatusEffect.StackType.REFRESH:
+		EnemyStatusEffectDefinition.StackType.REFRESH:
 			if len(existing) > 0:
 				existing[0].refresh()
 			else:
 				effect.on_apply()
 				effects.append(effect)
 
-		EnemyStatusEffect.StackType.REPLACE:
+		EnemyStatusEffectDefinition.StackType.REPLACE:
 			if len(existing) > 0:
 				existing[0].on_remove()
 			effect.on_apply()
 			effects.append(effect)
 
-		EnemyStatusEffect.StackType.IGNORE:
+		EnemyStatusEffectDefinition.StackType.IGNORE:
 			if len(existing) == 0:
 				effect.on_apply()
 				effects.append(effect)
