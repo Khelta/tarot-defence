@@ -4,12 +4,14 @@ class_name EnemyEffectManager
 var effects : Array[EnemyStatusEffect]
 var enemy : BaseEnemy
 
+@export var visual_effect_manager : EnemyVisualEffectManager
 
 func _ready() -> void:
 	enemy = get_parent().get_parent()
 
 
 func add_effect(effect: EnemyStatusEffect) -> void:
+	visual_effect_manager.add_effect(effect)
 	connect_signals(effect)
 
 	var existing = get_effects_by_id(effect.definition.id)
@@ -56,6 +58,7 @@ func _process(delta: float) -> void:
 		effect.on_update(delta)
 
 		if effect.is_finished():
+			visual_effect_manager.remove_effect(effect)
 			effects.erase(effect)
 			effect.on_remove()
 
