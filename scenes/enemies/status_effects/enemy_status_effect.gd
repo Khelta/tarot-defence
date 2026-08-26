@@ -1,4 +1,4 @@
-extends Resource
+extends Node
 class_name EnemyStatusEffect
 
 var definition : EnemyStatusEffectDefinition
@@ -8,15 +8,12 @@ var tick_timer : float = 0.0
 
 var enemy : BaseEnemy
 
-var base_duration = definition.base_duration
-var tick_damage = definition.tick_damage
-var ticks = definition.ticks
-var tick_rate = definition.tick_rate
 
-
-func _init(target: BaseEnemy) -> void:
+func _init(target: BaseEnemy, effect_definition: EnemyStatusEffectDefinition) -> void:
 	enemy = target
-	duration = base_duration
+	definition = effect_definition
+
+	duration = definition.base_duration
 
 
 func on_apply() -> void:
@@ -24,15 +21,15 @@ func on_apply() -> void:
 
 
 func on_tick() -> void:
-	enemy.take_damage(tick_damage)
+	enemy.take_damage(definition.tick_damage)
 
 
 func on_update(delta: float) -> void:
 	duration -= delta
 
-	if ticks:
+	if definition.ticks:
 		tick_timer += delta
-		if tick_timer >= tick_rate:
+		if tick_timer >= definition.tick_rate:
 			tick_timer = 0.0
 			on_tick()
 
@@ -42,4 +39,8 @@ func is_finished() -> bool:
 
 
 func refresh() -> void:
-	duration = base_duration
+	duration = definition.base_duration
+
+
+func on_remove() -> void:
+	queue_free()

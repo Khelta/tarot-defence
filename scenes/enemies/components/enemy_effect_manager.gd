@@ -12,9 +12,9 @@ func _ready() -> void:
 func add_effect(effect: EnemyStatusEffect) -> void:
 	connect_signals(effect)
 
-	var existing = get_effects_by_id(effect.id)
+	var existing = get_effects_by_id(effect.definition.id)
 
-	match effect.stack_type:
+	match effect.definition.stack_type:
 
 		EnemyStatusEffectDefinition.StackType.STACK_REFRESH:
 			for old_effect in existing:
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 
 
 func get_effects_by_id(status_id: String) -> Array[EnemyStatusEffect]:
-	return effects.filter(func(effect): return effect.id == status_id)
+	return effects.filter(func(effect): return effect.definition.id == status_id)
 
 
 func get_speed_modifier() -> float:
@@ -87,4 +87,4 @@ func get_weakend_modifier() -> float:
 
 
 func is_frozen():
-	return len(effects.filter(func(effect): return effect.id == "freeze")) > 0
+	return len(effects.filter(func(effect): return effect.definition.id == "freeze")) > 0
