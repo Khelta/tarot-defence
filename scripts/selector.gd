@@ -1,10 +1,11 @@
 extends Node
 class_name Selector
 
-var ui_selected_tower : String = ""
-var custom_ui : UI = null
-
+@export var level : Level
 var game_state : GameState
+var ui : UI
+
+var ui_selected_tower : String = ""
 
 # Selection for tower_panel
 var selected_slot_for_panel : Slot:
@@ -21,13 +22,7 @@ var selected_slot_for_panel : Slot:
 		# set_ui_tower_preview(value.tower if value else null)
 var tower_panel : TowerPanel
 
-var grabbed_tower : BaseTower:
-	set(new_grabbed_tower):
-		if grabbed_tower:
-			grabbed_tower._on_grabbed_changed(false)
-		grabbed_tower = new_grabbed_tower
-		if grabbed_tower:
-			grabbed_tower._on_grabbed_changed(true)
+var grabbed_tower : BaseTower
 var grabbed_tower_slot : Slot
 
 var holding : bool = false
@@ -43,13 +38,12 @@ var hold_timer : float = 0.0
 signal placement_mode_changed(is_on: bool)
 
 func _ready() -> void:
-	custom_ui = get_tree().get_first_node_in_group("ui")
-	var sell_tower_button : SellTowerButton = custom_ui.get_node("SellTowerButton")
+	ui = level.ui
+	tower_panel = ui.tower_panel
+	game_state = level.game_state
+	
+	var sell_tower_button : SellTowerButton = ui.sell_tower_button
 	sell_tower_button.sell_requested.connect(sell_selected)
-	
-	tower_panel = custom_ui.get_node("TowerPanel")
-	
-	game_state = get_tree().get_first_node_in_group("game_state")
 
 
 func _process(delta: float) -> void:
@@ -136,6 +130,7 @@ func grab_tower(slot: Slot) -> void:
 		grabbed_tower = slot.tower
 		grabbed_tower_slot = slot
 		slot.tower = null
+		grabbed_tower.change_state(BaseTower.State.GRABBED)
 	
 		is_placement_mode = true
 
@@ -151,11 +146,21 @@ func deselect() -> void:
 func try_placement(slot: Slot) -> void:
 	if slot.is_free():
 		slot.tower = grabbed_tower
-		grabbed_tower = null
+		var state = BaseTower.State.PLACED if slot.type == "Tile" else BaseTower.State.BENCHED
+		set_grabbed_tower(null, state)
 
+
+func set_grabbed_tower(new_grabbed_tower: BaseTower, state: BaseTower.State = BaseTower.State.BENCHED) -> void:
+		if grabbed_tower:
+			grabbed_tower.change_state(state)
+
+		grabbed_tower = new_grabbed_tower
+
+		if grabbed_tower:
+			grabbed_tower.change_state(BaseTower.State.GRABBED)
 
 func set_ui_tower_preview(tower: BaseTower) -> void:
-	custom_ui.get_node("TowerPreview").texture = tower.get_node("BaseTower/SubViewport").get_texture() if tower else null
+	ui.get_node("TowerPreview").texture = tower.get_node("BaseTower/SubViewport").get_texture() if tower else null
 
 
 func set_fresnel_selection(tower: BaseTower, is_on) -> void:

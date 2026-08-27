@@ -1,0 +1,2 @@
+extends EnemyStatusEffect
+class_name HolyBurn

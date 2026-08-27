@@ -6,7 +6,8 @@ class_name BasicTowerAnimation
 
 func _ready() -> void:
 	assert(animation_player != null)
-	assert(idle_animation_path != null)
+	assert(!idle_animation_path.is_empty())
+	assert(animation_player.has_animation(idle_animation_path))
 	_idle()
 
 
