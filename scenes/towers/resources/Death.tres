@@ -1,8 +1,13 @@
 [gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://d1evc1mc314uc"]
 
 [ext_resource type="Script" uid="uid://q07m78qmy5g6" path="res://scenes/towers/resources/tower_data.gd" id="1_7c03w"]
+[ext_resource type="Texture2D" uid="uid://cc3nvi02jmpm1" path="res://assets/KayKit_BoardGameBits_1.0_FREE/KayKit_BoardGameBits_1.0_FREE/Assets/fbx/Red_Mage_Badge.png" id="1_q0yai"]
+[ext_resource type="PackedScene" uid="uid://bs7pe3cwvsmy3" path="res://scenes/towers/variations/_death.tscn" id="3_rd75t"]
 
 [resource]
 script = ExtResource("1_7c03w")
 name = "Death"
+tower_scene = ExtResource("3_rd75t")
+weight = 3000.0
+image = ExtResource("1_q0yai")
 metadata/_custom_type_script = "uid://q07m78qmy5g6"

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bs7pe3cwvsmy3"]
+
+[ext_resource type="Script" uid="uid://ba7yj3bdiuolu" path="res://scenes/towers/variations/_death.gd" id="1_gsokn"]
+[ext_resource type="PackedScene" uid="uid://do5m6kksqscjp" path="res://scenes/towers/base_tower.tscn" id="2_kljjl"]
+[ext_resource type="PackedScene" uid="uid://dsfu6jpbrv2pq" path="res://scenes/towers/variations/_death_model.tscn" id="3_gsokn"]
+
+[node name="Death" type="Node3D" unique_id=893937668]
+script = ExtResource("1_gsokn")
+
+[node name="BaseTower" parent="." unique_id=1399133275 instance=ExtResource("2_kljjl")]
+
+[node name="Model" parent="." unique_id=399828594 instance=ExtResource("3_gsokn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515625, 0)

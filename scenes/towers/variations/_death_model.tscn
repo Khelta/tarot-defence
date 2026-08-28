@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dsfu6jpbrv2pq"]
 
-[ext_resource type="Script" uid="uid://bnk2jgchgyxa4" path="res://scenes/towers/variations/ranger_animation.gd" id="1_l545g"]
+[ext_resource type="Script" uid="uid://br4tkpwdxducd" path="res://scenes/towers/variations/_death_animation.gd" id="1_vm3rx"]
 [ext_resource type="AnimationLibrary" uid="uid://bghd1jqhwvt0" path="res://assets/KayKit_Character_Animations_1.1/Animations/gltf/Rig_Medium/Rig_Medium_CombatMelee.glb" id="2_ylimv"]
 [ext_resource type="Texture2D" uid="uid://chdfxccwixm80" path="res://assets/edited/death_rogue_texture.png" id="3_l545g"]
 [ext_resource type="AnimationLibrary" uid="uid://daglw8sxbetl1" path="res://assets/KayKit_Adventurers_2.0_FREE/Animations/gltf/Rig_Medium/Rig_Medium_MovementBasic.glb" id="3_vm3rx"]
@@ -248,9 +248,9 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="DeathModel" type="Node3D" unique_id=399828594 node_paths=PackedStringArray("animation_player")]
-script = ExtResource("1_l545g")
+script = ExtResource("1_vm3rx")
 animation_player = NodePath("AnimationPlayer")
-idle_animation_path = "Rig_Medium_CombatRanged/Ranged_Bow_Idle"
+idle_animation_path = "Rig_Medium_MovementBasic/Jump_Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1042402430]
 libraries/Rig_Medium_CombatMelee = ExtResource("2_ylimv")
@@ -383,7 +383,7 @@ bones/17/parent = 16
 bones/17/rest = Transform3D(1, 6.159518e-08, 1.1942471e-07, -1.3287796e-07, 0.58551353, 0.8106626, -1.9991873e-08, -0.81066257, 0.5855136, -3.3147245e-08, 0.1494371, 7.401092e-09)
 bones/17/enabled = true
 bones/17/position = Vector3(-3.3147245e-08, 0.1494371, 7.401092e-09)
-bones/17/rotation = Quaternion(-0.3636178, -0.04752064, 0.017646858, 0.9301681)
+bones/17/rotation = Quaternion(-0.3636178, -0.04752063, 0.017646855, 0.93016803)
 bones/17/scale = Vector3(1, 0.99999994, 1)
 bones/18/name = "toes.l"
 bones/18/parent = 17
@@ -474,6 +474,7 @@ bone_name = "handslot.l"
 bone_idx = 9
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Rig_Medium/Skeleton3D/BoneAttachment3D2" unique_id=1774163214]
+transform = Transform3D(0.88386536, 0.045495093, -0.46552348, 0.045539886, 0.9821599, 0.18244956, 0.46551916, -0.18246073, 0.86602527, 0, 0, 0)
 mesh = ExtResource("5_mpvjk")
 
 [node name="BoneAttachment3D3" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" unique_id=225992229]
@@ -482,5 +483,5 @@ bone_name = "handslot.r"
 bone_idx = 14
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Rig_Medium/Skeleton3D/BoneAttachment3D3" unique_id=1425487516]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-0.5617948, -0.22472863, -0.7961682, 0.103462785, 0.93575424, -0.3371344, 0.82078147, -0.27177405, -0.5024507, 0, 0, 0)
 mesh = ExtResource("6_khpob")
