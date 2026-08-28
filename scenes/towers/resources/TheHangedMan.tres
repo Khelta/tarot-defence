@@ -8,6 +8,8 @@
 script = ExtResource("1_fvkjt")
 name = "TheHangedMan"
 tower_scene = ExtResource("2_d6di1")
+is_great_arcana = true
+arcana_number = 12
 rarity = 5
 weight = 20.0
 image = ExtResource("1_d6di1")
